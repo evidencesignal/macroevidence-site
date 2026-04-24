@@ -213,31 +213,38 @@ h3 {
     radial-gradient(ellipse 120% 80% at 50% -40%, rgba(122, 74, 10, 0.045), transparent 55%),
     var(--paper);
 }
-/* Hero kicker — DM Sans first so a blocked serif webfont never falls back to Georgia italic */
-.hero-label {
-  font-family: var(--sans), system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-  font-size: clamp(15px, 1.85vw, 18px);
-  font-weight: 500;
-  font-style: normal;
-  font-synthesis: none;
-  letter-spacing: 0.02em;
-  text-transform: none;
-  color: var(--ink-mid);
-  margin-bottom: 20px;
-  line-height: 1.4;
-  max-width: 34em;
+/* Hero kicker + subline — class names are NOT .hero-label / .hero-sub so injected
+   site templates (Netlify snippets, etc.) cannot override these by accident.
+   !important beats most injected rules if any global still leaks through. */
+section.hero#home .me-hero-kicker {
+  font-family: var(--sans), system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: clamp(15px, 1.85vw, 18px) !important;
+  font-weight: 500 !important;
+  font-style: normal !important;
+  font-synthesis: none !important;
+  letter-spacing: 0.02em !important;
+  text-transform: none !important;
+  color: var(--ink-mid) !important;
+  margin-bottom: 20px !important;
+  line-height: 1.4 !important;
+  max-width: 34em !important;
 }
-.hero-sub {
-  font-family: var(--sans);
-  font-size: 18px;
-  line-height: 1.55;
-  color: var(--ink);
-  margin: 0 0 18px 0;
-  max-width: min(520px, 100%);
-  width: fit-content;
-  display: block;
-  background: none;
-  padding: 0;
+section.hero#home .me-hero-lede {
+  font-family: var(--sans), system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 18px !important;
+  line-height: 1.55 !important;
+  color: var(--ink) !important;
+  margin: 0 0 18px 0 !important;
+  max-width: min(520px, 100%) !important;
+  width: fit-content !important;
+  display: block !important;
+  background: none !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  outline: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
 }
 .hero-body-lede {
   font-family: var(--sans);
@@ -1085,9 +1092,9 @@ footer {
 <!-- ══ HERO ══════════════════════════════════════════════════ -->
 <section class="hero" id="home">
   <div class="container">
-    <p class="hero-label">Daily macro state · Three signals · No predictions</p>
+    <p class="me-hero-kicker">Daily macro state · Three signals · No predictions</p>
     <h1>Daily macro state you can think with.</h1>
-    <p class="hero-sub">Same clock. Same inputs. Same structure — every session.</p>
+    <p class="me-hero-lede">Same clock. Same inputs. Same structure — every session.</p>
     <p class="hero-body-lede">
       Scannable state read: regime and risk tilt, what moved mechanically versus the prior session,
       distance to invalidation, state pressure, and two explicit invalidation conditions.
