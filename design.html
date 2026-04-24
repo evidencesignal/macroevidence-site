@@ -443,29 +443,49 @@ h3 {
 
 /* Timestamp strip */
 .ts-strip {
-  display: flex; align-items: center; justify-content: space-between;
-  flex-wrap: wrap; gap: 12px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
   border: 1px solid var(--rule);
   border-bottom: none;
   border-radius: var(--radius) var(--radius) 0 0;
-  padding: 14px 22px;
+  padding: 16px 22px 18px;
   background: linear-gradient(180deg, var(--surface) 0%, var(--paper-deep) 100%);
   margin-top: 48px;
   box-shadow: var(--shadow-sm);
 }
-.ts-left { display: flex; align-items: center; flex-wrap: wrap; gap: 16px 24px; }
-.ts-dot {
-  width: 8px; height: 8px; border-radius: 50%;
-  background: var(--red-text);
-  display: inline-block; flex-shrink: 0;
-  box-shadow: 0 0 0 3px rgba(163, 45, 45, 0.2);
+.ts-strip-kicker {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-mid);
+  line-height: 1.4;
 }
-.ts-date {
-  font-family: var(--sans); font-size: 15px; font-weight: 600; color: var(--ink);
-  display: inline-flex; align-items: center; gap: 10px;
+.ts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px 28px;
+  align-items: start;
 }
-.ts-meta { font-family: var(--sans); font-size: 14px; color: var(--ink-muted); }
-.ts-next { font-family: var(--sans); font-size: 14px; color: var(--ink-muted); }
+@media (max-width: 720px) {
+  .ts-grid { grid-template-columns: 1fr; }
+}
+.ts-item-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-mid);
+  display: block;
+  margin-bottom: 6px;
+}
+.ts-item-value {
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--ink);
+}
 
 /* ── Signal strip (hero) ── */
 .signal-strip {
@@ -787,7 +807,7 @@ footer {
   .membership-row .btn-primary { align-self: flex-start; }
   .membership-row .voice-panel { max-width: none; }
   .voice-panel { flex-wrap: wrap; }
-  .ts-strip { flex-direction: column; align-items: flex-start; }
+  .ts-strip { align-items: stretch; }
   .signal-strip { grid-template-columns: 1fr; border-radius: 0 0 var(--radius) var(--radius); }
   .signal-cell { border-right: none; border-bottom: 1px solid var(--rule); }
   .signal-cell:last-child { border-bottom: none; }
@@ -858,20 +878,33 @@ footer {
       Free to listen. Derived from distance to invalidation and state pressure — not a market opinion.
     </div>
 
-    <!-- Timestamp bar -->
-    <div class="ts-strip">
-      <div class="ts-left">
-        <div class="ts-date">
-          <span class="ts-dot" aria-hidden="true"></span>
-          <span>Apr 24, 2026 · 16:00 ET</span>
+    <!-- Data freshness: explicit so readers are not misled (static design / example session) -->
+    <div class="ts-strip" role="region" aria-label="What the numbers below represent">
+      <p class="ts-strip-kicker">
+        This block is a <strong>fixed design example</strong> — not a live feed tied to your browser or account.
+      </p>
+      <div class="ts-grid">
+        <div>
+          <span class="ts-item-label">What is shown</span>
+          <span class="ts-item-value">
+            One completed session: S&amp;P 500, 10-year Treasury yield, WTI crude, z-scores, regime label, and summary tiles — all from the <strong>same</strong> market close.
+          </span>
         </div>
-        <span class="ts-meta">
-          Market close · Updated daily after 16:00 ET
-        </span>
+        <div>
+          <span class="ts-item-label">Which session these numbers belong to</span>
+          <span class="ts-item-value">
+            Every tile below uses <strong>one</strong> completed U.S. snapshot: cash equities at <strong>4:00 PM Eastern</strong> on the <strong>same</strong> trading day (not intraday, not “live” while the market is open).
+            <strong>Example only (not auto-updated):</strong> Wednesday <strong>April 23, 2026</strong> · after that day’s 4:00 PM ET close.
+            If you open a <strong>live</strong> product on the morning of Apr 24, you would still see the <strong>last finished</strong> session (here, Apr 23) until Apr 24’s close is processed — never a 4:00 PM stamp for a day that has not closed yet.
+          </span>
+        </div>
+        <div>
+          <span class="ts-item-label">When the live product updates</span>
+          <span class="ts-item-value">
+            After each <strong>U.S. trading day</strong>, once the publication’s data and pipeline have finished (typically same evening Eastern; exact minute varies). There is no intraday refresh on this cadence.
+          </span>
+        </div>
       </div>
-      <span class="ts-next">
-        Next update: Apr 25, 2026 after market close
-      </span>
     </div>
 
     <!-- Signal strip -->
