@@ -441,50 +441,117 @@ h3 {
   line-height: 1.45;
 }
 
-/* Timestamp strip */
+/* Timestamp strip — one line + Details popover */
 .ts-strip {
   display: flex;
-  flex-direction: column;
-  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 12px;
   border: 1px solid var(--rule);
   border-bottom: none;
   border-radius: var(--radius) var(--radius) 0 0;
-  padding: 16px 22px 18px;
+  padding: 14px 22px;
   background: linear-gradient(180deg, var(--surface) 0%, var(--paper-deep) 100%);
   margin-top: 48px;
   box-shadow: var(--shadow-sm);
 }
-.ts-strip-kicker {
+.ts-last-read {
   font-family: var(--sans);
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--ink-mid);
-  line-height: 1.4;
-}
-.ts-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px 28px;
-  align-items: start;
-}
-@media (max-width: 720px) {
-  .ts-grid { grid-template-columns: 1fr; }
-}
-.ts-item-label {
-  font-family: var(--mono);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--ink-mid);
-  display: block;
-  margin-bottom: 6px;
-}
-.ts-item-value {
-  font-family: var(--sans);
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.45;
   color: var(--ink);
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 6px;
+}
+.ts-last-read-label {
+  font-weight: 600;
+  color: var(--ink);
+}
+.ts-last-read time {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.ts-details-star {
+  color: var(--ink-mid);
+  font-weight: 600;
+  user-select: none;
+}
+.ts-details-link {
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--blue-text);
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  border-radius: 2px;
+}
+.ts-details-link:hover {
+  color: var(--ink);
+}
+.ts-details-link:focus-visible {
+  outline: 2px solid var(--blue-text);
+  outline-offset: 3px;
+}
+.ts-details-popover {
+  width: min(100vw - 32px, 400px);
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius);
+  background: var(--paper);
+  box-shadow: var(--shadow-lg);
+  color: var(--ink);
+}
+.ts-details-popover::backdrop {
+  background: rgba(12, 12, 12, 0.25);
+}
+.ts-details-popover-inner {
+  padding: 22px 24px 20px;
+}
+.ts-details-popover-inner h2 {
+  font-family: var(--sans);
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 14px;
+  color: var(--ink);
+}
+.ts-details-popover-inner p {
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--ink-mid);
+  margin: 0 0 12px;
+}
+.ts-details-popover-inner p:last-of-type {
+  margin-bottom: 18px;
+}
+.ts-details-close {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 10px 18px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--rule-strong);
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+}
+.ts-details-close:hover {
+  background: var(--paper-deep);
+}
+.ts-details-close:focus-visible {
+  outline: 2px solid var(--blue-text);
+  outline-offset: 2px;
 }
 
 /* ── Signal strip (hero) ── */
@@ -807,7 +874,7 @@ footer {
   .membership-row .btn-primary { align-self: flex-start; }
   .membership-row .voice-panel { max-width: none; }
   .voice-panel { flex-wrap: wrap; }
-  .ts-strip { align-items: stretch; }
+  .ts-strip { padding: 14px 18px; }
   .signal-strip { grid-template-columns: 1fr; border-radius: 0 0 var(--radius) var(--radius); }
   .signal-cell { border-right: none; border-bottom: 1px solid var(--rule); }
   .signal-cell:last-child { border-bottom: none; }
@@ -878,34 +945,47 @@ footer {
       Free to listen. Derived from distance to invalidation and state pressure — not a market opinion.
     </div>
 
-    <!-- Data freshness: explicit so readers are not misled (static design / example session) -->
-    <div class="ts-strip" role="region" aria-label="What the numbers below represent">
-      <p class="ts-strip-kicker">
-        This block is a <strong>fixed design example</strong> — not a live feed tied to your browser or account.
+    <!-- Last Read + Details popover (native popover API) -->
+    <div class="ts-strip" role="region" aria-label="Session timestamp for the example below">
+      <p class="ts-last-read">
+        <span class="ts-last-read-label">Last Read:</span>
+        <time datetime="2026-04-23T16:00:00-04:00">Apr. 23, 4 PM ET</time>
+        <span class="ts-details-star" aria-hidden="true">*</span>
+        <button
+          type="button"
+          class="ts-details-link"
+          id="ts-read-details-btn"
+          popovertarget="ts-read-details"
+          aria-expanded="false"
+          aria-controls="ts-read-details"
+        >Details</button>
       </p>
-      <div class="ts-grid">
-        <div>
-          <span class="ts-item-label">What is shown</span>
-          <span class="ts-item-value">
-            One completed session: S&amp;P 500, 10-year Treasury yield, WTI crude, z-scores, regime label, and summary tiles — all from the <strong>same</strong> market close.
-          </span>
-        </div>
-        <div>
-          <span class="ts-item-label">Which session these numbers belong to</span>
-          <span class="ts-item-value">
-            Every tile below uses <strong>one</strong> completed U.S. snapshot: cash equities at <strong>4:00 PM Eastern</strong> on the <strong>same</strong> trading day (not intraday, not “live” while the market is open).
-            <strong>Example only (not auto-updated):</strong> Wednesday <strong>April 23, 2026</strong> · after that day’s 4:00 PM ET close.
-            If you open a <strong>live</strong> product on the morning of Apr 24, you would still see the <strong>last finished</strong> session (here, Apr 23) until Apr 24’s close is processed — never a 4:00 PM stamp for a day that has not closed yet.
-          </span>
-        </div>
-        <div>
-          <span class="ts-item-label">When the live product updates</span>
-          <span class="ts-item-value">
-            After each <strong>U.S. trading day</strong>, once the publication’s data and pipeline have finished (typically same evening Eastern; exact minute varies). There is no intraday refresh on this cadence.
-          </span>
-        </div>
+    </div>
+    <div id="ts-read-details" class="ts-details-popover" popover="auto" role="dialog" aria-labelledby="ts-read-details-title">
+      <div class="ts-details-popover-inner">
+        <h2 id="ts-read-details-title">What &ldquo;Last Read&rdquo; means</h2>
+        <p>
+          The strip above shows the <strong>as-of moment</strong> for the snapshot you are looking at: one completed U.S. cash session, with S&amp;P 500, 10-year Treasury yield, and WTI crude (plus regime and tiles) all taken from the <strong>same</strong> <strong>4:00 PM Eastern</strong> close — not intraday, and not &ldquo;right now&rdquo; while the market is still open.
+        </p>
+        <p>
+          <strong>This page is a static design example</strong> (not wired to your account). The sample timestamp is <strong>April 23, 2026</strong> after that day&rsquo;s close. On a <strong>live</strong> product, before today&rsquo;s 4:00 PM ET close is processed, you would still see the <strong>last finished</strong> session — never a same-day close that has not happened yet.
+        </p>
+        <p>
+          <strong>When it updates in production:</strong> after each U.S. trading day, once data and the publication pipeline have finished (usually the same evening Eastern; exact time varies). There is no intraday refresh on this cadence.
+        </p>
+        <button type="button" class="ts-details-close" popovertarget="ts-read-details" popovertargetaction="hide">Close</button>
       </div>
     </div>
+    <script>
+(function () {
+  var pop = document.getElementById("ts-read-details");
+  var btn = document.getElementById("ts-read-details-btn");
+  if (!pop || !btn) return;
+  pop.addEventListener("toggle", function () {
+    btn.setAttribute("aria-expanded", pop.matches(":popover-open") ? "true" : "false");
+  });
+})();
+    </script>
 
     <!-- Signal strip -->
     <div class="signal-strip">
