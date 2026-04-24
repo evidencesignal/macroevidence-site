@@ -7,7 +7,7 @@
 <meta name="description" content="MacroEvidence publishes the current macro regime from three signals every market session. Same model, every day. No predictions. No portfolio advice.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=DM+Serif+Display:wght@400&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&display=swap" rel="stylesheet">
 <style>
 /* ── Reset ── */
@@ -213,17 +213,18 @@ h3 {
     radial-gradient(ellipse 120% 80% at 50% -40%, rgba(122, 74, 10, 0.045), transparent 55%),
     var(--paper);
 }
-/* Editorial kicker — distinct from nav (mono UI) */
+/* Hero kicker — DM Sans first so a blocked serif webfont never falls back to Georgia italic */
 .hero-label {
-  font-family: var(--serif);
-  font-size: clamp(17px, 2.2vw, 20px);
-  font-weight: 400;
-  font-style: italic;
-  letter-spacing: 0.01em;
+  font-family: var(--sans), system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-size: clamp(15px, 1.85vw, 18px);
+  font-weight: 500;
+  font-style: normal;
+  font-synthesis: none;
+  letter-spacing: 0.02em;
   text-transform: none;
   color: var(--ink-mid);
   margin-bottom: 20px;
-  line-height: 1.35;
+  line-height: 1.4;
   max-width: 34em;
 }
 .hero-sub {
@@ -235,8 +236,8 @@ h3 {
   max-width: min(520px, 100%);
   width: fit-content;
   display: block;
-  background: var(--hero-highlight-bg);
-  padding: 0.45em 0.65em 0.42em;
+  background: none;
+  padding: 0;
 }
 .hero-body-lede {
   font-family: var(--sans);
@@ -506,9 +507,10 @@ h3 {
 /* Timestamp strip — one line + Details popover */
 .ts-strip {
   display: flex;
-  align-items: center;
+  align-items: baseline;
+  justify-content: space-between;
   flex-wrap: wrap;
-  gap: 8px 12px;
+  gap: 10px 20px;
   border: 1px solid var(--rule);
   border-bottom: none;
   border-radius: var(--radius) var(--radius) 0 0;
@@ -516,6 +518,23 @@ h3 {
   background: linear-gradient(180deg, var(--surface) 0%, var(--paper-deep) 100%);
   margin-top: 48px;
   box-shadow: var(--shadow-sm);
+}
+.ts-next-up {
+  font-family: var(--sans);
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--ink-mid);
+  margin: 0;
+  text-align: right;
+  flex: 1 1 220px;
+}
+.ts-next-up strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+.ts-next-note {
+  color: var(--ink-muted);
+  font-weight: 400;
 }
 .ts-last-read {
   font-family: var(--sans);
@@ -1018,7 +1037,16 @@ footer {
     padding-top: 10px;
     text-align: left;
   }
-  .ts-strip { padding: 14px 18px; }
+  .ts-strip {
+    padding: 14px 18px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .ts-next-up {
+    text-align: left;
+    flex: none;
+    width: 100%;
+  }
   .signal-strip { grid-template-columns: 1fr; border-radius: 0 0 var(--radius) var(--radius); }
   .signal-cell { border-right: none; border-bottom: 1px solid var(--rule); }
   .signal-cell:last-child { border-bottom: none; }
@@ -1069,11 +1097,11 @@ footer {
     </div>
 
     <!-- Last Read + Details popover (native popover API) -->
-    <div class="ts-strip" role="region" aria-label="Session timestamp for the example below">
+    <div class="ts-strip" role="region" aria-label="Session timestamp and update schedule">
       <p class="ts-last-read">
         <span class="ts-last-read-bullet" aria-hidden="true"></span>
         <span class="ts-last-read-label">Last Read:</span>
-        <time datetime="2026-04-23T16:00:00-04:00">Apr. 23, 4 PM ET</time>
+        <time datetime="2026-04-25T16:00:00-04:00">Apr. 25, 4 PM ET</time>
         <span class="ts-details-star" aria-hidden="true">*</span>
         <button
           type="button"
@@ -1084,6 +1112,7 @@ footer {
           aria-controls="ts-read-details"
         >Details</button>
       </p>
+      <p class="ts-next-up">Next update: <strong>Apr. 28, 2026</strong> · after U.S. market close <span class="ts-next-note">(Mon; Fri–Sun closed)</span></p>
     </div>
     <div id="ts-read-details" class="ts-details-popover" popover="auto" role="dialog" aria-labelledby="ts-read-details-title">
       <div class="ts-details-popover-inner">
@@ -1092,7 +1121,7 @@ footer {
           The strip above shows the <strong>as-of moment</strong> for the snapshot you are looking at: one completed U.S. cash session, with S&amp;P 500, 10-year Treasury yield, and WTI crude (plus regime and tiles) all taken from the <strong>same</strong> <strong>4:00 PM Eastern</strong> close — not intraday, and not &ldquo;right now&rdquo; while the market is still open.
         </p>
         <p>
-          <strong>This page is a static design example</strong> (not wired to your account). The sample timestamp is <strong>April 23, 2026</strong> after that day&rsquo;s close. On a <strong>live</strong> product, before today&rsquo;s 4:00 PM ET close is processed, you would still see the <strong>last finished</strong> session — never a same-day close that has not happened yet.
+          <strong>Homepage snapshot (manual):</strong> figures below reflect the <strong>April 24, 2026</strong> U.S. session close. <strong>Last read</strong> (when this HTML was last updated) is shown as <strong>April 25, 2026</strong>. Until this file is wired to the pipeline, numbers are edited after each output — not a live API.
         </p>
         <p>
           <strong>When it updates in production:</strong> after each U.S. trading day, once data and the publication pipeline have finished (usually the same evening Eastern; exact time varies). There is no intraday refresh on this cadence.
@@ -1115,26 +1144,26 @@ footer {
     <div class="signal-strip">
       <div class="signal-cell">
         <div class="signal-label">S&amp;P 500</div>
-        <div class="signal-value">7,108</div>
+        <div class="signal-value">7,158</div>
         <div class="signal-meta">
-          <span class="signal-z">Z +1.71</span>
+          <span class="signal-z">Z +1.80</span>
           <span class="badge badge-ok">ELEVATED</span>
         </div>
       </div>
       <div class="signal-cell">
         <div class="signal-label">10Y Yield</div>
-        <div class="signal-value">4.29%</div>
+        <div class="signal-value">4.30%</div>
         <div class="signal-meta">
-          <span class="signal-z">Z +0.30</span>
+          <span class="signal-z">Z +0.76</span>
           <span class="badge badge-ok">STABLE</span>
         </div>
       </div>
       <div class="signal-cell">
         <div class="signal-label">WTI Crude</div>
-        <div class="signal-value">$96.61</div>
+        <div class="signal-value">$94.11</div>
         <div class="signal-meta">
-          <span class="signal-z">Z +1.14</span>
-          <span class="badge badge-alert">NEAR THRESHOLD</span>
+          <span class="signal-z">Z +0.72</span>
+          <span class="badge badge-ok">STABLE</span>
         </div>
       </div>
     </div>
@@ -1156,7 +1185,7 @@ footer {
         <div class="regime-bottom">
           <div class="regime-metric">
             <div class="rm-label">Confidence</div>
-            <div class="rm-value">41 / 100</div>
+            <div class="rm-value">47 / 100</div>
             <div class="rm-sub">MEDIUM · FRAGILE</div>
           </div>
           <div class="regime-metric">
@@ -1166,13 +1195,13 @@ footer {
           </div>
           <div class="regime-metric">
             <div class="rm-label">WTI proximity</div>
-            <div class="rm-value near">NEAR</div>
-            <div class="rm-sub">$96.61 vs $96 threshold</div>
+            <div class="rm-value mod">MODERATE</div>
+            <div class="rm-sub">$94.11 vs $92.80 threshold</div>
           </div>
           <div class="regime-metric">
             <div class="rm-label">SPX proximity</div>
             <div class="rm-value far">FAR</div>
-            <div class="rm-sub">7,108 vs 7,038 threshold</div>
+            <div class="rm-sub">7,158 vs 7,086 threshold</div>
           </div>
         </div>
         <div class="regime-footer">macroevidence.com · not investment advice</div>
