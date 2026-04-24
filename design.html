@@ -261,14 +261,6 @@ h3 {
   align-self: center;
   flex-shrink: 0;
 }
-.membership-foot {
-  font-family: var(--sans);
-  font-size: 12px;
-  color: var(--ink-muted);
-  margin-top: 10px;
-  max-width: 920px;
-  line-height: 1.45;
-}
 
 /* External “exit” links — cream block + hairline (de-emphasized; use near subscribe/footer) */
 .exit-channels {
@@ -497,6 +489,18 @@ h3 {
   font-family: var(--sans); font-size: 12px; color: var(--ink-muted);
   margin-top: 8px; max-width: 440px;
   line-height: 1.45;
+}
+/* Disclaimer sits under the aside player (same column as audio) */
+.voice-foot--aside {
+  margin: 14px 0 0;
+  padding-top: 12px;
+  border-top: 1px solid var(--rule);
+  max-width: none;
+  width: 100%;
+  font-size: 11px;
+  line-height: 1.5;
+  text-align: center;
+  color: var(--ink-mid);
 }
 
 /* Timestamp strip — one line + Details popover */
@@ -977,6 +981,7 @@ footer {
     max-width: none;
     width: 100%;
     flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: flex-start;
     padding: 12px 16px;
@@ -1005,6 +1010,13 @@ footer {
   .regime-voice-row .voice-panel--aside .voice-dur {
     margin-top: 0;
     align-self: center;
+  }
+  .regime-voice-row .voice-panel--aside .voice-foot--aside {
+    flex: 1 1 100%;
+    order: 10;
+    margin-top: 12px;
+    padding-top: 10px;
+    text-align: left;
   }
   .ts-strip { padding: 14px 18px; }
   .signal-strip { grid-template-columns: 1fr; border-radius: 0 0 var(--radius) var(--radius); }
@@ -1054,9 +1066,6 @@ footer {
     </p>
     <div class="membership-row">
       <a href="#subscribe" class="btn-primary">Subscribe — $49/mo</a>
-    </div>
-    <div class="membership-foot">
-      Free to listen. Derived from distance to invalidation and state pressure — not a market opinion.
     </div>
 
     <!-- Last Read + Details popover (native popover API) -->
@@ -1182,6 +1191,9 @@ footer {
           </div>
         </div>
         <div class="voice-dur">3:00</div>
+        <p class="voice-foot voice-foot--aside">
+          Free to listen. Derived from distance to invalidation and state pressure — not a market opinion.
+        </p>
       </div>
     </div>
 
