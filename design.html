@@ -231,12 +231,20 @@ h3 {
   font-size: 18px;
   line-height: 1.55;
   color: var(--ink);
-  margin: 0 0 36px 0;
+  margin: 0 0 18px 0;
   max-width: min(520px, 100%);
   width: fit-content;
   display: block;
   background: var(--hero-highlight-bg);
   padding: 0.45em 0.65em 0.42em;
+}
+.hero-body-lede {
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--ink-mid);
+  margin: 0 0 32px 0;
+  max-width: 42rem;
 }
 .hero-ctas { display: flex; align-items: center; gap: 20px 28px; flex-wrap: wrap; }
 
@@ -252,12 +260,6 @@ h3 {
 .membership-row .btn-primary {
   align-self: center;
   flex-shrink: 0;
-}
-.membership-row .voice-panel {
-  margin-top: 0;
-  flex: 1 1 260px;
-  min-width: 0;
-  max-width: 420px;
 }
 .membership-foot {
   font-family: var(--sans);
@@ -391,6 +393,49 @@ h3 {
   display: flex; align-items: center; gap: 14px;
   max-width: 440px;
 }
+/* Compact player beside regime card */
+.voice-panel--aside {
+  margin-top: 0;
+  align-self: stretch;
+  max-width: none;
+  flex: 0 0 min(240px, 32vw);
+  min-width: 168px;
+  padding: 10px 12px;
+  gap: 10px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.voice-panel--aside .voice-play {
+  width: 32px;
+  height: 32px;
+}
+.voice-panel--aside .voice-play svg {
+  width: 9px;
+  height: 9px;
+}
+.voice-panel--aside .voice-body {
+  width: 100%;
+}
+.voice-panel--aside .voice-title {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.35;
+  margin-bottom: 2px;
+}
+.voice-panel--aside .voice-desc {
+  font-size: 11px;
+  line-height: 1.35;
+  margin-bottom: 4px;
+}
+.voice-panel--aside .voice-wave-wrap {
+  height: 14px;
+}
+.voice-panel--aside .voice-dur {
+  font-size: 10px;
+  align-self: flex-end;
+  margin-top: 2px;
+}
 .voice-play {
   width: 38px; height: 38px; border-radius: 50%;
   background: var(--ink); border: none; cursor: pointer;
@@ -463,8 +508,16 @@ h3 {
   margin: 0;
   display: flex;
   flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0 6px;
+  align-items: center;
+  gap: 0 8px;
+}
+.ts-last-read-bullet {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--red-text);
+  flex-shrink: 0;
+  box-shadow: 0 0 0 3px rgba(163, 45, 45, 0.2);
 }
 .ts-last-read-label {
   font-weight: 600;
@@ -481,8 +534,8 @@ h3 {
 }
 .ts-details-link {
   font-family: inherit;
-  font-size: 15px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 400;
   color: var(--blue-text);
   background: none;
   border: none;
@@ -595,7 +648,23 @@ h3 {
 .badge-warn { background: var(--amber-pale); color: var(--amber); }
 .badge-alert{ background: var(--red-bg); color: var(--red-text); }
 
-/* ── Regime card (Option B) ── */
+/* Regime + voice row (player beside regime card) */
+.regime-voice-row {
+  display: flex;
+  align-items: stretch;
+  gap: 16px;
+  margin-top: 12px;
+}
+.regime-voice-row .regime-card {
+  flex: 1 1 0;
+  min-width: 0;
+  margin-top: 0;
+}
+.regime-voice-row .voice-panel--aside {
+  flex-shrink: 0;
+}
+
+/* ── Regime card — regime + risk tilt in one top panel ── */
 .regime-card {
   border: 1px solid var(--rule);
   background: var(--paper);
@@ -605,12 +674,10 @@ h3 {
   box-shadow: var(--shadow-lg);
 }
 .regime-top {
-  display: grid; grid-template-columns: 3fr 2fr;
   border-bottom: 1px solid var(--rule);
 }
-.regime-primary {
-  padding: 30px 34px;
-  border-right: 1px solid var(--rule);
+.regime-combined {
+  padding: 28px 32px;
   border-left: 4px solid var(--ink);
   background: linear-gradient(135deg, var(--paper) 0%, var(--paper-deep) 100%);
 }
@@ -626,20 +693,36 @@ h3 {
   font-family: var(--sans); font-size: 15px; color: var(--ink-muted);
   margin-top: 10px;
 }
-.regime-tilt {
-  padding: 30px 34px;
-  display: flex; flex-direction: column; justify-content: center;
-  background: var(--surface);
+.regime-tilt-inline {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid var(--rule);
 }
 .regime-tilt-label {
   font-family: var(--mono); font-size: 13px; letter-spacing: 0.1em;
-  text-transform: uppercase; color: var(--ink-muted); margin-bottom: 14px;
+  text-transform: uppercase; color: var(--ink-muted); margin-bottom: 0;
 }
 .tilt-badge {
-  display: inline-block; font-family: var(--mono); font-size: 21px;
-  font-weight: 500; letter-spacing: 0.04em; padding: 12px 20px;
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 21px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  padding: 12px 20px;
   border-radius: var(--radius-sm);
   width: fit-content;
+}
+/* Risk tilt matches signal-row badge scale */
+.tilt-badge.tilt-badge-compact {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  padding: 6px 12px;
+  line-height: 1.2;
 }
 .tilt-pro  { background: #e8f2e0; color: var(--green-text); border: 1px solid color-mix(in srgb, var(--green-text) 25%, transparent); }
 .tilt-def  { background: var(--blue-bg); color: var(--blue-text); border: 1px solid color-mix(in srgb, var(--blue-text) 22%, transparent); }
@@ -872,15 +955,21 @@ footer {
   h2 { font-size: 26px; }
   .membership-row { flex-direction: column; align-items: stretch; }
   .membership-row .btn-primary { align-self: flex-start; }
-  .membership-row .voice-panel { max-width: none; }
   .voice-panel { flex-wrap: wrap; }
+  .regime-voice-row { flex-direction: column; }
+  .regime-voice-row .voice-panel--aside {
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: none;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+  }
   .ts-strip { padding: 14px 18px; }
   .signal-strip { grid-template-columns: 1fr; border-radius: 0 0 var(--radius) var(--radius); }
   .signal-cell { border-right: none; border-bottom: 1px solid var(--rule); }
   .signal-cell:last-child { border-bottom: none; }
   .regime-card { border-radius: var(--radius); }
-  .regime-top { grid-template-columns: 1fr; }
-  .regime-primary { border-right: none; border-bottom: 1px solid var(--rule); }
   .regime-bottom { grid-template-columns: repeat(2, 1fr); }
   .regime-metric:nth-child(2) { border-right: none; }
   .regime-metric:nth-child(3), .regime-metric:nth-child(4) { border-top: 1px solid var(--rule); }
@@ -918,28 +1007,12 @@ footer {
     <p class="hero-label">Daily macro state · Three signals · No predictions</p>
     <h1>Daily macro state you can think with.</h1>
     <p class="hero-sub">Same clock. Same inputs. Same structure — every session.</p>
+    <p class="hero-body-lede">
+      Scannable state read: regime and risk tilt, what moved mechanically versus the prior session,
+      distance to invalidation, state pressure, and two explicit invalidation conditions.
+    </p>
     <div class="membership-row">
       <a href="#subscribe" class="btn-primary">Subscribe — $49/mo</a>
-      <!-- Voice summary player (hero: stays on this page until they choose audio) -->
-      <div class="voice-panel">
-        <button type="button" class="voice-play" aria-label="Play voice summary">
-          <svg width="11" height="11" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-            <path d="M5 3.5L13 8L5 12.5V3.5Z" fill="#faf8f4"/>
-          </svg>
-        </button>
-        <div class="voice-body">
-          <div class="voice-title">
-            What to watch today — 3 min
-          </div>
-          <div class="voice-desc">
-            Which signal is closest to moving — and why it matters
-          </div>
-          <div class="voice-wave-wrap">
-            <div class="voice-wave-bar" aria-hidden="true"></div>
-          </div>
-        </div>
-        <div class="voice-dur">3:00</div>
-      </div>
     </div>
     <div class="membership-foot">
       Free to listen. Derived from distance to invalidation and state pressure — not a market opinion.
@@ -948,6 +1021,7 @@ footer {
     <!-- Last Read + Details popover (native popover API) -->
     <div class="ts-strip" role="region" aria-label="Session timestamp for the example below">
       <p class="ts-last-read">
+        <span class="ts-last-read-bullet" aria-hidden="true"></span>
         <span class="ts-last-read-label">Last Read:</span>
         <time datetime="2026-04-23T16:00:00-04:00">Apr. 23, 4 PM ET</time>
         <span class="ts-details-star" aria-hidden="true">*</span>
@@ -1015,42 +1089,59 @@ footer {
       </div>
     </div>
 
-    <!-- Regime card — Option B -->
-    <div class="regime-card">
-      <div class="regime-top">
-        <div class="regime-primary">
-          <div class="regime-primary-label">Regime</div>
-          <div class="regime-primary-value">Risk-On — Emerging</div>
-          <div class="regime-primary-sub">27-regime classification · 63-day normalization</div>
+    <!-- Regime (combined) + voice player side by side -->
+    <div class="regime-voice-row">
+      <div class="regime-card">
+        <div class="regime-top">
+          <div class="regime-combined">
+            <div class="regime-primary-label">Regime</div>
+            <div class="regime-primary-value">Risk-On — Emerging</div>
+            <div class="regime-primary-sub">27-regime classification · 63-day normalization</div>
+            <div class="regime-tilt-inline">
+              <span class="regime-tilt-label">Risk tilt</span>
+              <span class="tilt-badge tilt-badge-compact tilt-pro">PRO-RISK</span>
+            </div>
+          </div>
         </div>
-        <div class="regime-tilt">
-          <div class="regime-tilt-label">Risk tilt</div>
-          <span class="tilt-badge tilt-pro">PRO-RISK</span>
+        <div class="regime-bottom">
+          <div class="regime-metric">
+            <div class="rm-label">Confidence</div>
+            <div class="rm-value">41 / 100</div>
+            <div class="rm-sub">MEDIUM · FRAGILE</div>
+          </div>
+          <div class="regime-metric">
+            <div class="rm-label">State pressure</div>
+            <div class="rm-value">INCREASING</div>
+            <div class="rm-sub">3-session window</div>
+          </div>
+          <div class="regime-metric">
+            <div class="rm-label">WTI proximity</div>
+            <div class="rm-value near">NEAR</div>
+            <div class="rm-sub">$96.61 vs $96 threshold</div>
+          </div>
+          <div class="regime-metric">
+            <div class="rm-label">SPX proximity</div>
+            <div class="rm-value far">FAR</div>
+            <div class="rm-sub">7,108 vs 7,038 threshold</div>
+          </div>
         </div>
+        <div class="regime-footer">macroevidence.com · not investment advice</div>
       </div>
-      <div class="regime-bottom">
-        <div class="regime-metric">
-          <div class="rm-label">Confidence</div>
-          <div class="rm-value">41 / 100</div>
-          <div class="rm-sub">MEDIUM · FRAGILE</div>
+      <div class="voice-panel voice-panel--aside" aria-label="Voice summary preview">
+        <button type="button" class="voice-play" aria-label="Play voice summary">
+          <svg width="11" height="11" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M5 3.5L13 8L5 12.5V3.5Z" fill="#faf8f4"/>
+          </svg>
+        </button>
+        <div class="voice-body">
+          <div class="voice-title">What to watch today — 3 min</div>
+          <div class="voice-desc">Which signal is closest to moving — and why it matters</div>
+          <div class="voice-wave-wrap">
+            <div class="voice-wave-bar" aria-hidden="true"></div>
+          </div>
         </div>
-        <div class="regime-metric">
-          <div class="rm-label">State pressure</div>
-          <div class="rm-value">INCREASING</div>
-          <div class="rm-sub">3-session window</div>
-        </div>
-        <div class="regime-metric">
-          <div class="rm-label">WTI proximity</div>
-          <div class="rm-value near">NEAR</div>
-          <div class="rm-sub">$96.61 vs $96 threshold</div>
-        </div>
-        <div class="regime-metric">
-          <div class="rm-label">SPX proximity</div>
-          <div class="rm-value far">FAR</div>
-          <div class="rm-sub">7,108 vs 7,038 threshold</div>
-        </div>
+        <div class="voice-dur">3:00</div>
       </div>
-      <div class="regime-footer">macroevidence.com · not investment advice</div>
     </div>
 
   </div>
