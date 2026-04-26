@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="MacroEvidence Signal Card v1">
+<meta name="macroevidence:signal-card-variant" content="institutional">
+<title>MacroEvidence · 2026-04-26</title>
+<style>
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, "Courier New", monospace;
+    background: #E5E7EB;
+    color: #111827;
+    padding: 20px 12px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.card {
+    max-width: 520px;
+    margin: 0 auto;
+    background: #FFFFFF;
+    border: 1px solid #D1D5DB;
+    box-shadow: none;
+    padding: 24px 22px;
+    line-height: 1.45;
+}
+
+
+.artifact-strip {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, "Courier New", monospace;
+    font-size: 9px;
+    letter-spacing: 0.042em;
+    text-transform: uppercase;
+    color: #6B7280;
+    padding-bottom: 10px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #D1D5DB;
+}
+
+.brand {
+    font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    line-height: 1;
+    color: #6B7280;
+    display: inline-flex;
+    align-items: center;
+    font-optical-sizing: auto;
+    font-variation-settings: "slnt" 0;
+    -webkit-font-smoothing: antialiased;
+}
+
+.brand-word {
+    font-weight: 500;
+    letter-spacing: inherit;
+}
+
+.brand-pipe {
+    font-weight: 700;
+    color: inherit;
+    margin: 0 6px;
+    line-height: 1;
+}
+
+.subtitle {
+    font-family: 'IBM Plex Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #6B7280;
+    margin-top: 6px;
+    margin-bottom: 18px;
+}
+
+.divider {
+    border: none;
+    border-top: 1px solid #D1D5DB;
+    margin: 16px 0;
+}
+
+.label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, "Courier New", monospace;
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #6B7280;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.label-state {
+    letter-spacing: 0.2em;
+}
+
+.regime-name {
+    font-family: 'IBM Plex Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 1.22;
+    letter-spacing: -0.03em;
+    margin-bottom: 14px;
+    color: #111827;
+}
+
+.risk-tilt-line {
+    margin-bottom: 14px;
+}
+
+.risk-tilt-declaration {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, "Courier New", monospace;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    line-height: 1.35;
+    -webkit-font-smoothing: antialiased;
+}
+
+.confidence-block {
+    margin-bottom: 14px;
+}
+
+.confidence-score {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, "Courier New", monospace;
+    font-size: 19px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum", "lnum";
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin-bottom: 5px;
+    color: #111827;
+}
+
+.confidence-slash {
+    font-weight: 500;
+    color: #6B7280;
+    margin: 0 0.15em;
+}
+
+.confidence-meta {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, "Courier New", monospace;
+    font-size: 11px;
+    font-weight: 400;
+    color: #9CA3AF;
+    letter-spacing: 0.02em;
+}
+
+.meta-line {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, "Courier New", monospace;
+    font-size: 13px;
+    margin-bottom: 14px;
+}
+
+.meta-line .num {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, "Courier New", monospace;
+    font-variant-numeric: tabular-nums;
+}
+
+.sep {
+    color: #6B7280;
+    margin: 0 8px;
+}
+
+.signals-header {
+    display: grid;
+    grid-template-columns: 1fr minmax(9ch, 110px) minmax(4.5ch, 72px);
+    gap: 12px;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #6B7280;
+    font-weight: 600;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #D1D5DB;
+}
+
+.signals-header .right { text-align: right; }
+
+.signal-row {
+    display: grid;
+    grid-template-columns: 1fr minmax(9ch, 110px) minmax(4.5ch, 72px);
+    gap: 12px;
+    padding: 2px 0;
+    font-size: 14px;
+    align-items: baseline;
+}
+
+.signal-row + .signal-row {
+    border-top: 1px solid #E5E7EB;
+}
+
+.signal-name {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, "Courier New", monospace;
+    font-weight: 500;
+}
+
+.signal-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, "Courier New", monospace;
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum", "lnum";
+    text-align: right;
+    font-weight: 500;
+}
+
+.signal-z {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, "Courier New", monospace;
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum", "lnum";
+    text-align: right;
+    font-size: 12px;
+    font-weight: 500;
+    color: #6B7280;
+}
+
+.regime-note {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, "Courier New", monospace;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #111827;
+}
+
+.invalidation {
+    display: flex;
+    gap: 10px;
+    padding: 5px 0;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, "Courier New", monospace;
+    font-size: 13px;
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum", "lnum";
+}
+
+.invalidation-num {
+    color: #6B7280;
+    flex-shrink: 0;
+    min-width: 1.6em;
+    font-weight: 600;
+    text-align: right;
+}
+
+.invalidation-body {
+    color: #111827;
+}
+
+.method {
+    font-size: 12px;
+    color: #6B7280;
+    opacity: 0.7;
+    font-style: normal;
+    line-height: 1.5;
+    margin-top: 8px;
+}
+
+.schema-line {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, "Courier New", monospace;
+    font-size: 10px;
+    color: #6B7280;
+    margin-top: 12px;
+    letter-spacing: 0.02em;
+}
+
+.sc-pipe-hint {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, "Courier New", monospace;
+    font-size: 9px;
+    color: #6B7280;
+    margin: 4px 0 14px 0;
+    line-height: 1.45;
+}
+
+</style>
+</head>
+<body>
+<article class="card" id="scCard" role="article" aria-label="MacroEvidence regime read for 2026-04-26" data-schema-version="1.0.0">
+<div class="artifact-strip" id="scArtifact">OUTPUT · schema 1.0.0 · as_of 2026-04-26</div>
+<div class="brand" aria-label="MacroEvidence"><span class="brand-word">Macro</span><span class="brand-pipe">|</span><span class="brand-word">Evidence</span></div>
+<div class="subtitle" id="scSubtitle">Regime Read · 2026-04-26</div>
+<p class="sc-pipe-hint" id="scPipeRow" title="Loads outputs/latest.json then ../website_data/pipeline_latest.sample.json">Checking pipeline JSON…</p>
+<hr class="divider">
+<div class="label label-state">System state</div>
+<div class="regime-name" id="scRegimeState">RISK-ON — EMERGING</div>
+<div class="label">Risk tilt</div>
+<div class="risk-tilt-line"><span class="risk-tilt-declaration" id="scRiskTiltText" style="color:#1d7a48;">PRO-RISK</span></div>
+<div class="label">Confidence</div>
+<div class="confidence-block"><div class="confidence-score" id="scConfScore">55 <span class="confidence-slash">/</span> 100</div><div class="confidence-meta" id="scConfMeta">Medium · Fragile</div></div>
+<hr class="divider">
+<div class="signals-header"><div>Signals</div><div class="right">Level</div><div class="right">Z</div></div>
+<div class="signal-row"><div class="signal-name">SPX</div><div class="signal-value" id="scLvlSpx">7,165.08</div><div class="signal-z" id="scZSpx">+1.85</div></div>
+<div class="signal-row"><div class="signal-name">10Y</div><div class="signal-value" id="scLvl10y">4.31%</div><div class="signal-z" id="scZ10y">+0.80</div></div>
+<div class="signal-row"><div class="signal-name">OIL (WTI)</div><div class="signal-value" id="scLvlOil">$94.40</div><div class="signal-z" id="scZOil">+0.75</div></div>
+<hr class="divider">
+<div class="label">Regime Note</div>
+<div class="regime-note" id="scRegimeNote">Equities elevated independently. Await confirmation from rates and energy.</div>
+<hr class="divider">
+<div class="label">Invalidation</div>
+<div id="scInvs">
+<div class="invalidation"><span class="invalidation-num">1.</span><span class="invalidation-body">10Y &gt; 4.46% AND SPX &lt; 7,093</span></div>
+<div class="invalidation"><span class="invalidation-num">2.</span><span class="invalidation-body">OIL &gt; $103</span></div>
+</div>
+<hr class="divider">
+<div class="method">Method: MacroEvidence · yfinance+FRED · 63d z · not advice</div>
+<div class="schema-line" id="scSchemaLine">schema v1.0.0 · 2026-04-26T19:26:00.017527+00:00</div>
+</article>
+<script>
+(function () {
+  var HIGHLIGHT = {
+    "pro-risk": "#1d7a48",
+    neutral: "#946300",
+    defensive: "#a61f1f",
+  };
+
+  function stateDeclarationFromRegimeName(name) {
+    var normalized = String(name).replace(/\u2014/g, "|");
+    var parts = normalized
+      .split("|")
+      .map(function (p) {
+        return p.trim();
+      })
+      .filter(Boolean);
+    return parts
+      .map(function (p) {
+        return p.toUpperCase();
+      })
+      .join(" \u2014 ");
+  }
+
+  function signalLabel(sig) {
+    return { sp500: "SPX", yield_10y: "10Y", oil_wti: "OIL" }[sig] || sig;
+  }
+
+  function renderCondition(c) {
+    var label = signalLabel(c.signal);
+    var op = c.operator;
+    var th = c.threshold;
+    var unit = c.unit;
+    var valueStr;
+    if (unit === "level")
+      valueStr =
+        typeof th === "number"
+          ? Math.round(th).toLocaleString("en-US")
+          : String(th);
+    else if (unit === "percent") valueStr = Number(th).toFixed(2) + "%";
+    else if (unit === "dollars") valueStr = "$" + Math.round(Number(th)).toLocaleString("en-US");
+    else valueStr = String(th);
+    return label + " " + op + " " + valueStr;
+  }
+
+  function renderInvalidation(inv) {
+    var conds = inv.conditions || [];
+    var t = inv.type;
+    var parts = conds.map(renderCondition);
+    if (t === "simple") return parts[0] || "";
+    if (t === "compound_AND") return parts.join(" AND ");
+    if (t === "compound_OR") return parts.join(" OR ");
+    return parts.join(" ");
+  }
+
+  function pipelineToClean(p) {
+    if (!p || typeof p !== "object") return null;
+    if (p.status != null && p.status !== "ok") return null;
+    var reg = p.regime;
+    if (!reg || typeof reg !== "object") return null;
+    var rt = reg.risk_tilt;
+    if (rt !== "pro-risk" && rt !== "neutral" && rt !== "defensive") return null;
+    var conf = p.confidence;
+    if (!conf || typeof conf !== "object") return null;
+    var sig = p.signals;
+    if (!sig || typeof sig !== "object") return null;
+    var z = p.zscores;
+    if (!z || typeof z !== "object") return null;
+    var inv = p.invalidations_structured;
+    if (!Array.isArray(inv) || !inv.length) return null;
+    var sp500 = sig.sp500 != null ? sig.sp500 : sig.sp500_price;
+    var yield10 = sig.yield_10y != null ? sig.yield_10y : sig.yield_price;
+    var oil = sig.oil_wti != null ? sig.oil_wti : sig.oil_price;
+    if (sp500 == null || yield10 == null || oil == null) return null;
+    if (z.z_sp500 == null || z.z_yield_10y == null || z.z_oil == null) return null;
+    var asOf = p.as_of;
+    if (!asOf || !/^\d{4}-\d{2}-\d{2}$/.test(String(asOf))) return null;
+    var ts = p.timestamp;
+    if (!ts || !String(ts).trim()) return null;
+    return {
+      schema_version: "1.0.0",
+      as_of: asOf,
+      timestamp: String(ts),
+      regime: {
+        code: reg.regime_code,
+        name: reg.regime,
+        description: reg.description != null ? String(reg.description) : "",
+      },
+      risk_tilt: rt,
+      confidence: {
+        score: Number(conf.confidence),
+        label: String(conf.confidence_label || ""),
+        stability: String(conf.stability || ""),
+        is_no_call: !!conf.is_no_call,
+      },
+      signals: { sp500: Number(sp500), yield_10y: Number(yield10), oil_wti: Number(oil) },
+      zscores: {
+        z_sp500: Number(z.z_sp500),
+        z_yield_10y: Number(z.z_yield_10y),
+        z_oil: Number(z.z_oil),
+      },
+      invalidations: inv,
+    };
+  }
+
+  function fmtLevel(kind, level) {
+    if (kind === "level") return Number(level).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    if (kind === "percent") return Number(level).toFixed(2) + "%";
+    if (kind === "dollars")
+      return "$" + Number(level).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    return String(level);
+  }
+
+  function fmtZ(z) {
+    var n = Number(z);
+    return (n >= 0 ? "+" : "") + n.toFixed(2);
+  }
+
+  function applyClean(c) {
+    var schema = (document.getElementById("scCard") || {}).getAttribute("data-schema-version") || "1.0.0";
+    var el;
+    el = document.getElementById("scArtifact");
+    if (el) el.textContent = "OUTPUT \u00b7 schema " + schema + " \u00b7 as_of " + c.as_of;
+    el = document.getElementById("scSubtitle");
+    if (el) el.textContent = "Regime Read \u00b7 " + c.as_of;
+    document.title = "MacroEvidence \u00b7 " + c.as_of;
+    el = document.getElementById("scCard");
+    if (el) el.setAttribute("aria-label", "MacroEvidence regime read for " + c.as_of);
+    el = document.getElementById("scRegimeState");
+    if (el) el.textContent = stateDeclarationFromRegimeName(c.regime.name);
+    var tiltColor = HIGHLIGHT[c.risk_tilt] || HIGHLIGHT.neutral;
+    el = document.getElementById("scRiskTiltText");
+    if (el) {
+      el.textContent = String(c.risk_tilt).toUpperCase();
+      el.style.color = tiltColor;
+    }
+    el = document.getElementById("scConfScore");
+    if (el)
+      el.innerHTML =
+        Math.round(Number(c.confidence.score)) +
+        ' <span class="confidence-slash">/</span> 100';
+    el = document.getElementById("scConfMeta");
+    if (el) el.textContent = c.confidence.label + " \u00b7 " + c.confidence.stability;
+    el = document.getElementById("scLvlSpx");
+    if (el) el.textContent = fmtLevel("level", c.signals.sp500);
+    el = document.getElementById("scZSpx");
+    if (el) el.textContent = fmtZ(c.zscores.z_sp500);
+    el = document.getElementById("scLvl10y");
+    if (el) el.textContent = fmtLevel("percent", c.signals.yield_10y);
+    el = document.getElementById("scZ10y");
+    if (el) el.textContent = fmtZ(c.zscores.z_yield_10y);
+    el = document.getElementById("scLvlOil");
+    if (el) el.textContent = fmtLevel("dollars", c.signals.oil_wti);
+    el = document.getElementById("scZOil");
+    if (el) el.textContent = fmtZ(c.zscores.z_oil);
+    el = document.getElementById("scRegimeNote");
+    if (el) el.textContent = c.regime.description;
+    var wrap = document.getElementById("scInvs");
+    if (wrap) {
+      wrap.innerHTML = "";
+      c.invalidations.forEach(function (inv, idx) {
+        var line = renderInvalidation(inv);
+        var row = document.createElement("div");
+        row.className = "invalidation";
+        row.innerHTML =
+          '<span class="invalidation-num">' +
+          (idx + 1) +
+          '.</span><span class="invalidation-body"></span>';
+        row.querySelector(".invalidation-body").textContent = line;
+        wrap.appendChild(row);
+      });
+    }
+    el = document.getElementById("scSchemaLine");
+    if (el) el.textContent = "schema v" + schema + " \u00b7 " + c.timestamp;
+  }
+
+  async function loadPipeline() {
+    var urls = ["outputs/latest.json", "website_data/pipeline_latest.sample.json"];
+    var raw = null;
+    var source = "";
+    for (var i = 0; i < urls.length; i++) {
+      try {
+        var r = await fetch(urls[i] + "?_=" + Date.now(), { cache: "no-store" });
+        if (r.ok) {
+          raw = await r.json();
+          source = urls[i].indexOf("sample") >= 0 ? "sample" : "live";
+          break;
+        }
+      } catch (e) {}
+    }
+    var pipe = document.getElementById("scPipeRow");
+    var clean = raw ? pipelineToClean(raw) : null;
+    if (!clean) {
+      if (pipe) {
+        pipe.textContent =
+          "Live JSON not loaded (open via http:// from repo root, or run the pipeline). Card shows last write.";
+        pipe.title = "Tried outputs/latest.json then ../website_data/pipeline_latest.sample.json";
+      }
+      return;
+    }
+    applyClean(clean);
+    if (pipe) {
+      pipe.textContent =
+        source === "live"
+          ? "Pipeline: ../outputs/latest.json (live)"
+          : "Pipeline: ../website_data/pipeline_latest.sample.json (fixture)";
+      pipe.title = "as_of " + clean.as_of + " \u00b7 " + clean.timestamp;
+    }
+  }
+
+  if (document.readyState === "loading")
+    document.addEventListener("DOMContentLoaded", loadPipeline);
+  else loadPipeline();
+})();
+</script>
+</body>
+</html>

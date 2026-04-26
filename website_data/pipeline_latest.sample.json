@@ -1,0 +1,57 @@
+{
+  "status": "ok",
+  "stage_reached": "persist",
+  "reason": null,
+  "as_of": "2026-04-21",
+  "timestamp": "2026-04-21T12:00:00+00:00",
+  "publishable": true,
+  "publish_x": true,
+  "publish_substack": true,
+  "needs_rewrite_x": false,
+  "needs_rewrite_substack": false,
+  "signals": {
+    "sp500": 5400.0,
+    "yield_10y": 4.3,
+    "oil_wti": 78.2
+  },
+  "zscores": {
+    "z_sp500": 1.8,
+    "z_oil": 0.3,
+    "z_yield_10y": 0.4
+  },
+  "regime": {
+    "regime": "Risk-on",
+    "regime_code": "RO_E",
+    "risk_tilt": "pro-risk",
+    "description": "Emerging risk-on",
+    "states": { "s_sp500": 1, "s_yield": 0, "s_oil": 0 }
+  },
+  "invalidations_structured": [
+    {
+      "type": "compound_AND",
+      "conditions": [
+        { "signal": "yield_10y", "operator": ">", "threshold": 4.45, "unit": "percent" },
+        { "signal": "sp500", "operator": "<", "threshold": 5346, "unit": "level" }
+      ]
+    },
+    { "type": "simple", "conditions": [{ "signal": "oil_wti", "operator": ">", "threshold": 87, "unit": "dollars" }] }
+  ],
+  "confidence": {
+    "confidence": 72,
+    "confidence_label": "medium",
+    "is_no_call": false,
+    "stability": "emerging",
+    "reasoning": "single-signal rally"
+  },
+  "drafts": {
+    "x": "…",
+    "substack": "…",
+    "word_counts": { "x": 3, "substack": 3 }
+  },
+  "checker": {
+    "x": { "total_score": 8 },
+    "substack": { "total_score": 8 }
+  },
+  "rule_md_version": "0.1",
+  "previous_regime_code": null
+}
