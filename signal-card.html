@@ -12,7 +12,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="generator" content="MacroEvidence Signal Card v1">
 <meta name="macroevidence:signal-card-variant" content="institutional">
-<title>MacroEvidence · 2026-04-26</title>
+<title>MacroEvidence · 2026-04-27</title>
 <style>
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -36,17 +36,6 @@ body {
     line-height: 1.45;
 }
 
-
-.artifact-strip {
-    font-family: ui-monospace, "SF Mono", Menlo, Consolas, "Courier New", monospace;
-    font-size: 9px;
-    letter-spacing: 0.042em;
-    text-transform: uppercase;
-    color: #6B7280;
-    padding-bottom: 10px;
-    margin-bottom: 12px;
-    border-bottom: 1px solid #D1D5DB;
-}
 
 .brand {
     font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
@@ -282,10 +271,9 @@ body {
 </style>
 </head>
 <body>
-<article class="card" id="scCard" role="article" aria-label="MacroEvidence regime read for 2026-04-26" data-schema-version="1.0.0">
-<div class="artifact-strip" id="scArtifact">OUTPUT · schema 1.0.0 · as_of 2026-04-26</div>
+<article class="card" id="scCard" role="article" aria-label="MacroEvidence regime read for 2026-04-27" data-schema-version="1.0.0">
 <div class="brand" aria-label="MacroEvidence"><span class="brand-word">Macro</span><span class="brand-pipe">|</span><span class="brand-word">Evidence</span></div>
-<div class="subtitle" id="scSubtitle">Regime Read · 2026-04-26</div>
+<div class="subtitle" id="scSubtitle">Regime Read · 2026-04-27</div>
 <p class="sc-pipe-hint" id="scPipeRow" title="Loads outputs/latest.json then ../website_data/pipeline_latest.sample.json">Checking pipeline JSON…</p>
 <hr class="divider">
 <div class="label label-state">System state</div>
@@ -296,21 +284,21 @@ body {
 <div class="confidence-block"><div class="confidence-score" id="scConfScore">55 <span class="confidence-slash">/</span> 100</div><div class="confidence-meta" id="scConfMeta">Medium · Fragile</div></div>
 <hr class="divider">
 <div class="signals-header"><div>Signals</div><div class="right">Level</div><div class="right">Z</div></div>
-<div class="signal-row"><div class="signal-name">SPX</div><div class="signal-value" id="scLvlSpx">7,165.08</div><div class="signal-z" id="scZSpx">+1.85</div></div>
-<div class="signal-row"><div class="signal-name">10Y</div><div class="signal-value" id="scLvl10y">4.31%</div><div class="signal-z" id="scZ10y">+0.80</div></div>
-<div class="signal-row"><div class="signal-name">OIL (WTI)</div><div class="signal-value" id="scLvlOil">$94.40</div><div class="signal-z" id="scZOil">+0.75</div></div>
+<div class="signal-row"><div class="signal-name">SPX</div><div class="signal-value" id="scLvlSpx">7,161.77</div><div class="signal-z" id="scZSpx">+1.77</div></div>
+<div class="signal-row"><div class="signal-name">10Y</div><div class="signal-value" id="scLvl10y">4.32%</div><div class="signal-z" id="scZ10y">+0.85</div></div>
+<div class="signal-row"><div class="signal-name">OIL (WTI)</div><div class="signal-value" id="scLvlOil">$95.84</div><div class="signal-z" id="scZOil">+0.81</div></div>
 <hr class="divider">
 <div class="label">Regime Note</div>
 <div class="regime-note" id="scRegimeNote">Equities elevated independently. Await confirmation from rates and energy.</div>
 <hr class="divider">
 <div class="label">Invalidation</div>
 <div id="scInvs">
-<div class="invalidation"><span class="invalidation-num">1.</span><span class="invalidation-body">10Y &gt; 4.46% AND SPX &lt; 7,093</span></div>
-<div class="invalidation"><span class="invalidation-num">2.</span><span class="invalidation-body">OIL &gt; $103</span></div>
+<div class="invalidation"><span class="invalidation-num">1.</span><span class="invalidation-body">10Y &gt; 4.47% AND SPX &lt; 7,090</span></div>
+<div class="invalidation"><span class="invalidation-num">2.</span><span class="invalidation-body">OIL &gt; $105</span></div>
 </div>
 <hr class="divider">
 <div class="method">Method: MacroEvidence · yfinance+FRED · 63d z · not advice</div>
-<div class="schema-line" id="scSchemaLine">schema v1.0.0 · 2026-04-26T19:26:00.017527+00:00</div>
+<div class="schema-line" id="scSchemaLine">schema v1.0.0 · 2026-04-27T14:08:59.060216+00:00</div>
 </article>
 <script>
 (function () {
@@ -430,10 +418,7 @@ body {
   }
 
   function applyClean(c) {
-    var schema = (document.getElementById("scCard") || {}).getAttribute("data-schema-version") || "1.0.0";
     var el;
-    el = document.getElementById("scArtifact");
-    if (el) el.textContent = "OUTPUT \u00b7 schema " + schema + " \u00b7 as_of " + c.as_of;
     el = document.getElementById("scSubtitle");
     if (el) el.textContent = "Regime Read \u00b7 " + c.as_of;
     document.title = "MacroEvidence \u00b7 " + c.as_of;
