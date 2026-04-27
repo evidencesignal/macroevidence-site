@@ -3,21 +3,21 @@
   "stage_reached": "quality_check",
   "reason": null,
   "as_of": "2026-04-27",
-  "timestamp": "2026-04-27T16:12:16.902111+00:00",
+  "timestamp": "2026-04-27T16:51:23.423042+00:00",
   "publishable": true,
   "publish_x": true,
   "publish_substack": true,
   "needs_rewrite_x": false,
   "needs_rewrite_substack": false,
   "signals": {
-    "oil_wti": 96.19000244140625,
-    "sp500": 7162.7099609375,
+    "oil_wti": 96.16000366210938,
+    "sp500": 7165.14013671875,
     "yield_10y": 4.331999778747559
   },
   "zscores": {
-    "z_sp500": 1.7768807366412187,
+    "z_sp500": 1.7887453376106928,
     "z_yield_10y": 0.9701439584092885,
-    "z_oil": 0.8334192491248529
+    "z_oil": 0.8315695297953287
   },
   "regime": {
     "regime": "Risk-on | Emerging",
@@ -43,7 +43,7 @@
         {
           "signal": "sp500",
           "operator": "<",
-          "threshold": 7091,
+          "threshold": 7093,
           "unit": "level"
         }
       ]
@@ -62,7 +62,7 @@
   ],
   "invalidation_distance": {
     "condition_1": {
-      "label": "YIELD 10Y > 4.48% AND SP500 < 7,091",
+      "label": "YIELD 10Y > 4.48% AND SP500 < 7,093",
       "proximity": "NEAR",
       "conditions": [
         {
@@ -74,7 +74,7 @@
         {
           "signal": "sp500",
           "operator": "<",
-          "threshold": 7091,
+          "threshold": 7093,
           "unit": "level"
         }
       ]
@@ -97,7 +97,7 @@
     "window": "3-session",
     "basis": "Oil rising (+0.17s), SPX stable, 10Y rising (+0.30s)"
   },
-  "session_context": "1 invalidation condition(s) in near proximity: YIELD 10Y > 4.48% AND SP500 < 7,091. State pressure increasing.",
+  "session_context": "1 invalidation condition(s) in near proximity: YIELD 10Y > 4.48% AND SP500 < 7,093. State pressure increasing.",
   "confidence": {
     "confidence": 55,
     "confidence_label": "Medium",
@@ -106,8 +106,8 @@
     "reasoning": "Confidence 55/100 (Medium). Signal strength 45/75, alignment bonus 0/25 continuity +10 (regime persisted) Stability: Fragile."
   },
   "drafts": {
-    "x": "S&P 500 pushing higher while the rest of the board is watching.\nOnly matters if yields or oil confirms \u2014 and it hasn't yet.\n\nSPX 7,163. 10Y 4.33%. Oil $96.\n\nInvalidation:\n\u2022 10Y above 4.48% + SPX loses 7,091\n\u2022 Oil above $105\n\nWhat's the signal that tells you this rally is real?",
-    "substack": "REGIME: Risk-on | Emerging\nCONFIDENCE: Medium (55/100)\nRISK TILT: pro-risk\nSTABILITY: Fragile\n\nSnapshot \u2014 Apr 27, 2026\n  S&P 500:     7,162.71   z +1.78\n  10Y Yield:      4.332%  z +0.97\n  WTI Oil:        96.19   z +0.83\n\nINSIGHT\nS&P 500 at 7,163 is pushing above its recent range \u2014 a move that only matters if it holds. 10Y yield at 4.33% is sitting near its 63-session mean \u2014 no signal from yields. Oil at $96 is sitting near its 63-session mean \u2014 no signal from oil. Confidence sits at 55/100 \u2014 enough for a directional lean but not a high-conviction call.\n\nINVALIDATION\n\u2022 10Y above 4.48% + SPX loses 7,091\n\u2022 Oil above $105\n\nMethod: MacroEvidence pipeline \u00b7 yfinance + FRED \u00b7 63-session rolling z-scores \u00b7 not financial advice.",
+    "x": "S&P 500 pushing higher while the rest of the board is watching.\nOnly matters if yields or oil confirms \u2014 and it hasn't yet.\n\nSPX 7,165. 10Y 4.33%. Oil $96.\n\nInvalidation:\n\u2022 10Y above 4.48% + SPX loses 7,093\n\u2022 Oil above $105\n\nWhat's the signal that tells you this rally is real?",
+    "substack": "REGIME: Risk-on | Emerging\nCONFIDENCE: Medium (55/100)\nRISK TILT: pro-risk\nSTABILITY: Fragile\n\nSnapshot \u2014 Apr 27, 2026\n  S&P 500:     7,165.14   z +1.79\n  10Y Yield:      4.332%  z +0.97\n  WTI Oil:        96.16   z +0.83\n\nINSIGHT\nS&P 500 at 7,165 is pushing above its recent range \u2014 a move that only matters if it holds. 10Y yield at 4.33% is sitting near its 63-session mean \u2014 no signal from yields. Oil at $96 is sitting near its 63-session mean \u2014 no signal from oil. Confidence sits at 55/100 \u2014 enough for a directional lean but not a high-conviction call.\n\nINVALIDATION\n\u2022 10Y above 4.48% + SPX loses 7,093\n\u2022 Oil above $105\n\nMethod: MacroEvidence pipeline \u00b7 yfinance + FRED \u00b7 63-session rolling z-scores \u00b7 not financial advice.",
     "word_counts": {}
   },
   "checker": {
