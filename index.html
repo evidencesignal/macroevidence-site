@@ -1069,6 +1069,80 @@ footer {
   .subscribe-layout { grid-template-columns: 1fr; gap: 44px; }
   footer { flex-direction: column; text-align: center; }
 }
+
+/* Landing blocks below regime card (methodology, track record, membership CTA) */
+.landing-after-regime { margin-top: 72px; }
+.landing-after-regime + .landing-after-regime { margin-top: 64px; }
+.track-tbl {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+  line-height: 1.5;
+  min-width: 520px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--paper);
+}
+.track-tbl thead th {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  text-align: left;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--rule);
+  background: var(--surface);
+}
+.track-tbl tbody td {
+  font-family: var(--sans);
+  color: var(--ink-mid);
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+.track-tbl tbody tr:last-child td { border-bottom: none; }
+.track-tbl .col-date {
+  font-family: var(--mono);
+  font-size: 15px;
+  color: var(--ink);
+  white-space: nowrap;
+}
+.track-tbl .col-res {
+  font-family: var(--mono);
+  text-align: center;
+  color: var(--green-text);
+}
+.track-tbl-wrap {
+  margin-top: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.landing-track-foot {
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--ink-muted);
+  margin-top: 20px;
+  max-width: 48rem;
+}
+.membership-cta-block { max-width: 40rem; }
+.membership-cta-block .btn-primary { display: inline-block; margin-top: 20px; }
+.membership-cta-foot {
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink-muted);
+  margin-top: 16px;
+}
+@media (max-width: 720px) {
+  .track-tbl { font-size: 14px; }
+  .track-tbl thead th, .track-tbl tbody td { padding: 10px 10px; }
+  .track-tbl .col-date { font-size: 13px; }
+}
 </style>
 </head>
 <body>
@@ -1086,7 +1160,7 @@ footer {
       <li><a href="#methodology">Methodology</a></li>
       <li><a href="signal-card.html">Signal card</a></li>
     </ul>
-    <a href="#subscribe" class="nav-cta">Subscribe →</a>
+    <a href="https://macroevidence.substack.com/subscribe" class="nav-cta">Subscribe →</a>
   </div>
 </nav>
 
@@ -1101,7 +1175,7 @@ footer {
       distance to invalidation, state pressure, and two explicit invalidation conditions.
     </p>
     <div class="membership-row">
-      <a href="#subscribe" class="btn-primary">Subscribe — $49/mo</a>
+      <a href="https://macroevidence.substack.com/subscribe" class="btn-primary">Subscribe — $49/mo</a>
     </div>
 
     <!-- Last Read + Details popover (native popover API) -->
@@ -1152,25 +1226,25 @@ footer {
     <div class="signal-strip">
       <div class="signal-cell">
         <div class="signal-label">S&amp;P 500</div>
-        <div class="signal-value">7,162</div>
+        <div class="signal-value">7,163</div>
         <div class="signal-meta">
-          <span class="signal-z">Z +1.77</span>
+          <span class="signal-z">Z +1.78</span>
           <span class="badge badge-ok">STABLE</span>
         </div>
       </div>
       <div class="signal-cell">
         <div class="signal-label">10Y Yield</div>
-        <div class="signal-value">4.32%</div>
+        <div class="signal-value">4.33%</div>
         <div class="signal-meta">
-          <span class="signal-z">Z +0.85</span>
+          <span class="signal-z">Z +0.97</span>
           <span class="badge badge-warn">RISING</span>
         </div>
       </div>
       <div class="signal-cell">
         <div class="signal-label">WTI Crude</div>
-        <div class="signal-value">$95.84</div>
+        <div class="signal-value">$96.19</div>
         <div class="signal-meta">
-          <span class="signal-z">Z +0.81</span>
+          <span class="signal-z">Z +0.83</span>
           <span class="badge badge-warn">RISING</span>
         </div>
       </div>
@@ -1204,12 +1278,12 @@ footer {
           <div class="regime-metric">
             <div class="rm-label">WTI proximity</div>
             <div class="rm-value far">FAR</div>
-            <div class="rm-sub">$95.84 vs $105.00 threshold</div>
+            <div class="rm-sub">$96.19 vs $105.00 threshold</div>
           </div>
           <div class="regime-metric">
             <div class="rm-label">SPX proximity</div>
             <div class="rm-value near">NEAR</div>
-            <div class="rm-sub">7,162 vs 7,090 threshold</div>
+            <div class="rm-sub">7,163 vs 7,091 threshold</div>
           </div>
         </div>
         <div class="regime-footer">macroevidence.com · not investment advice</div>
@@ -1231,6 +1305,77 @@ footer {
         <p class="voice-foot voice-foot--aside">
           Free to listen. Derived from distance to invalidation and state pressure — not a market opinion.
         </p>
+      </div>
+    </div>
+
+    <div class="landing-after-regime" id="methodology">
+      <div class="sec-tag">METHODOLOGY</div>
+      <p class="body-lg" style="margin-top:0;">Three signals. One regime read. Published before the first hour closes.</p>
+      <p class="body-lg">S&amp;P 500 (sentiment) &middot; 10Y yield (financial conditions) &middot; WTI crude (inflation pressure).</p>
+      <p class="body-lg">63-day rolling Z-score. 27 possible states. No forecast. No advice.</p>
+    </div>
+
+    <div class="landing-after-regime" id="track-record">
+      <div class="sec-tag">TRACK RECORD</div>
+      <div class="track-tbl-wrap">
+      <table class="track-tbl" aria-label="Historical backfill validation">
+        <thead>
+          <tr>
+            <th scope="col">DATE</th>
+            <th scope="col">EVENT</th>
+            <th scope="col">REGIME</th>
+            <th scope="col">CONFIDENCE</th>
+            <th scope="col">RESULT</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="col-date">2024-08-05</td>
+            <td>Carry unwind</td>
+            <td>Risk-off &middot; Confirmed</td>
+            <td>High</td>
+            <td class="col-res">&check;</td>
+          </tr>
+          <tr>
+            <td class="col-date">2023-03-13</td>
+            <td>SVB collapse</td>
+            <td>Risk-off &middot; Fragile</td>
+            <td>Medium</td>
+            <td class="col-res">&check;</td>
+          </tr>
+          <tr>
+            <td class="col-date">2022-06-14</td>
+            <td>Fed tightening</td>
+            <td>Restrictive &middot; Stagflation</td>
+            <td>High</td>
+            <td class="col-res">&check;</td>
+          </tr>
+          <tr>
+            <td class="col-date">2020-03-20</td>
+            <td>COVID crash</td>
+            <td>Risk-off &middot; Confirmed</td>
+            <td>High</td>
+            <td class="col-res">&check;</td>
+          </tr>
+          <tr>
+            <td class="col-date">2008-10-10</td>
+            <td>GFC peak stress</td>
+            <td>Risk-off &middot; Fragile</td>
+            <td>Medium</td>
+            <td class="col-res">&check;</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+      <p class="landing-track-foot">Live track record starts April 13, 2026. 5/5 outputs scored 8/8 on Signal Checker.</p>
+    </div>
+
+    <div class="landing-after-regime" id="membership-landing">
+      <div class="sec-tag">MEMBERSHIP</div>
+      <div class="membership-cta-block">
+        <h2 style="margin-top:0;margin-bottom:12px;max-width:36rem;">Full regime read. Signal card. Invalidation conditions. $49/month.</h2>
+        <a href="https://macroevidence.substack.com/subscribe" class="btn-primary">Subscribe &mdash; $49/month</a>
+        <p class="membership-cta-foot">macroevidence.com &middot; @MacroEvidence &middot; not financial advice</p>
       </div>
     </div>
 
