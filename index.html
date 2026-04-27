@@ -1179,11 +1179,10 @@ footer {
     </div>
 
     <!-- Session as-of date (no clock on the strip — 4:00 PM close is explained under Details) -->
-    <div class="ts-strip" role="region" aria-label="Session as-of date and next update">
+    <div class="ts-strip" role="region" aria-label="Session date and next update">
       <p class="ts-last-read">
         <span class="ts-last-read-bullet" aria-hidden="true"></span>
-        <span class="ts-last-read-label">As of:</span>
-        <time datetime="2026-04-27">Apr 27, 2026</time>
+        <time datetime="2026-04-27">April 27, 2026</time>
         <span class="ts-details-star" aria-hidden="true">*</span>
         <button
           type="button"
@@ -1198,9 +1197,9 @@ footer {
     </div>
     <div id="ts-read-details" class="ts-details-popover" popover="auto" role="dialog" aria-labelledby="ts-read-details-title">
       <div class="ts-details-popover-inner">
-        <h2 id="ts-read-details-title">What &ldquo;As of&rdquo; means</h2>
+        <h2 id="ts-read-details-title">What this date is</h2>
         <p>
-          The line above shows only the <strong>U.S. trading session date</strong> for this snapshot (the pipeline&rsquo;s <code>as_of</code> &mdash; same as <code>outputs/latest.json</code>). It is <strong>not</strong> the time of day you opened the page.
+          The <strong>date in the strip</strong> is the <strong>U.S. trading session</strong> for this snapshot (the pipeline&rsquo;s <code>as_of</code> &mdash; same as <code>outputs/latest.json</code>). It is <strong>not</strong> the time of day you opened the page.
         </p>
         <p>
           <strong>Pricing convention:</strong> those levels use the <strong>official 4:00 PM Eastern</strong> <em>daily</em> cash close for that session date &mdash; a market rule, not a &ldquo;live&rdquo; clock in the strip. Three series are from the same close, not intraday.
