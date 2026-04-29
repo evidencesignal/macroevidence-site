@@ -2,22 +2,22 @@
   "status": "ok",
   "stage_reached": "quality_check",
   "reason": null,
-  "as_of": "2026-04-28",
-  "timestamp": "2026-04-28T19:06:19.646257+00:00",
+  "as_of": "2026-04-29",
+  "timestamp": "2026-04-29T18:55:38.266734+00:00",
   "publishable": true,
   "publish_x": true,
   "publish_substack": true,
   "needs_rewrite_x": false,
   "needs_rewrite_substack": false,
   "signals": {
-    "oil_wti": 100.18000030517578,
-    "sp500": 7140.990234375,
-    "yield_10y": 4.354000091552734
+    "oil_wti": 107.27999877929688,
+    "sp500": 7123.02001953125,
+    "yield_10y": 4.415999889373779
   },
   "zscores": {
-    "z_sp500": 1.6195479396393633,
-    "z_yield_10y": 1.1345371212930426,
-    "z_oil": 1.0531071498781601
+    "z_sp500": 1.4958334782398295,
+    "z_yield_10y": 1.6230715047537432,
+    "z_oil": 1.4560553127956337
   },
   "regime": {
     "regime": "Transitional | Overheating",
@@ -37,13 +37,13 @@
         {
           "signal": "sp500",
           "operator": ">",
-          "threshold": 7248,
+          "threshold": 7230,
           "unit": "level"
         },
         {
           "signal": "sp500",
           "operator": "<",
-          "threshold": 7034,
+          "threshold": 7016,
           "unit": "level"
         }
       ]
@@ -54,13 +54,13 @@
         {
           "signal": "yield_10y",
           "operator": ">",
-          "threshold": 4.55,
+          "threshold": 4.62,
           "unit": "percent"
         },
         {
           "signal": "yield_10y",
           "operator": "<",
-          "threshold": 4.15,
+          "threshold": 4.22,
           "unit": "percent"
         }
       ]
@@ -68,37 +68,37 @@
   ],
   "invalidation_distance": {
     "condition_1": {
-      "label": "SP500 > 7,248 OR SP500 < 7,034",
+      "label": "SP500 > 7,230 OR SP500 < 7,016",
       "proximity": "NEAR",
       "conditions": [
         {
           "signal": "sp500",
           "operator": ">",
-          "threshold": 7248,
+          "threshold": 7230,
           "unit": "level"
         },
         {
           "signal": "sp500",
           "operator": "<",
-          "threshold": 7034,
+          "threshold": 7016,
           "unit": "level"
         }
       ]
     },
     "condition_2": {
-      "label": "YIELD 10Y > 4.55% OR YIELD 10Y < 4.15%",
+      "label": "YIELD 10Y > 4.62% OR YIELD 10Y < 4.22%",
       "proximity": "MODERATE",
       "conditions": [
         {
           "signal": "yield_10y",
           "operator": ">",
-          "threshold": 4.55,
+          "threshold": 4.62,
           "unit": "percent"
         },
         {
           "signal": "yield_10y",
           "operator": "<",
-          "threshold": 4.15,
+          "threshold": 4.22,
           "unit": "percent"
         }
       ]
@@ -107,19 +107,19 @@
   "state_pressure": {
     "direction": "INCREASING",
     "window": "3-session",
-    "basis": "Oil rising (+0.24s), SPX stable, 10Y rising (+0.22s)"
+    "basis": "Oil rising (+0.75s), SPX falling (-0.37s), 10Y rising (+0.84s)"
   },
-  "session_context": "1 invalidation condition(s) in near proximity: SP500 > 7,248 OR SP500 < 7,034. State pressure increasing.",
+  "session_context": "1 invalidation condition(s) in near proximity: SP500 > 7,230 OR SP500 < 7,016. State pressure increasing.",
   "confidence": {
-    "confidence": 76,
+    "confidence": 96,
     "confidence_label": "High",
     "is_no_call": false,
-    "stability": "Emerging",
-    "reasoning": "Confidence 76/100 (High). Signal strength 61/75, alignment bonus 25/25 continuity -10 (regime changed) Stability: Emerging."
+    "stability": "Stable",
+    "reasoning": "Confidence 96/100 (High). Signal strength 61/75, alignment bonus 25/25 continuity +10 (regime persisted) Stability: Stable."
   },
   "drafts": {
-    "x": "S&P 500 pushing higher while the rest of the board is watching.\nNeeds any reversal to break the range \u2014 only then does it matter.\n\nSPX 7,141. 10Y 4.35%. Oil $100.\n\nInvalidation:\n\u2022 SPX breaks above 7,248 or below 7,034\n\u2022 10Y moves beyond 4.55% or below 4.15%\n\nWhat breaks this range \u2014 and which direction?",
-    "substack": "REGIME: Transitional | Overheating\nCONFIDENCE: High (76/100)\nRISK TILT: neutral\nSTABILITY: Emerging\n\nSnapshot \u2014 Apr 28, 2026\n  S&P 500:     7,140.99   z +1.62\n  10Y Yield:      4.354%  z +1.13\n  WTI Oil:       100.18   z +1.05\n\nINSIGHT\nS&P 500 at 7,141 is pushing above its recent range \u2014 a move that only matters if it holds. 10Y yield at 4.35% is elevated relative to its rolling mean \u2014 starting to lean but not decisive. Oil at $100 is elevated relative to its rolling mean \u2014 starting to lean but not decisive.\n\nINVALIDATION\n\u2022 SPX breaks above 7,248 or below 7,034\n\u2022 10Y moves beyond 4.55% or below 4.15%\n\nMethod: MacroEvidence pipeline \u00b7 yfinance + FRED \u00b7 63-session rolling z-scores \u00b7 not financial advice.",
+    "x": "10Y yield pushing higher while the rest of the board is watching.\nNeeds any reversal to break the range \u2014 only then does it matter.\n\nSPX 7,123. 10Y 4.42%. Oil $107.\n\nInvalidation:\n\u2022 SPX breaks above 7,230 or below 7,016\n\u2022 10Y moves beyond 4.62% or below 4.22%\n\nWhat breaks this range \u2014 and which direction?",
+    "substack": "REGIME: Transitional | Overheating\nCONFIDENCE: High (96/100)\nRISK TILT: neutral\nSTABILITY: Stable\n\nSnapshot \u2014 Apr 29, 2026\n  S&P 500:     7,123.02   z +1.50\n  10Y Yield:      4.416%  z +1.62\n  WTI Oil:       107.28   z +1.46\n\nINSIGHT\nS&P 500 at 7,123 is elevated relative to its rolling mean \u2014 starting to lean but not decisive. 10Y yield at 4.42% is pushing above its recent range \u2014 a move that only matters if it holds. Oil at $107 is elevated relative to its rolling mean \u2014 starting to lean but not decisive.\n\nINVALIDATION\n\u2022 SPX breaks above 7,230 or below 7,016\n\u2022 10Y moves beyond 4.62% or below 4.22%\n\nMethod: MacroEvidence pipeline \u00b7 yfinance + FRED \u00b7 63-session rolling z-scores \u00b7 not financial advice.",
     "word_counts": {}
   },
   "checker": {
@@ -147,5 +147,5 @@
     }
   },
   "rule_md_version": "1.0",
-  "previous_regime_code": "transitional_from_restrictive"
+  "previous_regime_code": "transitional_overheating"
 }
