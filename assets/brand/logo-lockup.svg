@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 83 61" fill="none" role="img" aria-label="Macro Evidence">
+  <!-- M monogram (from brand me-mark geometry, scaled) -->
+  <g transform="translate(3,7) scale(1.75)">
+    <path fill="#34414E" d="M1.5 20V2h2.9l3.6 8.5L11.6 2h2.9v18h-2.6V7.8L8.6 16H7.4L3.9 7.9V20H1.5z"/>
+  </g>
+  <!-- Descending vertical bars  muted blue -->
+  <rect x="38" y="10" width="6.5" height="22" rx="0.8" fill="#8EA6BE"/>
+  <rect x="46.5" y="16" width="6.5" height="16" rx="0.8" fill="#8EA6BE"/>
+  <rect x="55" y="21" width="6.5" height="11" rx="0.8" fill="#8EA6BE"/>
+  <text x="4" y="54.5" font-family="system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="9.5" font-weight="500" fill="#5a5a5a" letter-spacing="-0.01em">Macro Evidence</text>
+</svg>

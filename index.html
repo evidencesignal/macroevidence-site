@@ -87,7 +87,7 @@ nav::after {
   max-width: 980px; margin: 0 auto;
   gap: 20px;
 }
-/* Logo lockup PNG (assets/brand/logo-lockup.png) — mark + wordmark */
+/* Logo lockup SVG (assets/brand/logo-lockup.svg) — mark + wordmark (+20% vs prior PNG scale) */
 .nav-lockup {
   display: inline-flex;
   flex-direction: row;
@@ -100,9 +100,9 @@ nav::after {
 }
 .nav-wordmark {
   display: block;
-  height: clamp(34px, 4.2vw, 44px);
+  height: clamp(41px, 5vw, 53px);
   width: auto;
-  max-width: min(200px, 82vw);
+  max-width: min(240px, 85vw);
   object-fit: contain;
 }
 .nav-lockup:hover { opacity: 0.86; }
@@ -1137,7 +1137,7 @@ footer {
 <nav>
   <div class="nav-inner">
     <a href="#home" class="nav-lockup" aria-label="Macro Evidence — home">
-      <img class="nav-wordmark" src="assets/brand/logo-lockup.png" width="83" height="61" alt="" />
+      <img class="nav-wordmark" src="assets/brand/logo-lockup.svg" width="83" height="61" alt="" />
     </a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
