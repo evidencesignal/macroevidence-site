@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MacroEvidence — Daily macro state you can think with</title>
 <meta name="description" content="MacroEvidence publishes the current macro regime from three signals every market session. Same model, every day. No predictions. No portfolio advice.">
+<link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=DM+Serif+Display:wght@400&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&display=swap" rel="stylesheet">
 <style>
 /* ── Reset ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -87,44 +87,29 @@ nav::after {
   max-width: 980px; margin: 0 auto;
   gap: 20px;
 }
-/* Wordmark only (Inter — ME mark removed) */
+/* Wordmark SVG (assets/brand/wordmark.svg) — MACRO | EVIDENCE */
 .nav-lockup {
   display: inline-flex;
   flex-direction: row;
   align-items: center;
   text-decoration: none;
-  color: inherit;
+  color: var(--ink);
   padding: 2px 0;
   flex-shrink: 0;
+  transition: opacity 0.2s var(--ease-out);
 }
+.nav-wordmark {
+  display: block;
+  height: clamp(15px, 1.55vw, 20px);
+  width: auto;
+  max-width: min(220px, 78vw);
+}
+.nav-lockup:hover { opacity: 0.86; }
 .nav-lockup:focus-visible {
   outline: 2px solid var(--ink);
   outline-offset: 6px;
   border-radius: 6px;
 }
-.nav-lockup-type {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 0.02em;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  font-size: clamp(15px, 1.4vw, 18px);
-  font-weight: 500;
-  letter-spacing: -0.018em;
-  line-height: 1;
-  font-feature-settings: "kern" 1, "liga" 1;
-  -webkit-font-smoothing: antialiased;
-}
-.nav-lockup-w1 {
-  font-weight: 600;
-  color: var(--ink);
-  letter-spacing: -0.022em;
-}
-.nav-lockup-w2 {
-  font-weight: 500;
-  color: #4a4a4a;
-  letter-spacing: -0.014em;
-}
-.nav-lockup:hover .nav-lockup-w2 { color: #3d3d3d; }
 .nav-links { display: flex; gap: 28px; list-style: none; }
 .nav-links a {
   font-family: var(--mono); font-size: 12px;
@@ -1151,7 +1136,7 @@ footer {
 <nav>
   <div class="nav-inner">
     <a href="#home" class="nav-lockup" aria-label="Macro Evidence — home">
-      <span class="nav-lockup-type"><span class="nav-lockup-w1">Macro</span><span class="nav-lockup-w2">Evidence</span></span>
+      <img class="nav-wordmark" src="assets/brand/wordmark.svg" width="210" height="20" alt="" />
     </a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
@@ -1182,7 +1167,7 @@ footer {
     <div class="ts-strip" role="region" aria-label="Session date and next update">
       <p class="ts-last-read">
         <span class="ts-last-read-bullet" aria-hidden="true"></span>
-        <time datetime="2026-04-29">April 29, 2026</time>
+        <time datetime="2026-04-30">April 30, 2026</time>
         <span class="ts-details-star" aria-hidden="true">*</span>
         <button
           type="button"
@@ -1193,7 +1178,7 @@ footer {
           aria-controls="ts-read-details"
         >Details</button>
       </p>
-      <p class="ts-next-up">Next update: Apr 30, 2026 · after U.S. market close <span class="ts-next-note">(U.S. cash session days)</span></p>
+      <p class="ts-next-up">Next update: May 1, 2026 · after U.S. market close <span class="ts-next-note">(U.S. cash session days)</span></p>
     </div>
     <div id="ts-read-details" class="ts-details-popover" popover="auto" role="dialog" aria-labelledby="ts-read-details-title">
       <div class="ts-details-popover-inner">
@@ -1228,25 +1213,25 @@ footer {
     <div class="signal-strip">
       <div class="signal-cell">
         <div class="signal-label">S&amp;P 500</div>
-        <div class="signal-value">7,130</div>
+        <div class="signal-value">7,139</div>
         <div class="signal-meta">
-          <span class="signal-z">Z +1.53</span>
+          <span class="signal-z">Z +1.54</span>
           <span class="badge badge-alert">NEAR THRESHOLD</span>
         </div>
       </div>
       <div class="signal-cell">
         <div class="signal-label">10Y Yield</div>
-        <div class="signal-value">4.42%</div>
+        <div class="signal-value">4.39%</div>
         <div class="signal-meta">
-          <span class="signal-z">Z +1.64</span>
+          <span class="signal-z">Z +1.35</span>
           <span class="badge badge-ok">ELEVATED</span>
         </div>
       </div>
       <div class="signal-cell">
         <div class="signal-label">WTI Crude</div>
-        <div class="signal-value">$108.20</div>
+        <div class="signal-value">$105.68</div>
         <div class="signal-meta">
-          <span class="signal-z">Z +1.51</span>
+          <span class="signal-z">Z +1.31</span>
           <span class="badge badge-warn">RISING</span>
         </div>
       </div>
@@ -1269,7 +1254,7 @@ footer {
         <div class="regime-bottom">
           <div class="regime-metric">
             <div class="rm-label">Confidence</div>
-            <div class="rm-value">100 / 100</div>
+            <div class="rm-value">96 / 100</div>
             <div class="rm-sub">HIGH</div>
           </div>
           <div class="regime-metric">
@@ -1285,7 +1270,7 @@ footer {
           <div class="regime-metric">
             <div class="rm-label">SPX proximity</div>
             <div class="rm-value near">NEAR</div>
-            <div class="rm-sub">7,130 vs 7,023 threshold</div>
+            <div class="rm-sub">7,139 vs 7,032 threshold</div>
           </div>
         </div>
         <div class="regime-footer">macroevidence.com · not investment advice</div>

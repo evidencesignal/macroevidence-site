@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 20" fill="currentColor" role="img" aria-label="Macro Evidence">
+  <!-- Inline in HTML after Inter loads for best match; as <img> uses system-ui fallback -->
+  <text font-family="Inter, system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" letter-spacing="0.02em" x="0" y="15">
+    MACRO<tspan font-weight="700" dx="6">|</tspan><tspan dx="6" font-weight="500">EVIDENCE</tspan>
+  </text>
+</svg>
