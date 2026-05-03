@@ -2,32 +2,32 @@
   "status": "ok",
   "stage_reached": "quality_check",
   "reason": null,
-  "as_of": "2026-05-01",
-  "timestamp": "2026-05-01T14:08:45.360353+00:00",
+  "as_of": "2026-05-03",
+  "timestamp": "2026-05-03T13:35:40.517070+00:00",
   "publishable": true,
   "publish_x": true,
   "publish_substack": true,
   "needs_rewrite_x": false,
   "needs_rewrite_substack": false,
   "signals": {
-    "oil_wti": 100.79000091552734,
-    "sp500": 7263.43017578125,
-    "yield_10y": 4.4019999504089355
+    "oil_wti": 101.94000244140625,
+    "sp500": 7230.1201171875,
+    "yield_10y": 4.377999782562256
   },
   "zscores": {
-    "z_sp500": 2.038115818839535,
-    "z_yield_10y": 1.4120404793580834,
-    "z_oil": 0.9728843208751838
+    "z_sp500": 1.8933636559382376,
+    "z_yield_10y": 1.2168951530367544,
+    "z_oil": 1.0302292413984186
   },
   "regime": {
-    "regime": "Transitional | From restrictive",
-    "regime_code": "transitional_from_restrictive",
+    "regime": "Transitional | Overheating",
+    "regime_code": "transitional_overheating",
     "risk_tilt": "neutral",
-    "description": "Equities breaking higher despite elevated yields \u2014 regime may be turning.",
+    "description": "Everything elevated \u2014 growth strong but inflation pressure building.",
     "states": {
       "s_sp500": 1,
       "s_yield": 1,
-      "s_oil": 0
+      "s_oil": 1
     }
   },
   "invalidations_structured": [
@@ -37,13 +37,13 @@
         {
           "signal": "sp500",
           "operator": ">",
-          "threshold": 7372,
+          "threshold": 7339,
           "unit": "level"
         },
         {
           "signal": "sp500",
           "operator": "<",
-          "threshold": 7154,
+          "threshold": 7122,
           "unit": "level"
         }
       ]
@@ -54,13 +54,13 @@
         {
           "signal": "yield_10y",
           "operator": ">",
-          "threshold": 4.6,
+          "threshold": 4.58,
           "unit": "percent"
         },
         {
           "signal": "yield_10y",
           "operator": "<",
-          "threshold": 4.2,
+          "threshold": 4.18,
           "unit": "percent"
         }
       ]
@@ -68,37 +68,37 @@
   ],
   "invalidation_distance": {
     "condition_1": {
-      "label": "SP500 > 7,372 OR SP500 < 7,154",
+      "label": "SP500 > 7,339 OR SP500 < 7,122",
       "proximity": "NEAR",
       "conditions": [
         {
           "signal": "sp500",
           "operator": ">",
-          "threshold": 7372,
+          "threshold": 7339,
           "unit": "level"
         },
         {
           "signal": "sp500",
           "operator": "<",
-          "threshold": 7154,
+          "threshold": 7122,
           "unit": "level"
         }
       ]
     },
     "condition_2": {
-      "label": "YIELD 10Y > 4.60% OR YIELD 10Y < 4.20%",
+      "label": "YIELD 10Y > 4.58% OR YIELD 10Y < 4.18%",
       "proximity": "MODERATE",
       "conditions": [
         {
           "signal": "yield_10y",
           "operator": ">",
-          "threshold": 4.6,
+          "threshold": 4.58,
           "unit": "percent"
         },
         {
           "signal": "yield_10y",
           "operator": "<",
-          "threshold": 4.2,
+          "threshold": 4.18,
           "unit": "percent"
         }
       ]
@@ -107,19 +107,19 @@
   "state_pressure": {
     "direction": "INCREASING",
     "window": "3-session",
-    "basis": "Oil stable, SPX rising (+0.41s), 10Y rising (+0.30s)"
+    "basis": "Oil rising (+0.05s), SPX rising (+0.26s), 10Y rising (+0.10s)"
   },
-  "session_context": "1 invalidation condition(s) in near proximity: SP500 > 7,372 OR SP500 < 7,154. State pressure increasing.",
+  "session_context": "1 invalidation condition(s) in near proximity: SP500 > 7,339 OR SP500 < 7,122. State pressure increasing.",
   "confidence": {
-    "confidence": 58,
-    "confidence_label": "Medium",
+    "confidence": 76,
+    "confidence_label": "High",
     "is_no_call": false,
     "stability": "Emerging",
-    "reasoning": "Confidence 58/100 (Medium). Signal strength 53/75, alignment bonus 15/25 continuity -10 (regime changed) Stability: Emerging."
+    "reasoning": "Confidence 76/100 (High). Signal strength 61/75, alignment bonus 25/25 continuity -10 (regime changed) Stability: Emerging."
   },
   "drafts": {
-    "x": "S&P 500 is surging \u2014 and the other signals aren't confirming.\nNeeds oil to break the range \u2014 only then does it matter.\n\nSPX 7,263. 10Y 4.40%. Oil $101.\n\nInvalidation:\n\u2022 SPX breaks above 7,372 or below 7,154\n\u2022 10Y moves beyond 4.60% or below 4.20%\n\nWhat breaks this range \u2014 and which direction?",
-    "substack": "REGIME: Transitional | From restrictive\nCONFIDENCE: Medium (58/100)\nRISK TILT: neutral\nSTABILITY: Emerging\n\nSnapshot \u2014 May 01, 2026\n  S&P 500:     7,263.43   z +2.04\n  10Y Yield:      4.402%  z +1.41\n  WTI Oil:       100.79   z +0.97\n\nINSIGHT\nS&P 500 at 7,263 is running well beyond its 63-session range \u2014 equities haven't been this stretched in months. 10Y yield at 4.40% is elevated relative to its rolling mean \u2014 starting to lean but not decisive. Oil at $101 is sitting near its 63-session mean \u2014 no signal from oil. Confidence sits at 58/100 \u2014 enough for a directional lean but not a high-conviction call.\n\nINVALIDATION\n\u2022 SPX breaks above 7,372 or below 7,154\n\u2022 10Y moves beyond 4.60% or below 4.20%\n\nMethod: MacroEvidence pipeline \u00b7 yfinance + FRED \u00b7 63-session rolling z-scores \u00b7 not financial advice.",
+    "x": "S&P 500 pushing higher while the rest of the board is watching.\nNeeds any reversal to break the range \u2014 only then does it matter.\n\nSPX 7,230. 10Y 4.38%. Oil $102.\n\nInvalidation:\n\u2022 SPX breaks above 7,339 or below 7,122\n\u2022 10Y moves beyond 4.58% or below 4.18%\n\nWhat breaks this range \u2014 and which direction?",
+    "substack": "REGIME: Transitional | Overheating\nCONFIDENCE: High (76/100)\nRISK TILT: neutral\nSTABILITY: Emerging\n\nSnapshot \u2014 May 03, 2026\n  S&P 500:     7,230.12   z +1.89\n  10Y Yield:      4.378%  z +1.22\n  WTI Oil:       101.94   z +1.03\n\nINSIGHT\nS&P 500 at 7,230 is pushing above its recent range \u2014 a move that only matters if it holds. 10Y yield at 4.38% is elevated relative to its rolling mean \u2014 starting to lean but not decisive. Oil at $102 is elevated relative to its rolling mean \u2014 starting to lean but not decisive.\n\nINVALIDATION\n\u2022 SPX breaks above 7,339 or below 7,122\n\u2022 10Y moves beyond 4.58% or below 4.18%\n\nMethod: MacroEvidence pipeline \u00b7 yfinance + FRED \u00b7 63-session rolling z-scores \u00b7 not financial advice.",
     "word_counts": {}
   },
   "checker": {
@@ -147,5 +147,5 @@
     }
   },
   "rule_md_version": "1.0",
-  "previous_regime_code": "transitional_overheating"
+  "previous_regime_code": "transitional_from_restrictive"
 }
