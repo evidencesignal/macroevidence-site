@@ -1191,7 +1191,7 @@ footer {
           <strong>Pricing convention:</strong> those levels use the <strong>official 4:00 PM Eastern</strong> <em>daily</em> cash close for that session date &mdash; a market rule, not a &ldquo;live&rdquo; clock in the strip. Three series are from the same close, not intraday.
         </p>
         <p>
-          <strong>Data source:</strong> MacroEvidence pipeline, same run as the <a href="signal-card.html" style="color:var(--blue-text)">signal card</a> for <strong>April 27, 2026</strong>. Run <code>scripts/update_site.py</code> from the project root after a pipeline run to sync the page.
+          <strong>Data source:</strong> MacroEvidence pipeline, same run as the <a href="signal-card.html" style="color:var(--blue-text)">signal card</a> for <strong>May 8, 2026</strong>. Run <code>scripts/update_site.py</code> from the project root after a pipeline run to sync the page.
         </p>
         <p>
           <strong>When it updates in production:</strong> after each U.S. trading day, once data and the publication pipeline have finished (usually the same evening Eastern; exact time varies). There is no intraday refresh on this cadence.
@@ -1214,9 +1214,9 @@ footer {
     <div class="signal-strip">
       <div class="signal-cell">
         <div class="signal-label">S&amp;P 500</div>
-        <div class="signal-value">7,371</div>
+        <div class="signal-value">7,377</div>
         <div class="signal-meta">
-          <span class="signal-z">Z +2.06</span>
+          <span class="signal-z">Z +2.08</span>
           <span class="badge badge-ok">STABLE</span>
         </div>
       </div>
@@ -1224,15 +1224,15 @@ footer {
         <div class="signal-label">10Y Yield</div>
         <div class="signal-value">4.36%</div>
         <div class="signal-meta">
-          <span class="signal-z">Z +0.94</span>
+          <span class="signal-z">Z +0.88</span>
           <span class="badge badge-warn">RISING</span>
         </div>
       </div>
-      <div class="signal-cell">
+        <div class="signal-cell">
         <div class="signal-label">WTI Crude</div>
-        <div class="signal-value">$94.62</div>
+        <div class="signal-value">$94.15</div>
         <div class="signal-meta">
-          <span class="signal-z">Z +0.43</span>
+          <span class="signal-z">Z +0.40</span>
           <span class="badge badge-warn">RISING</span>
         </div>
       </div>
@@ -1266,15 +1266,15 @@ footer {
           <div class="regime-metric">
             <div class="rm-label">WTI proximity</div>
             <div class="rm-value far">FAR</div>
-            <div class="rm-sub">$94.62 vs $104.00 threshold</div>
+            <div class="rm-sub">$94.15 vs $103.00 threshold</div>
           </div>
           <div class="regime-metric">
             <div class="rm-label">SPX proximity</div>
             <div class="rm-value near">NEAR</div>
-            <div class="rm-sub">7,371 vs 7,297 threshold</div>
+            <div class="rm-sub">7,377 vs 7,303 threshold</div>
           </div>
         </div>
-        <div class="regime-footer">macroevidence.com · not investment advice</div>
+        <div class="regime-footer">macroevidence.com · not financial advice</div>
       </div>
       <div class="voice-panel voice-panel--aside" aria-label="Voice summary preview">
         <button type="button" class="voice-play" aria-label="Play voice summary">
@@ -1294,6 +1294,28 @@ footer {
           Free to listen. Derived from distance to invalidation and state pressure — not a market opinion.
         </p>
       </div>
+    </div>
+
+    <div class="callout" id="today-read" style="margin-top: 48px; max-width: 42rem;">
+      <div class="callout-label">Today's read · May 8, 2026</div>
+      <p class="callout-body" style="margin-bottom: 14px;">
+        Risk-on Emerging. <strong>48/100</strong>. Third session.
+      </p>
+      <p class="callout-body" style="margin-bottom: 14px;">
+        SPX flat at 7,371. 10Y recovering to Z +0.94 from yesterday's Z +0.70 — rates pushing back.
+      </p>
+      <p class="callout-body" style="margin-bottom: 14px;">
+        <strong>SPX 7,371.</strong> <strong>10Y 4.36%.</strong> <strong>Oil $95.</strong>
+      </p>
+      <p class="callout-body" style="margin-bottom: 8px;"><strong>Invalidation:</strong></p>
+      <ul class="callout-body" style="margin: 0 0 14px 1.25em; padding: 0; list-style: disc;">
+        <li style="margin-bottom: 6px;">10Y above 4.51% + SPX loses 7,297</li>
+        <li>Oil above $104</li>
+      </ul>
+      <p class="callout-body" style="margin-bottom: 0;">Confirmation gate still open.</p>
+      <p style="font-family: var(--mono); font-size: 12px; color: var(--ink-muted); margin-top: 18px; margin-bottom: 0;">
+        macroevidence.com · not financial advice
+      </p>
     </div>
 
     <div class="landing-after-regime" id="methodology">
