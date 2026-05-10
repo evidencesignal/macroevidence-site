@@ -2,22 +2,22 @@
   "status": "ok",
   "stage_reached": "quality_check",
   "reason": null,
-  "as_of": "2026-05-08",
-  "timestamp": "2026-05-08T13:45:13.398192+00:00",
+  "as_of": "2026-05-10",
+  "timestamp": "2026-05-10T02:06:59.637001+00:00",
   "publishable": true,
   "publish_x": true,
   "publish_substack": true,
   "needs_rewrite_x": false,
   "needs_rewrite_substack": false,
   "signals": {
-    "oil_wti": 94.1500015258789,
-    "sp500": 7376.919921875,
-    "yield_10y": 4.355999946594238
+    "oil_wti": 95.41999816894531,
+    "sp500": 7398.93017578125,
+    "yield_10y": 4.363999843597412
   },
   "zscores": {
-    "z_sp500": 2.080408232822507,
-    "z_yield_10y": 0.8809964942605473,
-    "z_oil": 0.39662154558957796
+    "z_sp500": 2.1625421778402605,
+    "z_yield_10y": 0.9421973521601901,
+    "z_oil": 0.4814334403421439
   },
   "regime": {
     "regime": "Risk-on | Emerging",
@@ -43,7 +43,7 @@
         {
           "signal": "sp500",
           "operator": "<",
-          "threshold": 7303,
+          "threshold": 7325,
           "unit": "level"
         }
       ]
@@ -54,7 +54,7 @@
         {
           "signal": "oil_wti",
           "operator": ">",
-          "threshold": 103,
+          "threshold": 104,
           "unit": "dollars"
         }
       ]
@@ -62,7 +62,7 @@
   ],
   "invalidation_distance": {
     "condition_1": {
-      "label": "YIELD 10Y > 4.51% AND SP500 < 7,303",
+      "label": "YIELD 10Y > 4.51% AND SP500 < 7,325",
       "proximity": "NEAR",
       "conditions": [
         {
@@ -74,19 +74,19 @@
         {
           "signal": "sp500",
           "operator": "<",
-          "threshold": 7303,
+          "threshold": 7325,
           "unit": "level"
         }
       ]
     },
     "condition_2": {
-      "label": "OIL WTI > $103",
+      "label": "OIL WTI > $104",
       "proximity": "FAR",
       "conditions": [
         {
           "signal": "oil_wti",
           "operator": ">",
-          "threshold": 103,
+          "threshold": 104,
           "unit": "dollars"
         }
       ]
@@ -95,9 +95,9 @@
   "state_pressure": {
     "direction": "DECREASING",
     "window": "3-session",
-    "basis": "Oil falling (-0.55s), SPX rising (+0.22s), 10Y falling (-0.52s)"
+    "basis": "Oil falling (-0.47s), SPX rising (+0.30s), 10Y falling (-0.46s)"
   },
-  "session_context": "1 invalidation condition(s) in near proximity: YIELD 10Y > 4.51% AND SP500 < 7,303. State pressure decreasing.",
+  "session_context": "1 invalidation condition(s) in near proximity: YIELD 10Y > 4.51% AND SP500 < 7,325. State pressure decreasing.",
   "confidence": {
     "confidence": 48,
     "confidence_label": "Medium",
@@ -106,8 +106,8 @@
     "reasoning": "Confidence 48/100 (Medium). Signal strength 38/75, alignment bonus 0/25 continuity +10 (regime persisted) Stability: Fragile."
   },
   "drafts": {
-    "x": "S&P 500 is surging \u2014 and the other signals aren't confirming.\nOnly matters if yields or oil confirms \u2014 and it hasn't yet.\n\nSPX 7,377. 10Y 4.36%. Oil $94.\n\nInvalidation:\n\u2022 10Y above 4.51% + SPX loses 7,303\n\u2022 Oil above $103\n\nWhat's the signal that tells you this rally is real?",
-    "substack": "REGIME: Risk-on | Emerging\nCONFIDENCE: Medium (48/100)\nRISK TILT: pro-risk\nSTABILITY: Fragile\n\nSnapshot \u2014 May 08, 2026\n  S&P 500:     7,376.92   z +2.08\n  10Y Yield:      4.356%  z +0.88\n  WTI Oil:        94.15   z +0.40\n\nINSIGHT\nS&P 500 at 7,377 is running well beyond its 63-session range \u2014 equities haven't been this stretched in months. 10Y yield at 4.36% is sitting near its 63-session mean \u2014 no signal from yields. Oil at $94 is sitting near its 63-session mean \u2014 no signal from oil. Confidence sits at 48/100 \u2014 enough for a directional lean but not a high-conviction call.\n\nINVALIDATION\n\u2022 10Y above 4.51% + SPX loses 7,303\n\u2022 Oil above $103\n\nMethod: MacroEvidence pipeline \u00b7 yfinance + FRED \u00b7 63-session rolling z-scores \u00b7 not financial advice.",
+    "x": "S&P 500 is surging \u2014 and the other signals aren't confirming.\nOnly matters if yields or oil confirms \u2014 and it hasn't yet.\n\nSPX 7,399. 10Y 4.36%. Oil $95.\n\nInvalidation:\n\u2022 10Y above 4.51% + SPX loses 7,325\n\u2022 Oil above $104\n\nWhat's the signal that tells you this rally is real?",
+    "substack": "REGIME: Risk-on | Emerging\nCONFIDENCE: Medium (48/100)\nRISK TILT: pro-risk\nSTABILITY: Fragile\n\nSnapshot \u2014 May 09, 2026\n  S&P 500:     7,398.93   z +2.16\n  10Y Yield:      4.364%  z +0.94\n  WTI Oil:        95.42   z +0.48\n\nINSIGHT\nS&P 500 at 7,399 is running well beyond its 63-session range \u2014 equities haven't been this stretched in months. 10Y yield at 4.36% is sitting near its 63-session mean \u2014 no signal from yields. Oil at $95 is sitting near its 63-session mean \u2014 no signal from oil. Confidence sits at 48/100 \u2014 enough for a directional lean but not a high-conviction call.\n\nINVALIDATION\n\u2022 10Y above 4.51% + SPX loses 7,325\n\u2022 Oil above $104\n\nMethod: MacroEvidence pipeline \u00b7 yfinance + FRED \u00b7 63-session rolling z-scores \u00b7 not financial advice.",
     "word_counts": {}
   },
   "checker": {
