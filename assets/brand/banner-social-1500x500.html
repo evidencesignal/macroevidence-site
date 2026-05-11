@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>MacroEvidence - social header 1500×500 (export)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display&display=swap" rel="stylesheet" />
+  <style>
+    /* Tokens aligned with macroevidence.com (index.html) */
+    :root {
+      --ink: #0c0c0c;
+      --ink-mid: #3d3d3d;
+      --ink-muted: #5c5c5c;
+      --rule: #e0ddd4;
+      --rule-strong: #c9c4b8;
+      --paper: #faf8f4;
+      --paper-deep: #f5f2ec;
+      --blue-text: #0c447c;
+      --shadow-sm: 0 1px 2px rgba(12, 12, 12, 0.04);
+      --mono: "DM Mono", ui-monospace, monospace;
+      --serif: "DM Serif Display", Georgia, "Times New Roman", serif;
+      --sans: Arial, Helvetica, system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      margin: 0;
+      background: #1a1a1a;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    /* Fixed canvas - X / LinkedIn header spec */
+    .canvas {
+      width: 1500px;
+      height: 500px;
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, #fffdfb 0%, rgba(255, 253, 250, 0) 45%),
+        radial-gradient(ellipse 90% 80% at 18% 20%, rgba(122, 74, 10, 0.06), transparent 50%),
+        radial-gradient(ellipse 70% 60% at 100% 100%, rgba(12, 68, 124, 0.04), transparent 45%),
+        var(--paper);
+      border: 1px solid var(--rule);
+      box-shadow: 0 12px 48px rgba(12, 12, 12, 0.12);
+    }
+    .decor {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+    .decor-chart {
+      position: absolute;
+      right: 32px;
+      bottom: 36px;
+      width: 280px;
+      height: 90px;
+      opacity: 0.14;
+      color: var(--rule-strong);
+    }
+    .decor-map {
+      position: absolute;
+      right: 120px;
+      top: 28px;
+      width: 200px;
+      height: 100px;
+      opacity: 0.1;
+      color: var(--rule-strong);
+    }
+    .inner {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 1px minmax(0, 2fr);
+      gap: 0 44px;
+      padding: 44px 52px 48px 56px;
+      align-items: stretch;
+    }
+    .rule-v {
+      background: linear-gradient(
+        180deg,
+        transparent 0%,
+        var(--rule) 8%,
+        var(--rule) 92%,
+        transparent 100%
+      );
+      width: 1px;
+    }
+    /* Left column */
+    .col-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 20px;
+      max-width: 420px;
+    }
+    .mark-wrap {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--paper-deep);
+      border: 1px solid var(--rule);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-sm);
+    }
+    .mark-wrap svg {
+      width: 30px;
+      height: auto;
+      display: block;
+    }
+    .kicker {
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      line-height: 1.35;
+    }
+    .kicker-line {
+      width: 56px;
+      height: 1px;
+      margin-top: 4px;
+      background: linear-gradient(90deg, var(--rule-strong), transparent);
+    }
+    .left-lede {
+      font-family: var(--sans);
+      font-size: 17px;
+      font-weight: 400;
+      line-height: 1.55;
+      color: var(--ink-mid);
+      max-width: 22em;
+    }
+    /* Right column */
+    .col-right {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 22px;
+      padding-left: 8px;
+    }
+    .headline {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: 52px;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+    }
+    .headline span.dot {
+      color: var(--blue-text);
+      font-weight: 400;
+      margin: 0 1px;
+    }
+    .subline-rule {
+      width: min(420px, 100%);
+      height: 1px;
+      background: linear-gradient(90deg, var(--rule-strong), transparent);
+    }
+    .subline {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      line-height: 1.65;
+      max-width: 52em;
+    }
+    .subline strong {
+      color: var(--ink);
+      font-weight: 500;
+    }
+    .subline .accent {
+      color: var(--blue-text);
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <!--
+    Export: open this file in Chrome → screenshot viewport at 1500×500,
+    or print dialog → Save as PDF → crop to exact pixels.
+    Matches macroevidence.com typography + palette (warm paper, DM Serif / mono).
+  -->
+  <div class="canvas" role="img" aria-label="MacroEvidence banner">
+    <svg class="decor decor-map" viewBox="0 0 200 100" aria-hidden="true">
+      <defs>
+        <pattern id="dots" width="10" height="10" patternUnits="userSpaceOnUse">
+          <circle cx="2" cy="2" r="1.2" fill="currentColor" />
+        </pattern>
+      </defs>
+      <rect width="200" height="100" fill="url(#dots)" />
+    </svg>
+    <svg class="decor decor-chart" viewBox="0 0 280 90" aria-hidden="true">
+      <path
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        d="M8 72 L38 58 L62 64 L88 42 L112 48 L138 32 L162 38 L188 22 L212 28 L238 14 L262 20"
+      />
+      <path fill="currentColor" opacity="0.35" d="M34 58 L40 52 L46 58 Z M108 48 L114 42 L120 48 Z M182 22 L188 16 L194 22 Z" />
+      <line x1="8" y1="78" x2="268" y2="78" stroke="currentColor" stroke-width="1" opacity="0.5" />
+    </svg>
+
+    <div class="inner">
+      <div class="col-left">
+        <div class="mark-wrap">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 22" fill="none" aria-hidden="true">
+            <path fill="#34414E" d="M1.5 20V2h2.9l3.6 8.5L11.6 2h2.9v18h-2.6V7.8L8.6 16H7.4L3.9 7.9V20H1.5z" />
+            <rect x="16.2" y="4.2" width="11.8" height="2" rx="0.4" fill="#8A97A4" />
+            <rect x="16.2" y="10" width="8" height="2" rx="0.4" fill="#8A97A4" />
+            <rect x="16.2" y="15.8" width="11.8" height="2" rx="0.4" fill="#8A97A4" />
+          </svg>
+        </div>
+        <div>
+          <p class="kicker">A framework for decisions</p>
+          <div class="kicker-line"></div>
+        </div>
+        <p class="left-lede">Structure over noise.<br />Clarity over opinion.</p>
+      </div>
+      <div class="rule-v" aria-hidden="true"></div>
+      <div class="col-right">
+        <h1 class="headline">
+          Evidence first<span class="dot">·</span><br />
+          Explicit invalidation<span class="dot">·</span><br />
+          Clearer decisions<span class="dot">·</span>
+        </h1>
+        <div class="subline-rule"></div>
+        <p class="subline">
+          <strong>No predictions.</strong> No narratives.
+          <span class="accent">Just the frame.</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
