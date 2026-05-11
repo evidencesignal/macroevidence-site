@@ -2,50 +2,56 @@
   "status": "ok",
   "stage_reached": "persist",
   "reason": null,
-  "as_of": "2026-04-21",
-  "timestamp": "2026-04-21T12:00:00+00:00",
+  "as_of": "2026-05-11",
+  "timestamp": "2026-05-11T16:05:00+00:00",
   "publishable": true,
   "publish_x": true,
   "publish_substack": true,
   "needs_rewrite_x": false,
   "needs_rewrite_substack": false,
   "signals": {
-    "sp500": 5400.0,
-    "yield_10y": 4.3,
-    "oil_wti": 78.2
+    "sp500": 7400,
+    "yield_10y": 4.38,
+    "oil_wti": 96.97
   },
   "zscores": {
-    "z_sp500": 1.8,
-    "z_oil": 0.3,
-    "z_yield_10y": 0.4
+    "z_sp500": 2.05,
+    "z_oil": 0.54,
+    "z_yield_10y": 1.02
   },
   "regime": {
-    "regime": "Risk-on",
-    "regime_code": "RO_E",
-    "risk_tilt": "pro-risk",
-    "description": "Emerging risk-on",
+    "regime": "Transitional | Emerging",
+    "regime_code": "TR_E",
+    "risk_tilt": "neutral",
+    "description": "Transitional regime, emerging read",
     "states": { "s_sp500": 1, "s_yield": 0, "s_oil": 0 }
   },
   "invalidations_structured": [
     {
-      "type": "compound_AND",
+      "type": "compound_OR",
       "conditions": [
-        { "signal": "yield_10y", "operator": ">", "threshold": 4.45, "unit": "percent" },
-        { "signal": "sp500", "operator": "<", "threshold": 5346, "unit": "level" }
+        { "signal": "sp500", "operator": ">", "threshold": 7511, "unit": "level" },
+        { "signal": "sp500", "operator": "<", "threshold": 7289, "unit": "level" }
       ]
     },
-    { "type": "simple", "conditions": [{ "signal": "oil_wti", "operator": ">", "threshold": 87, "unit": "dollars" }] }
+    {
+      "type": "compound_OR",
+      "conditions": [
+        { "signal": "yield_10y", "operator": ">", "threshold": 4.58, "unit": "percent" },
+        { "signal": "yield_10y", "operator": "<", "threshold": 4.18, "unit": "percent" }
+      ]
+    }
   ],
   "confidence": {
-    "confidence": 72,
-    "confidence_label": "medium",
+    "confidence": 58,
+    "confidence_label": "Medium",
     "is_no_call": false,
-    "stability": "emerging",
-    "reasoning": "single-signal rally"
+    "stability": "Emerging",
+    "reasoning": "fixture · May 11, 2026 session"
   },
   "drafts": {
-    "x": "…",
-    "substack": "…",
+    "x": "\u2026",
+    "substack": "\u2026",
     "word_counts": { "x": 3, "substack": 3 }
   },
   "checker": {

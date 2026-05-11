@@ -8,10 +8,21 @@
 <link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=DM+Serif+Display:wght@400&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=DM+Serif+Display:wght@400&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet" />
 <style>
 /* ── Reset ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 html {
   scroll-behavior: smooth;
   font-family: var(--sans);
@@ -414,13 +425,17 @@ section.hero#home .me-hero-lede {
   align-items: center;
   gap: 0 8px;
 }
-.ts-last-read-bullet {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--red-text);
+.ts-cal-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
-  box-shadow: 0 0 0 3px rgba(163, 45, 45, 0.2);
+  color: var(--ink-muted);
+}
+.ts-cal-icon svg {
+  display: block;
+  width: 15px;
+  height: 15px;
 }
 .ts-last-read-label {
   font-weight: 600;
@@ -880,18 +895,24 @@ footer {
     flex-direction: column;
     align-items: flex-start;
   }
+  .hero.hero--scan .landing-dashboard .hero-snapshot-card .ts-strip {
+    padding: 12px 18px;
+  }
   .ts-next-up {
     text-align: left;
     flex: none;
     width: 100%;
   }
   .signal-strip { grid-template-columns: 1fr; border-radius: var(--radius); }
-  .hero--scan .signal-strip {
-    border-radius: 0 0 var(--radius) var(--radius);
+  .hero-snapshot-card .signal-strip {
+    border-radius: 0;
   }
   .signal-cell { border-right: none; border-bottom: 1px solid var(--rule); }
   .signal-cell:last-child { border-bottom: none; }
   .regime-card { border-radius: var(--radius); }
+  .hero-snapshot-card .regime-card {
+    border-radius: 0;
+  }
   .regime-bottom { grid-template-columns: repeat(2, 1fr); }
   .regime-metric:nth-child(2) { border-right: none; }
   .regime-metric:nth-child(3), .regime-metric:nth-child(4) { border-top: 1px solid var(--rule); }
@@ -906,11 +927,28 @@ footer {
   footer { flex-direction: column; text-align: center; }
 }
 
-/* Landing blocks below regime card (methodology, track record, membership CTA) */
-.landing-after-regime { margin-top: 72px; }
-.landing-after-regime + .landing-after-regime { margin-top: 64px; }
+/* Dashboard - one <section>: session strip, signals, regime, methodology, track, membership */
+.landing-dashboard {
+  margin-top: 0;
+}
+/* Vertical rhythm only - no rule line (full-width dividers live in snapshot card only) */
+.landing-dashboard .landing-dashboard-divider {
+  display: block;
+  height: 0;
+  margin: 48px 0;
+  border: 0;
+}
+.landing-dashboard-membership {
+  margin: 0;
+  padding: 0;
+}
+@media (max-width: 720px) {
+  .landing-dashboard .landing-dashboard-divider {
+    margin: 40px 0;
+  }
+}
 
-/* Methodology - landing hero (index-test) */
+/* Methodology - landing hero */
 .method-block {
   border: 1px solid var(--rule);
   border-radius: var(--radius);
@@ -966,7 +1004,564 @@ footer {
   line-height: 1.68;
   color: var(--ink-mid);
 }
+/* Methodology - three signals (editorial list) */
+.method-intro,
+.method-outro {
+  font-family: var(--sans);
+  font-size: var(--fs-prose);
+  line-height: 1.68;
+  color: var(--ink-mid);
+  max-width: 48rem;
+  margin: 0 0 22px 0;
+}
+.method-outro {
+  margin: 24px 0 0 0;
+}
+.method-signal-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.method-signal-list > li {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding-top: 18px;
+  margin-top: 0;
+  border-top: 1px solid var(--rule);
+}
+.method-signal-list > li:first-of-type {
+  padding-top: 0;
+  border-top: none;
+}
+.method-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 7px;
+  box-shadow: 0 0 0 2px rgba(12, 12, 12, 0.04);
+}
+.method-dot--spx {
+  background: #2f6b44;
+}
+.method-dot--yld {
+  background: var(--blue-text);
+}
+.method-dot--wti {
+  background: #a65c12;
+}
+.method-signal-main {
+  flex: 1;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(112px, 20%) 1fr;
+  gap: 12px 36px;
+  align-items: baseline;
+}
+.method-signal-name {
+  font-family: var(--sans);
+  font-size: var(--fs-prose);
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.method-signal-desc {
+  font-family: var(--sans);
+  font-size: var(--fs-prose);
+  line-height: 1.68;
+  font-weight: 400;
+  color: var(--ink-mid);
+}
+/* Methodology - engine subsection (inside same card as signals) */
+.method-engine-section {
+  margin-top: 28px;
+  padding-top: 28px;
+  border-top: 1px solid var(--rule);
+}
+.engine-works-lede,
+.engine-works-mid,
+.engine-works-outro {
+  font-family: var(--sans);
+  font-size: var(--fs-prose);
+  line-height: 1.68;
+  color: var(--ink-mid);
+  max-width: 48rem;
+  margin: 0 0 18px 0;
+}
+.engine-works-mid {
+  margin-top: 20px;
+}
+.engine-works-outro {
+  margin: 8px 0 0 0;
+}
+/* Compact publishing stack (methodology) */
+.method-stack-compact {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--rule);
+}
+.method-stack-title {
+  font-family: var(--serif);
+  font-size: clamp(20px, 2.2vw, 24px);
+  font-weight: 400;
+  color: var(--ink);
+  margin: 0 0 10px 0;
+  letter-spacing: -0.015em;
+}
+.method-stack-title--sub {
+  margin-top: 22px;
+}
+.method-stack-lede {
+  font-family: var(--sans);
+  font-size: var(--fs-prose);
+  line-height: 1.68;
+  color: var(--ink-muted);
+  margin: 0 0 14px 0;
+}
+.method-stack-preface {
+  font-family: var(--sans);
+  font-size: var(--fs-prose);
+  line-height: 1.68;
+  color: var(--ink-mid);
+  margin: 0 0 22px 0;
+  max-width: none;
+  width: 100%;
+}
+.method-stack-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.method-stack-card {
+  margin: 0;
+  padding: 18px 20px 20px;
+  border: 1px solid color-mix(in srgb, var(--rule) 85%, var(--paper));
+  border-radius: var(--radius-sm);
+  background: var(--paper);
+  box-shadow:
+    var(--shadow-sm),
+    0 8px 24px rgba(12, 12, 12, 0.04);
+}
+.method-stack-card-head {
+  font-family: var(--sans);
+  font-size: var(--fs-body-md);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  margin: 0 0 12px 0;
+  line-height: 1.3;
+}
+.method-stack-card-head .method-stack-card-layer {
+  color: var(--blue-text);
+  font-weight: 600;
+}
+.method-stack-card-body {
+  font-family: var(--sans);
+  font-size: var(--fs-ui);
+  line-height: 1.65;
+  color: var(--ink-mid);
+  margin: 0;
+}
+@media (max-width: 720px) {
+  .method-stack-cards {
+    grid-template-columns: 1fr;
+  }
+}
+/* Framework steps - structured presentation */
+.engine-framework {
+  margin: 6px 0 12px 0;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  overflow: hidden;
+}
+.engine-framework > .engine-step:first-of-type {
+  padding: 22px 22px 24px;
+  border-bottom: none;
+}
+.engine-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(252px, 300px);
+  gap: 28px 36px;
+  align-items: start;
+  padding: 22px 22px 22px;
+  border-top: 1px solid var(--rule);
+}
+.engine-split-main {
+  min-width: 0;
+}
+.engine-split-main .engine-step {
+  padding: 22px 0 24px;
+  border-bottom: 1px solid var(--rule);
+}
+.engine-split-main .engine-step:last-of-type {
+  border-bottom: none;
+}
+.engine-example-card {
+  position: sticky;
+  top: 88px;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-sm);
+  background: var(--paper);
+  box-shadow:
+    var(--shadow-sm),
+    0 10px 28px rgba(12, 12, 12, 0.06);
+  overflow: hidden;
+}
+.engine-example-kicker {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--amber);
+  padding: 11px 14px 10px;
+  margin: 0;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--amber-pale) 92%, #fff 8%) 0%,
+    var(--amber-pale) 100%
+  );
+  border-bottom: 1px solid color-mix(in srgb, var(--amber) 12%, var(--rule));
+}
+.engine-example-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--rule);
+}
+.engine-example-cell {
+  padding: 12px 8px;
+  border-right: 1px solid var(--rule);
+  background: var(--paper);
+  text-align: center;
+}
+.engine-example-cell:last-child {
+  border-right: none;
+}
+.ec-lbl {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  display: block;
+  margin-bottom: 6px;
+}
+.ec-val {
+  font-family: var(--mono);
+  font-size: clamp(15px, 2vw, 18px);
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  display: block;
+}
+.ec-z {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--ink-muted);
+  margin-top: 8px;
+  display: block;
+  letter-spacing: 0.02em;
+}
+.ec-z-warn { color: var(--red-text); }
+.ec-z-ok { color: var(--green-text); }
+.engine-example-regime {
+  padding: 14px 14px 16px;
+}
+.engine-example-tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin: 0 0 6px 0;
+}
+.engine-example-title {
+  font-family: var(--serif);
+  font-size: clamp(20px, 2.4vw, 24px);
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.12;
+  margin: 0 0 10px 0;
+  letter-spacing: -0.02em;
+}
+.engine-example-tilt {
+  margin-bottom: 12px;
+}
+.engine-example-conf {
+  font-family: var(--sans);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink-mid);
+  margin: 0;
+}
+.engine-example-conf strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+@media (max-width: 960px) {
+  .engine-split {
+    grid-template-columns: 1fr;
+    padding: 20px 18px 18px;
+    gap: 24px;
+  }
+  .engine-example-card {
+    position: static;
+    order: -1;
+    max-width: 400px;
+    margin: 0 auto 12px;
+  }
+  .engine-framework > .engine-step:first-of-type {
+    padding: 18px 18px 20px;
+  }
+  .engine-split-main .engine-step {
+    padding: 18px 0 20px;
+  }
+}
+.engine-step-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+.engine-step-num {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--rule-strong);
+  background: var(--paper);
+  box-shadow: var(--shadow-sm);
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink);
+}
+.engine-step-kicker {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  display: block;
+  margin-bottom: 4px;
+}
+.engine-step-title {
+  font-family: var(--sans);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  margin: 0;
+  line-height: 1.25;
+}
+.engine-formula-panel {
+  border-left: 3px solid var(--blue-text);
+  padding: 14px 18px 16px 18px;
+  margin: 0;
+  background: color-mix(in srgb, var(--paper) 88%, var(--surface));
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+.engine-formula-main {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  line-height: 1.75;
+  color: var(--ink-mid);
+}
+.engine-formula-main strong {
+  font-weight: 500;
+  color: var(--ink);
+}
+.engine-step-note {
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink-mid);
+  margin: 0 0 12px 0;
+}
+.engine-state-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+  margin-bottom: 16px;
+}
+.engine-chip {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 7px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--rule-strong);
+  background: var(--paper);
+  color: var(--ink-mid);
+}
+.engine-math {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 14px;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--ink-mid);
+}
+.engine-math-n {
+  font-size: clamp(22px, 3.5vw, 28px);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+.engine-math-op {
+  color: var(--ink-muted);
+  font-size: 14px;
+}
+.engine-math-result {
+  flex-basis: 100%;
+  margin-top: 4px;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--ink-mid);
+}
+.engine-step3-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.engine-flow-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 10px;
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--ink-mid);
+}
+.engine-flow-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+.engine-flow-val {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+}
+.engine-flow-arrow {
+  color: var(--blue-text);
+  font-weight: 600;
+}
+.engine-tilt-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
 @media (max-width: 640px) {
+  .engine-formula-main {
+    font-size: 11px;
+    letter-spacing: 0.05em;
+  }
+}
+.engine-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 22px 0 8px 0;
+}
+.engine-stat-card {
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  padding: 22px 16px 20px;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+}
+.engine-stat-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin: 0 0 12px 0;
+}
+.engine-stat-num {
+  font-family: var(--mono);
+  font-size: clamp(26px, 4vw, 32px);
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin: 0 0 10px 0;
+}
+.engine-stat-sub {
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--ink-mid);
+  margin: 0;
+}
+.engine-scroll-hint {
+  display: flex;
+  width: 44px;
+  height: 44px;
+  margin: 28px auto 0;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--rule-strong);
+  border-radius: 50%;
+  background: var(--paper-deep);
+  color: var(--ink-muted);
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 1;
+  transition: border-color 0.2s var(--ease-out), color 0.2s var(--ease-out), transform 0.2s var(--ease-out);
+}
+.engine-scroll-hint:hover {
+  color: var(--ink);
+  border-color: var(--ink-muted);
+  transform: translateY(2px);
+}
+.engine-scroll-hint:focus-visible {
+  outline: 2px solid var(--blue-text);
+  outline-offset: 3px;
+}
+@media (max-width: 720px) {
+  .engine-stat-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 640px) {
+  .method-signal-main {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
   .method-block {
     padding: 22px 20px 24px;
   }
@@ -1031,7 +1626,7 @@ footer {
   -webkit-overflow-scrolling: touch;
 }
 
-/* ══ Hero scan layout (index-test.html prototype) ══ */
+/* ══ Hero scan layout ══ */
 .hero--scan h1 {
   margin-bottom: 16px;
 }
@@ -1049,21 +1644,57 @@ footer {
 .hero-value-line {
   font-family: var(--sans);
   font-size: var(--fs-body);
-  font-weight: 400;
   line-height: 1.78;
+  font-weight: 400;
   color: var(--ink-mid);
   max-width: none;
   width: 100%;
   margin: 0 0 28px 0;
 }
-.hero--scan .ts-strip {
+.hero--scan .hero-snapshot-card {
   margin-top: 28px;
+}
+.hero-snapshot-card {
+  padding: 0;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--paper);
+  box-shadow:
+    var(--shadow-sm),
+    0 14px 40px rgba(12, 12, 12, 0.075),
+    0 2px 8px rgba(12, 12, 12, 0.04);
+}
+.hero.hero--scan .landing-dashboard .hero-snapshot-card .ts-strip {
+  margin-top: 0;
+  border: 0;
+  border-radius: 0;
+  border-bottom: 1px solid var(--rule);
+  box-shadow: none;
+  padding: 12px 22px;
+}
+.hero-snapshot-card .signal-strip {
+  border: 0;
+  border-radius: 0;
   box-shadow: none;
 }
-.hero--scan .signal-strip {
-  border-top: none;
-  border-radius: 0 0 var(--radius) var(--radius);
+.hero-snapshot-card .hero-snapshot-divider {
+  display: block;
+  height: 0;
+  margin: 0;
+  border: 0;
+  border-top: 1px solid var(--rule-strong);
 }
+.hero-snapshot-card .regime-voice-row {
+  margin-top: 0;
+}
+.hero-snapshot-card .regime-card {
+  margin-top: 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
 .hero--scan .ts-last-read {
   font-size: 16px;
 }
@@ -1115,13 +1746,11 @@ footer {
 </style>
 </head>
 <body>
-<!-- Hero prototype: edits land here first; sync to index.html when approved -->
-
 <!-- ══ NAV ══════════════════════════════════════════════════ -->
 <nav>
   <div class="nav-inner">
     <a href="#home" class="nav-lockup" aria-label="Macro Evidence - home">
-      <img class="nav-wordmark" src="/assets/brand/logo-lockup.svg" width="83" height="61" alt="" />
+      <img class="nav-wordmark" src="assets/brand/logo-lockup.svg" width="83" height="61" alt="MacroEvidence" />
     </a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
@@ -1137,18 +1766,25 @@ footer {
 <!-- ══ HERO ══════════════════════════════════════════════════ -->
 <section class="hero hero--scan" id="home">
   <div class="container">
-    <h1>Daily macro state for decision-makers.</h1>
+    <h1>Clear macro regime. Explicit invalidation.<br />No predictions.</h1>
     <p class="hero-subhead-line">
-      Three signals. One regime map. No predictions. No narratives. No noise.
+      No predictions. No narratives. No noise.
     </p>
     <p class="hero-value-line">
-      A structured daily framework for interpreting market conditions through regime, risk tilt, pressure, and invalidation levels - using the same process every U.S. trading session.
+      A structured daily framework for interpreting market conditions through regime, risk tilt, pressure, and invalidation levels - using the same process every U.S. trading session. It provides users a consistent, rules-based read of what macro state the market is actually in every session, no drift, no interpretation layer. It tells you what the framework sees.
     </p>
 
-    <!-- Session as-of date (no clock on the strip - 4:00 PM close is explained under Details) -->
+    <section class="landing-dashboard" id="dashboard" aria-label="Dashboard">
+    <div class="hero-snapshot-card">
     <div class="ts-strip" role="region" aria-label="Session date and next update">
       <p class="ts-last-read">
-        <span class="ts-last-read-bullet" aria-hidden="true"></span>
+        <span class="ts-cal-icon" aria-hidden="true">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3.75" y="4.75" width="16.5" height="15.5" rx="2" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M3.75 9.25h16.5" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M8.25 3v3.5M15.75 3v3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </span>
         <time datetime="2026-05-11">May 11, 2026</time>
         <span class="ts-details-star" aria-hidden="true">*</span>
         <button
@@ -1195,25 +1831,25 @@ footer {
     <div class="signal-strip">
       <div class="signal-cell">
         <div class="signal-label">S&amp;P 500</div>
-        <div class="signal-value">7,400</div>
+        <div class="signal-value">7,417</div>
         <div class="signal-meta">
-          <span class="signal-z">Z +2.05</span>
+          <span class="signal-z">Z +2.12</span>
           <span class="badge badge-alert">NEAR THRESHOLD</span>
         </div>
         <div class="signal-z-note">63-session rolling Z · vs mean</div>
       </div>
       <div class="signal-cell">
         <div class="signal-label">10Y Yield</div>
-        <div class="signal-value">4.38%</div>
+        <div class="signal-value">4.39%</div>
         <div class="signal-meta">
-          <span class="signal-z">Z +1.02</span>
+          <span class="signal-z">Z +1.10</span>
           <span class="badge badge-warn">RISING</span>
         </div>
         <div class="signal-z-note">63-session rolling Z · vs mean</div>
       </div>
       <div class="signal-cell">
         <div class="signal-label">WTI Crude</div>
-        <div class="signal-value">$96.97</div>
+        <div class="signal-value">$96.95</div>
         <div class="signal-meta">
           <span class="signal-z">Z +0.54</span>
           <span class="badge badge-warn">RISING</span>
@@ -1221,6 +1857,8 @@ footer {
         <div class="signal-z-note">63-session rolling Z · vs mean</div>
       </div>
     </div>
+
+    <div class="hero-snapshot-divider" role="separator" aria-hidden="true"></div>
 
     <!-- Regime (combined) -->
     <div class="regime-voice-row">
@@ -1239,7 +1877,7 @@ footer {
               </div>
               <aside class="regime-head-aside">
                 <p class="regime-head-aside-body">
-                  10Y above 4.51% with SPX holding 7,297. Rates recovering but gate not yet triggered. Treat pro-risk tilt as directional lean only.
+                  SPX 7,400 between published SPX bands (7,289 / 7,511); 10Y 4.38% inside the yield band (4.18% / 4.58%). Cross-assets not on one hinge - neutral tilt until a gate clears.
                 </p>
               </aside>
             </div>
@@ -1248,59 +1886,251 @@ footer {
         <div class="regime-bottom">
           <div class="regime-metric">
             <div class="rm-label">Confidence</div>
-            <div class="rm-value">58 / 100</div>
-            <div class="rm-sub">MEDIUM</div>
+            <div class="rm-value">78 / 100</div>
+            <div class="rm-sub">HIGH</div>
           </div>
           <div class="regime-metric">
             <div class="rm-label">State pressure</div>
-            <div class="rm-value">INCREASING</div>
+            <div class="rm-value">MIXED</div>
             <div class="rm-sub">3-session window</div>
           </div>
           <div class="regime-metric">
             <div class="rm-label">WTI proximity</div>
             <div class="rm-value near">NEAR</div>
-            <div class="rm-sub">$95.42 vs $104.00 threshold</div>
+            <div class="rm-sub">$96.97 · energy stress marker</div>
           </div>
           <div class="regime-metric">
             <div class="rm-label">SPX proximity</div>
-            <div class="rm-value near">NEAR</div>
-            <div class="rm-sub">7,400 vs 7,289 threshold</div>
+            <div class="rm-value mod">MID</div>
+            <div class="rm-sub">7,400 vs 7,511 / 7,289 bands</div>
           </div>
         </div>
         <div class="regime-footer">macroevidence.com · not financial advice</div>
       </div>
     </div>
-
-    <div class="landing-after-regime" id="methodology">
-      <div class="sec-tag">METHODOLOGY</div>
-      <div class="method-block">
-        <p class="method-lede">
-          Three signals. One regime read.
-        </p>
-        <ul class="method-spec" aria-label="How the framework is defined">
-          <li>
-            <span class="method-spec-label">Cadence</span>
-            <span class="method-spec-body">
-              Published by <strong>10:00 AM Eastern</strong> at the latest on each U.S. trading day - typically within ~30 minutes of the <strong>9:30 AM Eastern</strong> cash open.
-            </span>
-          </li>
-          <li>
-            <span class="method-spec-label">Inputs</span>
-            <span class="method-spec-body">
-              S&amp;P 500 (sentiment) &middot; 10Y yield (financial conditions) &middot; WTI crude (inflation pressure).
-            </span>
-          </li>
-          <li>
-            <span class="method-spec-label">Framework</span>
-            <span class="method-spec-body">
-              63-day rolling Z-score. 27 possible states. No forecast. No advice.
-            </span>
-          </li>
-        </ul>
-      </div>
     </div>
 
-    <div class="landing-after-regime" id="track-record">
+    <div class="landing-dashboard-divider" role="separator" aria-hidden="true"></div>
+
+    <div class="landing-dashboard-merged">
+      <div id="methodology">
+      <div class="sec-tag">METHODOLOGY</div>
+      <div class="method-block">
+        <p class="method-intro">
+          MacroEvidence ingests three orthogonal market signals every session. They&rsquo;re chosen because they don&rsquo;t move in lockstep - each one captures a different dimension of market stress.
+        </p>
+        <ul class="method-signal-list" aria-label="Three market signals">
+          <li>
+            <span class="method-dot method-dot--spx" aria-hidden="true"></span>
+            <div class="method-signal-main">
+              <span class="method-signal-name">S&amp;P 500</span>
+              <span class="method-signal-desc">Equity risk appetite - are institutions adding or removing exposure?</span>
+            </div>
+          </li>
+          <li>
+            <span class="method-dot method-dot--yld" aria-hidden="true"></span>
+            <div class="method-signal-main">
+              <span class="method-signal-name">10-Year Yield</span>
+              <span class="method-signal-desc">Rate environment - what is the bond market pricing for growth and inflation?</span>
+            </div>
+          </li>
+          <li>
+            <span class="method-dot method-dot--wti" aria-hidden="true"></span>
+            <div class="method-signal-main">
+              <span class="method-signal-name">WTI Oil</span>
+              <span class="method-signal-desc">Real-economy stress - input cost velocity and supply-side pressure.</span>
+            </div>
+          </li>
+        </ul>
+        <p class="method-outro">
+          These aren&rsquo;t arbitrary. Equities measure risk appetite. Rates measure the cost of capital. Oil measures the physical economy. When they diverge, the regime is unstable. When they align, the regime is clear. The framework reads both states.
+        </p>
+
+        <section class="method-engine-section" id="how-the-engine-works" aria-label="Framework mechanics">
+        <p class="engine-works-lede">
+          The math is deterministic. Same inputs always produce the same outputs. No author judgment, no editorial adjustment - just the framework applied consistently every session.
+        </p>
+        <div class="engine-framework" aria-label="Three-step framework">
+          <article class="engine-step">
+            <header class="engine-step-head">
+              <span class="engine-step-num" aria-hidden="true">1</span>
+              <div>
+                <span class="engine-step-kicker">Step 1</span>
+                <h3 class="engine-step-title">Normalize each signal</h3>
+              </div>
+            </header>
+            <div class="engine-formula-panel">
+              <p class="engine-formula-main">
+                <strong>Z-score</strong> = (current value &minus; 63-day mean) &divide; 63-day std dev
+              </p>
+            </div>
+          </article>
+
+          <div class="engine-split">
+            <div class="engine-split-main">
+              <article class="engine-step">
+                <header class="engine-step-head">
+                  <span class="engine-step-num" aria-hidden="true">2</span>
+                  <div>
+                    <span class="engine-step-kicker">Step 2</span>
+                    <h3 class="engine-step-title">Classify the regime</h3>
+                  </div>
+                </header>
+                <p class="engine-step-note">Each signal &rarr; three states.</p>
+                <div class="engine-state-chips" aria-label="Per-signal states">
+                  <span class="engine-chip">Elevated</span>
+                  <span class="engine-chip">Neutral</span>
+                  <span class="engine-chip">Depressed</span>
+                </div>
+                <div class="engine-math">
+                  <span><span class="engine-math-n">3</span> signals</span>
+                  <span class="engine-math-op">&times;</span>
+                  <span><span class="engine-math-n">3</span> states</span>
+                  <span class="engine-math-op">=</span>
+                  <span><span class="engine-math-n">27</span></span>
+                  <span class="engine-math-result">possible regime combinations</span>
+                </div>
+              </article>
+
+              <article class="engine-step">
+                <header class="engine-step-head">
+                  <span class="engine-step-num" aria-hidden="true">3</span>
+                  <div>
+                    <span class="engine-step-kicker">Step 3</span>
+                    <h3 class="engine-step-title">Score and label</h3>
+                  </div>
+                </header>
+                <div class="engine-step3-flow">
+                  <div class="engine-flow-row">
+                    <span class="engine-flow-label">Confidence</span>
+                    <span class="engine-flow-val">0&ndash;100</span>
+                    <span aria-hidden="true">+</span>
+                    <span class="engine-flow-label">Stability classifier</span>
+                    <span class="engine-flow-arrow">&rarr;</span>
+                    <span class="engine-flow-label">Risk tilt</span>
+                  </div>
+                  <div class="engine-tilt-row">
+                    <span class="tilt-badge tilt-badge-compact tilt-pro">PRO-RISK</span>
+                    <span class="tilt-badge tilt-badge-compact tilt-neu">NEUTRAL</span>
+                    <span class="tilt-badge tilt-badge-compact tilt-def">DEFENSIVE</span>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <aside class="engine-example-card" aria-label="Example signal card output">
+              <p class="engine-example-kicker">Example output</p>
+              <div class="engine-example-regime">
+                <p class="engine-example-tag">Regime</p>
+                <p class="engine-example-title">Transitional | Emerging</p>
+                <div class="engine-example-tilt">
+                  <span class="tilt-badge tilt-badge-compact tilt-neu">NEUTRAL</span>
+                </div>
+                <p class="engine-example-conf">
+                  <strong>Confidence</strong> 58 / 100 · Medium · Emerging
+                </p>
+              </div>
+              <div class="engine-example-strip">
+                <div class="engine-example-cell">
+                  <span class="ec-lbl">S&amp;P 500</span>
+                  <span class="ec-val">7,400</span>
+                  <span class="ec-z ec-z-warn">Z +2.05 · extended</span>
+                </div>
+                <div class="engine-example-cell">
+                  <span class="ec-lbl">10Y yield</span>
+                  <span class="ec-val">4.38%</span>
+                  <span class="ec-z ec-z-ok">Z +1.02 · firm</span>
+                </div>
+                <div class="engine-example-cell">
+                  <span class="ec-lbl">WTI crude</span>
+                  <span class="ec-val">$96.97</span>
+                  <span class="ec-z">Z +0.54 · firming</span>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+        <p class="engine-works-mid">
+          The 63-day rolling window isn&rsquo;t arbitrary - it captures roughly one quarter of market behavior, long enough to filter daily noise, short enough to catch genuine regime shifts.
+        </p>
+        <div class="engine-stat-grid" role="list">
+          <div class="engine-stat-card" role="listitem">
+            <p class="engine-stat-label">Signals</p>
+            <p class="engine-stat-num" aria-label="3">3</p>
+            <p class="engine-stat-sub">Orthogonal. No redundancy.</p>
+          </div>
+          <div class="engine-stat-card" role="listitem">
+            <p class="engine-stat-label">Possible regimes</p>
+            <p class="engine-stat-num" aria-label="27">27</p>
+            <p class="engine-stat-sub">Every combination scored.</p>
+          </div>
+          <div class="engine-stat-card" role="listitem">
+            <p class="engine-stat-label">Rolling window</p>
+            <p class="engine-stat-num" aria-label="63 sessions">63d</p>
+            <p class="engine-stat-sub">One quarter of behavior.</p>
+          </div>
+        </div>
+        <p class="engine-works-outro">
+          Every output includes two explicit invalidation conditions - specific data thresholds that would force a regime reclassification. This is the core commitment. Not &ldquo;something might change the view.&rdquo; Exactly what would change it.
+        </p>
+        <div class="method-stack-compact" id="publishing-architecture">
+          <h3 class="method-stack-title">Publishing Architecture</h3>
+          <p class="method-stack-lede">
+            Deterministic math first, then gates, then surfaces - so &ldquo;clarity is engineered, not improvised.&rdquo;
+          </p>
+          <p class="method-stack-preface">
+            The ten layers are the full pipeline from inputs to delivery - not feature tiers, but the operational sequence behind each session.
+            They spell out what feeds the model, what stabilizes the read, what must pass before publish, how copy is produced and bounded, and where the artifact goes - so you can see how daily output stays comparable and auditable end to end.
+          </p>
+          <ul class="method-stack-cards" aria-label="Ten-layer publishing architecture">
+            <li class="method-stack-card">
+              <h4 class="method-stack-card-head"><span class="method-stack-card-layer">Layer 1:</span> Data</h4>
+              <p class="method-stack-card-body">Daily closes via <strong>yfinance</strong> and <strong>FRED</strong>. Bad prints are logged; the run continues where possible.</p>
+            </li>
+            <li class="method-stack-card">
+              <h4 class="method-stack-card-head"><span class="method-stack-card-layer">Layer 2:</span> Processing</h4>
+              <p class="method-stack-card-body"><strong>63-session</strong> rolling Z-scores and a <strong>27-regime</strong> map - same deterministic code path every session.</p>
+            </li>
+            <li class="method-stack-card">
+              <h4 class="method-stack-card-head"><span class="method-stack-card-layer">Layer 3:</span> Stability</h4>
+              <p class="method-stack-card-body">Confidence and stability labels; two numeric invalidations; distance and pressure - structure that does not drift into narrative.</p>
+            </li>
+            <li class="method-stack-card">
+              <h4 class="method-stack-card-head"><span class="method-stack-card-layer">Layer 4:</span> Quality gate</h4>
+              <p class="method-stack-card-body"><strong>Signal Checker</strong> plus pass against <strong>RULE.md</strong> before publish. Weak outputs rewrite or do not ship.</p>
+            </li>
+            <li class="method-stack-card">
+              <h4 class="method-stack-card-head"><span class="method-stack-card-layer">Layer 5:</span> Production</h4>
+              <p class="method-stack-card-body">Templated artifact; optional multi-pass drafting; short editorial pass - bounded voice, no single-draft anchoring.</p>
+            </li>
+            <li class="method-stack-card">
+              <h4 class="method-stack-card-head"><span class="method-stack-card-layer">Layer 6:</span> Self-improvement</h4>
+              <p class="method-stack-card-body">Checker prompts and <strong>RULE.md</strong> tighten from production friction - not a static quality ceiling.</p>
+            </li>
+            <li class="method-stack-card">
+              <h4 class="method-stack-card-head"><span class="method-stack-card-layer">Layer 7:</span> Output</h4>
+              <p class="method-stack-card-body">Structured signal card and site read - same fields every session, scannable in under a minute.</p>
+            </li>
+            <li class="method-stack-card">
+              <h4 class="method-stack-card-head"><span class="method-stack-card-layer">Layer 8:</span> QA guardrails</h4>
+              <p class="method-stack-card-body">Validation stack keeps language inside boundaries - regime state and invalidations, not open-ended portfolio guidance.</p>
+            </li>
+            <li class="method-stack-card">
+              <h4 class="method-stack-card-head"><span class="method-stack-card-layer">Layer 9:</span> Distribution</h4>
+              <p class="method-stack-card-body">Site, Substack, X - one artifact, multiple surfaces.</p>
+            </li>
+            <li class="method-stack-card">
+              <h4 class="method-stack-card-head"><span class="method-stack-card-layer">Layer 10:</span> Retention</h4>
+              <p class="method-stack-card-body">Invalidation-forward framing so each session connects to the next - continuity without narrative drift.</p>
+            </li>
+          </ul>
+        </div>
+        <a href="#track-record" class="engine-scroll-hint" aria-label="Continue to track record">&darr;</a>
+        </section>
+      </div>
+      </div>
+      <div class="landing-dashboard-divider" role="separator" aria-hidden="true"></div>
+      <div id="track-record">
       <div class="sec-tag">TRACK RECORD</div>
       <div class="track-tbl-wrap">
       <table class="track-tbl" aria-label="Historical backfill validation">
@@ -1354,8 +2184,11 @@ footer {
       </div>
       <p class="landing-track-foot">Live track record starts April 13, 2026. 5/5 outputs scored 8/8 on Signal Checker.</p>
     </div>
+    </div>
 
-    <div class="landing-after-regime" id="membership-landing">
+    <div class="landing-dashboard-divider" role="separator" aria-hidden="true"></div>
+
+    <div id="membership-landing" class="landing-dashboard-membership">
       <div class="sec-tag">MEMBERSHIP</div>
       <div class="membership-cta-block">
         <h2 style="margin-top:0;margin-bottom:12px;max-width:36rem;">Full regime read. Signal card. Invalidation conditions. $49/month.</h2>
@@ -1363,6 +2196,8 @@ footer {
         <p class="membership-cta-foot">macroevidence.com &middot; @MacroEvidence &middot; not financial advice</p>
       </div>
     </div>
+
+    </section>
 
   </div>
 </section>
