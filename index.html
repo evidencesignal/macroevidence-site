@@ -425,18 +425,6 @@ section.hero#home .me-hero-lede {
   align-items: center;
   gap: 0 8px;
 }
-.ts-cal-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  color: var(--ink-muted);
-}
-.ts-cal-icon svg {
-  display: block;
-  width: 15px;
-  height: 15px;
-}
 .ts-last-read-label {
   font-weight: 600;
   color: var(--ink);
@@ -460,8 +448,7 @@ section.hero#home .me-hero-lede {
   padding: 0;
   margin: 0;
   cursor: pointer;
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  text-decoration: none;
   border-radius: 2px;
 }
 .ts-details-link:hover {
@@ -1706,7 +1693,7 @@ footer {
 .hero--scan .ts-details-link {
   font-size: var(--fs-small);
   font-weight: 400;
-  text-underline-offset: 4px;
+  text-decoration: none;
 }
 .hero--scan .signal-z-note {
   font-family: var(--mono);
@@ -1778,13 +1765,6 @@ footer {
     <div class="hero-snapshot-card">
     <div class="ts-strip" role="region" aria-label="Session date and next update">
       <p class="ts-last-read">
-        <span class="ts-cal-icon" aria-hidden="true">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="3.75" y="4.75" width="16.5" height="15.5" rx="2" stroke="currentColor" stroke-width="1.5"/>
-            <path d="M3.75 9.25h16.5" stroke="currentColor" stroke-width="1.5"/>
-            <path d="M8.25 3v3.5M15.75 3v3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-          </svg>
-        </span>
         <time datetime="2026-05-12">May 12, 2026</time>
         <span class="ts-details-star" aria-hidden="true">*</span>
         <button
