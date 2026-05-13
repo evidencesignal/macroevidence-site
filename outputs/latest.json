@@ -2,26 +2,33 @@
   "status": "ok",
   "stage_reached": "quality_check",
   "reason": null,
-  "as_of": "2026-05-12",
-  "timestamp": "2026-05-12T13:40:18.116808+00:00",
+  "as_of": "2026-05-13",
+  "timestamp": "2026-05-13T13:34:56.871501+00:00",
   "publishable": true,
   "publish_x": true,
   "publish_substack": true,
   "needs_rewrite_x": false,
   "needs_rewrite_substack": false,
   "signals": {
-    "sp500": 7382,
-    "yield_10y": 4.44,
-    "oil_wti": 101.65
+    "oil_wti": 102.47000122070312,
+    "sp500": 7397.83984375,
+    "yield_10y": 4.474999904632568
   },
   "zscores": {
-    "z_sp500": 1.89,
-    "z_yield_10y": 1.45,
-    "z_oil": 0.85
+    "z_sp500": 1.8608267249902963,
+    "z_yield_10y": 1.6195222893128218,
+    "z_oil": 0.8802787627767864
   },
   "regime": {
-    "regime": "Transitional | Stable",
-    "risk_tilt": "neutral"
+    "regime": "Transitional | From restrictive",
+    "regime_code": "transitional_from_restrictive",
+    "risk_tilt": "neutral",
+    "description": "Equities breaking higher despite elevated yields \u2014 regime may be turning.",
+    "states": {
+      "s_sp500": 1,
+      "s_yield": 1,
+      "s_oil": 0
+    }
   },
   "invalidations_structured": [
     {
@@ -30,13 +37,13 @@
         {
           "signal": "sp500",
           "operator": ">",
-          "threshold": 7492,
+          "threshold": 7509,
           "unit": "level"
         },
         {
           "signal": "sp500",
           "operator": "<",
-          "threshold": 7271,
+          "threshold": 7287,
           "unit": "level"
         }
       ]
@@ -47,13 +54,13 @@
         {
           "signal": "yield_10y",
           "operator": ">",
-          "threshold": 4.64,
+          "threshold": 4.67,
           "unit": "percent"
         },
         {
           "signal": "yield_10y",
           "operator": "<",
-          "threshold": 4.24,
+          "threshold": 4.27,
           "unit": "percent"
         }
       ]
@@ -61,25 +68,58 @@
   ],
   "invalidation_distance": {
     "condition_1": {
-      "label": "SP500 > 7,492 OR SP500 < 7,271",
-      "proximity": "MODERATE"
+      "label": "SP500 > 7,509 OR SP500 < 7,287",
+      "proximity": "NEAR",
+      "conditions": [
+        {
+          "signal": "sp500",
+          "operator": ">",
+          "threshold": 7509,
+          "unit": "level"
+        },
+        {
+          "signal": "sp500",
+          "operator": "<",
+          "threshold": 7287,
+          "unit": "level"
+        }
+      ]
     },
     "condition_2": {
-      "label": "YIELD 10Y > 4.64% OR YIELD 10Y < 4.24%",
-      "proximity": "MODERATE"
+      "label": "YIELD 10Y > 4.67% OR YIELD 10Y < 4.27%",
+      "proximity": "MODERATE",
+      "conditions": [
+        {
+          "signal": "yield_10y",
+          "operator": ">",
+          "threshold": 4.67,
+          "unit": "percent"
+        },
+        {
+          "signal": "yield_10y",
+          "operator": "<",
+          "threshold": 4.27,
+          "unit": "percent"
+        }
+      ]
     }
   },
   "state_pressure": {
-    "direction": "STABLE"
+    "direction": "INCREASING",
+    "window": "3-session",
+    "basis": "Oil rising (+0.48s), SPX falling (-0.25s), 10Y rising (+0.73s)"
   },
-  "session_context": "1 invalidation condition(s) in near proximity: SP500 > 7,492 OR SP500 < 7,271. State pressure increasing.",
+  "session_context": "1 invalidation condition(s) in near proximity: SP500 > 7,509 OR SP500 < 7,287. State pressure increasing.",
   "confidence": {
-    "confidence": 78,
-    "confidence_label": "High"
+    "confidence": 85,
+    "confidence_label": "High",
+    "is_no_call": false,
+    "stability": "Stable",
+    "reasoning": "Confidence 85/100 (High). Signal strength 60/75, alignment bonus 15/25 continuity +10 (regime persisted) Stability: Stable."
   },
   "drafts": {
-    "x": "S&P 500 pushing higher while the rest of the board is watching.\nNeeds oil to break the range \u2014 only then does it matter.\n\nSPX 7,382. 10Y 4.44%. Oil $102.\n\nInvalidation:\n\u2022 SPX breaks above 7,492 or below 7,271\n\u2022 10Y moves beyond 4.64% or below 4.24%\n\nWhat breaks this range \u2014 and which direction?",
-    "substack": "REGIME: Transitional | From restrictive\nCONFIDENCE: High (78/100)\nRISK TILT: neutral\nSTABILITY: Stable\n\nSnapshot \u2014 May 12, 2026\n  S&P 500:     7,381.63   z +1.89\n  10Y Yield:      4.443%  z +1.45\n  WTI Oil:       101.65   z +0.85\n\nINSIGHT\nS&P 500 at 7,382 is pushing above its recent range \u2014 a move that only matters if it holds. 10Y yield at 4.44% is elevated relative to its rolling mean \u2014 starting to lean but not decisive. Oil at $102 is sitting near its 63-session mean \u2014 no signal from oil.\n\nINVALIDATION\n\u2022 SPX breaks above 7,492 or below 7,271\n\u2022 10Y moves beyond 4.64% or below 4.24%\n\nMethod: MacroEvidence pipeline \u00b7 yfinance + FRED \u00b7 63-session rolling z-scores \u00b7 not financial advice.",
+    "x": "S&P 500 pushing higher while the rest of the board is watching.\nNeeds oil to break the range \u2014 only then does it matter.\n\nSPX 7,398. 10Y 4.47%. Oil $102.\n\nInvalidation:\n\u2022 SPX breaks above 7,509 or below 7,287\n\u2022 10Y moves beyond 4.67% or below 4.27%\n\nWhat breaks this range \u2014 and which direction?",
+    "substack": "REGIME: Transitional | From restrictive\nCONFIDENCE: High (85/100)\nRISK TILT: neutral\nSTABILITY: Stable\n\nSnapshot \u2014 May 13, 2026\n  S&P 500:     7,397.84   z +1.86\n  10Y Yield:      4.475%  z +1.62\n  WTI Oil:       102.47   z +0.88\n\nINSIGHT\nS&P 500 at 7,398 is pushing above its recent range \u2014 a move that only matters if it holds. 10Y yield at 4.47% is pushing above its recent range \u2014 a move that only matters if it holds. Oil at $102 is sitting near its 63-session mean \u2014 no signal from oil.\n\nINVALIDATION\n\u2022 SPX breaks above 7,509 or below 7,287\n\u2022 10Y moves beyond 4.67% or below 4.27%\n\nMethod: MacroEvidence pipeline \u00b7 yfinance + FRED \u00b7 63-session rolling z-scores \u00b7 not financial advice.",
     "word_counts": {}
   },
   "checker": {
@@ -95,14 +135,14 @@
       "format_checked": "x"
     },
     "substack": {
-      "total_score": 8,
-      "tension": 2,
+      "total_score": 7,
+      "tension": 1,
       "implication": 2,
       "invalidation": 2,
       "necessity": 2,
       "verdict": "PASS",
       "weakest_dimension": "tension",
-      "feedback": "Draft meets publication quality. Strong: tension, implication, invalidation, necessity.",
+      "feedback": "Draft meets publication quality. Strengthen: tension. Strong: implication, invalidation, necessity.",
       "format_checked": "substack"
     }
   },
