@@ -209,6 +209,97 @@ h3 {
 .body-lg + .body-lg { margin-top: 20px; }
 .body-md { font-size: var(--fs-body-md); line-height: 1.7; color: var(--ink-mid); }
 
+/* About — extended editorial */
+.about-prose {
+  max-width: 46rem;
+}
+.about-prose > h2 {
+  max-width: 42rem;
+}
+.about-prose > h3 {
+  margin-top: 2.5rem;
+  margin-bottom: 0.85rem;
+  max-width: 42rem;
+  font-size: clamp(20px, 2.1vw, 26px);
+}
+.about-prose > h3:first-of-type {
+  margin-top: 1.5rem;
+}
+.about-prose .body-lg {
+  max-width: none;
+}
+.about-prose ul.about-list {
+  list-style: none;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.about-prose ul.about-list li {
+  position: relative;
+  padding-left: 1.1rem;
+  font-size: var(--fs-body-md);
+  line-height: 1.68;
+  color: var(--ink-mid);
+}
+.about-prose ul.about-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--amber);
+}
+.about-prose ul.about-commitments {
+  list-style: none;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.about-prose ul.about-commitments li {
+  font-size: var(--fs-body-md);
+  line-height: 1.68;
+  color: var(--ink-mid);
+  padding-left: 0;
+}
+.about-prose ul.about-commitments strong {
+  font-family: var(--sans);
+  font-weight: 600;
+  color: var(--ink);
+  display: block;
+  margin-bottom: 4px;
+  font-size: var(--fs-small);
+  letter-spacing: 0.02em;
+}
+.about-prose .about-muted {
+  font-size: var(--fs-small);
+  color: var(--ink-muted);
+  font-style: italic;
+  margin: 0.35rem 0 0;
+}
+.about-prose .about-callout {
+  margin-top: 1.75rem;
+  padding: 1.25rem 1.35rem;
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius);
+  background: var(--surface);
+  max-width: 42rem;
+}
+.about-prose .about-callout p {
+  margin: 0;
+  font-size: var(--fs-body-md);
+  line-height: 1.68;
+  color: var(--ink-mid);
+}
+.about-prose .about-callout p + p {
+  margin-top: 0.65rem;
+}
+
 /* ── Hero ── */
 .hero {
   padding: 72px 0 64px;
@@ -1814,7 +1905,7 @@ footer {
         <div class="signal-value">7,473</div>
         <div class="signal-meta">
           <span class="signal-z">Z +2.02</span>
-          <span class="badge badge-ok">ELEVATED</span>
+          <span class="badge badge-alert">NEAR THRESHOLD</span>
         </div>
         <div class="signal-z-note">63-session rolling Z · vs mean</div>
       </div>
@@ -1832,7 +1923,7 @@ footer {
         <div class="signal-value">$100.80</div>
         <div class="signal-meta">
           <span class="signal-z">Z +0.74</span>
-          <span class="badge badge-ok">STABLE</span>
+          <span class="badge badge-warn">RISING</span>
         </div>
         <div class="signal-z-note">63-session rolling Z · vs mean</div>
       </div>
@@ -1848,7 +1939,7 @@ footer {
             <div class="regime-primary-label">Regime</div>
             <div class="regime-headline-row">
               <div class="regime-head-main">
-                <div class="regime-primary-value">Transitional | From restrictive</div>
+                <div class="regime-primary-value">Transitional | Stable</div>
                 <div class="regime-primary-sub">27-regime classification · 63-day normalization</div>
                 <div class="regime-tilt-inline">
                   <span class="regime-tilt-label">Risk tilt</span>
@@ -1856,7 +1947,7 @@ footer {
                 </div>
               </div>
               <aside class="regime-head-aside">
-                <p class="regime-head-aside-body">SPX 7,398 inside published SPX bands (7,287 / 7,509); 10Y 4.47% inside 4.27% / 4.67%. Read: transitional | stable, high confidence (85/100), stability stable, state pressure stable — neutral tilt until a gate clears.</p>
+                <p class="regime-head-aside-body">SPX 7,473 vs published bands (7,361 / 7,585); 10Y 4.44% vs 4.24% / 4.64%. Read: transitional | stable, high confidence (78/100), stability stable, state pressure stable — neutral tilt until a gate clears.</p>
               </aside>
             </div>
           </div>
@@ -1869,7 +1960,7 @@ footer {
           </div>
           <div class="regime-metric">
             <div class="rm-label">State pressure</div>
-            <div class="rm-value">INCREASING</div>
+            <div class="rm-value">STABLE</div>
             <div class="rm-sub">3-session window</div>
           </div>
           <div class="regime-metric">
@@ -1880,7 +1971,7 @@ footer {
           <div class="regime-metric">
             <div class="rm-label">SPX proximity</div>
             <div class="rm-value near">NEAR</div>
-            <div class="rm-sub">7,473 vs published SPX bands</div>
+            <div class="rm-sub">7,473 vs 7,585 / 7,361 bands</div>
           </div>
         </div>
         <div class="regime-footer">macroevidence.com · not financial advice</div>
@@ -2132,20 +2223,59 @@ footer {
 <section class="section" id="about">
   <div class="container">
     <div class="sec-tag">About</div>
-    <h2>A macro state read. Not a macro opinion.</h2>
-    <p class="body-lg">
-      Markets stay uncertain. Most macro content adds noise or tells you what to believe.
-      MacroEvidence does neither. Each session we publish the current macro regime from
-      three signals - the S&amp;P 500, the 10-year Treasury yield, and WTI crude - using
-      the same model every time.
-    </p>
-    <p class="body-lg">
-      You get a scannable state read: regime and risk tilt, what moved mechanically versus
-      the prior session, distance to invalidation, state pressure, and two explicit
-      invalidation conditions. No price targets. No portfolio advice. No story of the day.
-      If you run your own capital and your own thesis, this is a structured second input
-      that stays in its lane.
-    </p>
+    <article class="about-prose">
+      <h2>Daily framework for active investors</h2>
+
+      <h3>What the system does</h3>
+      <p class="body-lg">
+        Every market session, MacroEvidence ingests three signals: the S&amp;P 500, the 10-year Treasury yield, and WTI crude oil. Each is normalized on a 63-day rolling Z-score. The combined state is classified into one of 27 regime combinations, scored for stability and confidence, and delivered as:
+      </p>
+      <ul class="about-list" aria-label="What each session delivers">
+        <li>A regime label with risk tilt (pro-risk, neutral, or defensive)</li>
+        <li>A confidence score from 0 to 100</li>
+        <li>Two specific invalidation conditions stating what data would flip the read</li>
+      </ul>
+      <p class="body-lg">
+        Subscribers receive one structured read per session. They use it as a check against their own thesis. The framework does not tell them whether their thesis is correct. It names the current state and the conditions that would change it.
+      </p>
+
+      <h3>Why three signals</h3>
+      <p class="body-lg">
+        The S&amp;P 500, 10-year yield, and WTI crude collectively encode growth expectations, inflation pressure, liquidity conditions, energy stress, and risk appetite. The choice is constrained on purpose. Three orthogonal signals produce a regime read in 30 seconds. Hundreds of indicators produce a research report no one finishes.
+      </p>
+
+      <h3>What MacroEvidence does not do</h3>
+      <p class="body-md about-muted">These omissions are product decisions, not gaps:</p>
+      <ul class="about-list" aria-label="What MacroEvidence does not do">
+        <li>No predictions or price targets</li>
+        <li>No trade signals or rotation calls</li>
+        <li>No personalized advice</li>
+        <li>No interpretation of what the regime means for a specific portfolio</li>
+        <li>No single-stock or sector guidance</li>
+        <li>No commentary on Fed minutes, earnings, or geopolitical events</li>
+      </ul>
+      <p class="body-lg">
+        A subscriber who wants any of the above will be disappointed. A subscriber who wants a daily structured input to test their thinking against will find MacroEvidence does exactly that.
+      </p>
+
+      <h3>Why the framework is built this way</h3>
+      <p class="body-lg">
+        Editorial macro publishers compete on the quality of their views. MacroEvidence competes on the quality of its boundaries. Three structural commitments separate the framework:
+      </p>
+      <ul class="about-commitments" aria-label="Three structural commitments">
+        <li><strong>Falsifiability as a feature.</strong> Every output names what would invalidate it. Invalidation conditions either fire or do not, on schedule. The track record is empirically verifiable.</li>
+        <li><strong>Deterministic output.</strong> Same inputs produce same outputs. No author mood. No narrative drift.</li>
+        <li><strong>Compounding record.</strong> Every regime read is logged with explicit invalidation conditions. After six months, the product holds 130+ dated reads no competitor maintains.</li>
+      </ul>
+
+      <h3>Who this is for</h3>
+      <p class="body-lg">
+        Active investors who trade or invest as a primary or significant secondary income source, form their own market views, and want a structured second opinion. Readers who already have a thesis and want a consistent way to test it.
+      </p>
+      <div class="about-callout" role="note">
+        <p><strong>Not for</strong> passive index investors, day traders looking for entry signals, or subscribers who want predictions.</p>
+      </div>
+    </article>
   </div>
 </section>
 
