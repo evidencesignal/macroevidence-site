@@ -441,9 +441,9 @@ section.hero#home .me-hero-lede {
   font-weight: 600;
   font-variant-numeric: tabular-nums;
 }
-.ts-details-star {
-  color: var(--ink-mid);
-  font-weight: 600;
+.ts-read-datetime-sep {
+  color: var(--ink-muted);
+  font-weight: 400;
   user-select: none;
 }
 .ts-details-link {
@@ -1224,11 +1224,12 @@ footer {
   line-height: 1.25;
 }
 .engine-formula-panel {
-  border-left: 3px solid var(--blue-text);
-  padding: 14px 18px 16px 18px;
+  padding: 14px 18px 17px;
   margin: 0;
-  background: color-mix(in srgb, var(--paper) 88%, var(--surface));
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  background: #3d3d3d;
+  border: 1px solid color-mix(in srgb, #3d3d3d 88%, #fff 12%);
+  border-radius: var(--radius-sm);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 .engine-formula-main {
   font-family: var(--mono);
@@ -1236,11 +1237,11 @@ footer {
   font-weight: 500;
   letter-spacing: 0.04em;
   line-height: 1.75;
-  color: var(--ink-mid);
+  color: rgba(255, 255, 255, 0.9);
 }
 .engine-formula-main strong {
-  font-weight: 500;
-  color: var(--ink);
+  font-weight: 600;
+  color: #fff;
 }
 .engine-step-note {
   font-family: var(--sans);
@@ -1628,7 +1629,7 @@ footer {
       No predictions. No narratives. No noise.
     </p>
     <p class="hero-value-line">
-      A structured daily framework for interpreting market conditions through regime, risk tilt, pressure, and invalidation levels - using the same process every U.S. trading session. It provides users a consistent, rules-based read of what macro state the market is actually in every session, no drift, no interpretation layer. It tells you what the framework sees.
+      A structured daily framework that classifies the current market regime through risk tilt, state pressure, and explicit invalidation levels &mdash; using the same rules-based process every U.S. trading session. Same inputs and the same classification rules reproduce the published read each session &mdash; no narrative overlay. The framework names the current state. Nothing else.
     </p>
 
     <section class="landing-dashboard" id="dashboard" aria-label="Dashboard">
@@ -1636,7 +1637,7 @@ footer {
     <div class="ts-strip" role="region" aria-label="Session date and next update">
       <p class="ts-last-read">
         <time datetime="2026-05-15">May 15, 2026</time>
-        <span class="ts-details-star" aria-hidden="true">*</span>
+        <span class="ts-read-datetime-sep" aria-hidden="true"> &mdash; </span>
         <button
           type="button"
           class="ts-details-link"
@@ -1644,7 +1645,7 @@ footer {
           popovertarget="ts-read-details"
           aria-expanded="false"
           aria-controls="ts-read-details"
-        >Details</button>
+        >View details</button>
       </p>
       <p class="ts-next-up">Next update: May 16, 2026 · after U.S. market close <span class="ts-next-note">(U.S. cash session days)</span></p>
     </div>
@@ -1652,10 +1653,10 @@ footer {
       <div class="ts-details-popover-inner">
         <h2 id="ts-read-details-title">What this date is</h2>
         <p>
-          The <strong>date in the strip</strong> is the <strong>U.S. trading session</strong> for this snapshot (the pipeline&rsquo;s <code>as_of</code> - same as <code>outputs/latest.json</code>). It is <strong>not</strong> the time of day you opened the page.
+          The <strong>date in the strip</strong> is the <strong>U.S. trading session</strong> for this snapshot (the pipeline&rsquo;s <code>as_of</code> &mdash; same as <code>outputs/latest.json</code>). It is <strong>not</strong> the time of day you opened the page.
         </p>
         <p>
-          <strong>Pricing convention:</strong> those levels use the <strong>official 4:00 PM Eastern</strong> <em>daily</em> cash close for that session date - a market rule, not a &ldquo;live&rdquo; clock in the strip. Three series are from the same close, not intraday.
+          <strong>Pricing convention:</strong> those levels use the <strong>official 4:00 PM Eastern</strong> <em>daily</em> cash close for that session date &mdash; a market rule, not a &ldquo;live&rdquo; clock in the strip. Three series are from the same close, not intraday.
         </p>
         <p>
           <strong>Data source:</strong> MacroEvidence pipeline, same run as the <a href="signal-card.html" style="color:var(--blue-text)">signal card</a> for <strong>May 15, 2026</strong>. Run <code>scripts/update_site.py</code> from the project root after a pipeline run to sync the page.
@@ -1765,7 +1766,7 @@ footer {
       <div class="sec-tag">METHODOLOGY</div>
       <div class="method-block">
         <p class="method-intro">
-          MacroEvidence ingests three orthogonal market signals every session. They&rsquo;re chosen because they don&rsquo;t move in lockstep - each one captures a different dimension of market stress.
+          MacroEvidence ingests three orthogonal market signals every session. They&rsquo;re chosen because they don&rsquo;t move in lockstep &mdash; each one captures a different dimension of market stress.
         </p>
         <ul class="method-signal-list" aria-label="Three market signals">
           <li>
@@ -1796,7 +1797,7 @@ footer {
 
         <section class="method-engine-section" id="how-the-engine-works" aria-label="Framework mechanics">
         <p class="engine-works-lede">
-          The math is deterministic. Same inputs always produce the same outputs. No author judgment, no editorial adjustment - just the framework applied consistently every session.
+          The math is deterministic. Same inputs always produce the same outputs. No author judgment, no editorial adjustment &mdash; just the framework applied consistently every session.
         </p>
         <div class="method-engine-visual-wrap">
         <div class="engine-steps-stack" aria-label="Three-step framework">
@@ -1880,7 +1881,7 @@ footer {
         </div>
 
         <p class="engine-works-mid">
-          The 63-day rolling window isn&rsquo;t arbitrary - it captures roughly one quarter of market behavior, long enough to filter daily noise, short enough to catch genuine regime shifts.
+          The 63-day rolling window isn&rsquo;t arbitrary &mdash; it captures roughly one quarter of market behavior, long enough to filter daily noise, short enough to catch genuine regime shifts.
         </p>
         <div class="engine-stat-grid" role="list">
           <div class="engine-stat-card" role="listitem">
@@ -1900,7 +1901,7 @@ footer {
           </div>
         </div>
         <p class="engine-works-outro">
-          Every output includes two explicit invalidation conditions - specific data thresholds that would force a regime reclassification. This is the core commitment. Not &ldquo;something might change the view.&rdquo; Exactly what would change it.
+          Every output includes two explicit invalidation conditions &mdash; specific data thresholds that would force a regime reclassification. This is the core commitment. Not &ldquo;something might change the view.&rdquo; Exactly what would change it.
         </p>
         <a href="#track-record" class="engine-scroll-hint" aria-label="Continue to track record">&darr;</a>
         </section>
@@ -2086,7 +2087,7 @@ footer {
 <section class="section" id="what-you-get">
   <div class="container">
     <div class="sec-tag">What you get</div>
-    <h2>What you get - and what you don't.</h2>
+    <h2>What you get &mdash; and what you don&rsquo;t.</h2>
     <p class="body-lg">
       MacroEvidence is built for active investors who make their own decisions.
       One framework, every session. The interpretation stays with you.
@@ -2102,7 +2103,7 @@ footer {
           </li>
           <li>
             <strong>Regime + risk tilt</strong>
-            From a 27-regime map grounded in normalized signal states - not a writer's read of the tape.
+            From a 27-regime map grounded in normalized signal states &mdash; not a writer&rsquo;s read of the tape.
           </li>
           <li>
             <strong>Confidence + stability</strong>
@@ -2110,7 +2111,7 @@ footer {
           </li>
           <li>
             <strong>Signal deltas</strong>
-            What moved mechanically vs the prior session - not a narrative "why markets rallied."
+            What moved mechanically vs the prior session &mdash; not a narrative &ldquo;why markets rallied.&rdquo;
           </li>
           <li>
             <strong>Two invalidation conditions</strong>
