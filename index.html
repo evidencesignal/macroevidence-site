@@ -218,7 +218,8 @@ h3 {
 .about-prose > .about-subhead {
   font-family: var(--sans);
   font-size: clamp(17px, 2vw, 19px);
-  font-weight: 600;
+  font-weight: 400;
+  font-style: italic;
   line-height: 1.45;
   color: var(--ink);
   max-width: 42rem;
@@ -1014,6 +1015,56 @@ footer {
 .engine-works-outro {
   margin: 8px 0 0 0;
 }
+.method-engine-visual-wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(268px, 320px);
+  gap: 24px 32px;
+  align-items: start;
+  margin: 6px 0 12px 0;
+}
+.method-engine-visual-wrap .engine-steps-stack {
+  margin: 0;
+  min-width: 0;
+}
+.method-calculation-prose {
+  margin: 0;
+  padding: 20px 20px 22px;
+  border: 1px solid color-mix(in srgb, var(--rule-strong) 90%, var(--paper));
+  border-radius: var(--radius-sm);
+  background: var(--paper);
+  box-shadow:
+    var(--shadow-sm),
+    0 8px 24px rgba(12, 12, 12, 0.04);
+  align-self: start;
+}
+.method-calculation-heading {
+  font-family: var(--sans);
+  font-size: clamp(17px, 2vw, 19px);
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  margin: 0 0 12px 0;
+  line-height: 1.25;
+}
+.method-calculation-prose .method-calculation-p {
+  font-family: var(--sans);
+  font-size: var(--fs-prose);
+  line-height: 1.68;
+  color: var(--ink-mid);
+  margin: 0 0 14px 0;
+}
+.method-calculation-prose .method-calculation-p:last-of-type {
+  margin-bottom: 0;
+}
+@media (max-width: 920px) {
+  .method-engine-visual-wrap {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .engine-step-card {
+    padding: 18px 18px 22px;
+  }
+}
 /* Compact publishing stack (methodology) */
 .method-stack-compact {
   margin-top: 28px;
@@ -1090,165 +1141,88 @@ footer {
     grid-template-columns: 1fr;
   }
 }
-/* Framework steps - structured presentation */
-.engine-framework {
-  margin: 6px 0 12px 0;
-  border: 1px solid var(--rule);
-  border-radius: var(--radius-sm);
-  background: var(--surface);
-  overflow: hidden;
+/* Framework steps - separate cards + vertical progression */
+.engine-steps-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
 }
-.engine-framework > .engine-step:first-of-type {
-  padding: 22px 22px 24px;
-  border-bottom: none;
-}
-.engine-split {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(252px, 300px);
-  gap: 28px 36px;
-  align-items: start;
-  padding: 22px 22px 22px;
-  border-top: 1px solid var(--rule);
-}
-.engine-split-main {
-  min-width: 0;
-}
-.engine-split-main .engine-step {
-  padding: 22px 0 24px;
-  border-bottom: 1px solid var(--rule);
-}
-.engine-split-main .engine-step:last-of-type {
-  border-bottom: none;
-}
-.engine-example-card {
-  position: sticky;
-  top: 88px;
-  border: 1px solid var(--rule);
-  border-radius: var(--radius-sm);
+.engine-step-card {
+  border: 1px solid color-mix(in srgb, var(--rule-strong) 88%, var(--paper));
+  border-radius: var(--radius);
   background: var(--paper);
   box-shadow:
     var(--shadow-sm),
-    0 10px 28px rgba(12, 12, 12, 0.06);
-  overflow: hidden;
+    0 10px 28px rgba(12, 12, 12, 0.05);
+  padding: 22px 22px 24px;
+  min-width: 0;
 }
-.engine-example-kicker {
-  font-family: var(--mono);
-  font-size: 10px;
+.engine-step-card .engine-formula-panel {
+  border-radius: var(--radius-sm);
+  margin-top: 2px;
+}
+.engine-step-card .engine-chip {
+  background: color-mix(in srgb, var(--surface) 82%, var(--paper));
+}
+.engine-step-summary {
+  font-family: var(--sans);
+  font-size: var(--fs-label);
+  line-height: 1.55;
+  color: var(--ink-muted);
+  margin: 16px 0 0;
+  padding-top: 14px;
+  border-top: 1px dashed color-mix(in srgb, var(--rule-strong) 70%, transparent);
+}
+.engine-step-summary strong {
   font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--amber);
-  padding: 11px 14px 10px;
-  margin: 0;
+  color: var(--ink-mid);
+}
+.engine-step-connector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 8px;
+  gap: 6px;
+  color: var(--ink-muted);
+}
+.engine-step-connector-line {
+  width: 1px;
+  height: 14px;
+  flex-shrink: 0;
   background: linear-gradient(
     180deg,
-    color-mix(in srgb, var(--amber-pale) 92%, #fff 8%) 0%,
-    var(--amber-pale) 100%
+    transparent 0%,
+    color-mix(in srgb, var(--rule-strong) 85%, var(--amber)) 40%,
+    color-mix(in srgb, var(--rule-strong) 85%, var(--blue-text)) 100%
   );
-  border-bottom: 1px solid color-mix(in srgb, var(--amber) 12%, var(--rule));
 }
-.engine-example-strip {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  border-top: 1px solid var(--rule);
-}
-.engine-example-cell {
-  padding: 12px 8px;
-  border-right: 1px solid var(--rule);
-  background: var(--paper);
-  text-align: center;
-}
-.engine-example-cell:last-child {
-  border-right: none;
-}
-.ec-lbl {
-  font-family: var(--sans);
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--ink-muted);
-  display: block;
-  margin-bottom: 6px;
-}
-.ec-val {
+.engine-step-connector-arrow {
   font-family: var(--mono);
-  font-size: clamp(15px, 2vw, 18px);
+  font-size: 15px;
   font-weight: 500;
-  color: var(--ink);
-  letter-spacing: -0.02em;
-  line-height: 1.15;
-  display: block;
+  line-height: 1;
+  letter-spacing: 0.06em;
+  color: color-mix(in srgb, var(--ink-muted) 85%, var(--blue-text));
 }
-.ec-z {
+.engine-step-connector-label {
   font-family: var(--mono);
-  font-size: 10px;
-  color: var(--ink-muted);
-  margin-top: 8px;
-  display: block;
-  letter-spacing: 0.02em;
-}
-.ec-z-warn { color: var(--red-text); }
-.ec-z-ok { color: var(--green-text); }
-.engine-example-regime {
-  padding: 14px 14px 16px;
-}
-.engine-example-tag {
-  font-family: var(--mono);
-  font-size: 10px;
+  font-size: var(--fs-micro);
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--ink-muted);
-  margin: 0 0 6px 0;
-}
-.engine-example-title {
-  font-family: var(--serif);
-  font-size: clamp(20px, 2.4vw, 24px);
-  font-weight: 400;
-  color: var(--ink);
-  line-height: 1.12;
-  margin: 0 0 10px 0;
-  letter-spacing: -0.02em;
-}
-.engine-example-tilt {
-  margin-bottom: 12px;
-}
-.engine-example-conf {
-  font-family: var(--sans);
-  font-size: 13px;
-  line-height: 1.5;
-  color: var(--ink-mid);
-  margin: 0;
-}
-.engine-example-conf strong {
-  color: var(--ink);
-  font-weight: 600;
-}
-@media (max-width: 960px) {
-  .engine-split {
-    grid-template-columns: 1fr;
-    padding: 20px 18px 18px;
-    gap: 24px;
-  }
-  .engine-example-card {
-    position: static;
-    order: -1;
-    max-width: 400px;
-    margin: 0 auto 12px;
-  }
-  .engine-framework > .engine-step:first-of-type {
-    padding: 18px 18px 20px;
-  }
-  .engine-split-main .engine-step {
-    padding: 18px 0 20px;
-  }
+  text-align: center;
 }
 .engine-step-head {
   display: flex;
   align-items: flex-start;
   gap: 16px;
   margin-bottom: 14px;
+}
+.engine-step-card .engine-step-head {
+  margin-bottom: 16px;
 }
 .engine-step-num {
   flex-shrink: 0;
@@ -1295,9 +1269,9 @@ footer {
 }
 .engine-formula-main {
   font-family: var(--mono);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.04em;
   line-height: 1.75;
   color: var(--ink-mid);
 }
@@ -1329,6 +1303,16 @@ footer {
   border: 1px solid var(--rule-strong);
   background: var(--paper);
   color: var(--ink-mid);
+}
+.engine-step-card .engine-math {
+  padding: 14px 16px;
+  margin-top: 6px;
+  border-radius: var(--radius-sm);
+  border: 1px solid color-mix(in srgb, var(--rule-strong) 60%, transparent);
+  background: color-mix(in srgb, var(--surface) 55%, var(--paper));
+}
+.engine-step-card .engine-tilt-row {
+  margin-top: 4px;
 }
 .engine-math {
   display: flex;
@@ -1851,8 +1835,9 @@ footer {
         <p class="engine-works-lede">
           The math is deterministic. Same inputs always produce the same outputs. No author judgment, no editorial adjustment - just the framework applied consistently every session.
         </p>
-        <div class="engine-framework" aria-label="Three-step framework">
-          <article class="engine-step">
+        <div class="method-engine-visual-wrap">
+        <div class="engine-steps-stack" aria-label="Three-step framework">
+          <article class="engine-step engine-step-card">
             <header class="engine-step-head">
               <span class="engine-step-num" aria-hidden="true">1</span>
               <div>
@@ -1865,92 +1850,84 @@ footer {
                 <strong>Z-score</strong> = (current value &minus; 63-day mean) &divide; 63-day std dev
               </p>
             </div>
+            <p class="engine-step-summary"><strong>Goes forward:</strong> one comparable Z-score per signal on the same 63-session baseline.</p>
           </article>
 
-          <div class="engine-split">
-            <div class="engine-split-main">
-              <article class="engine-step">
-                <header class="engine-step-head">
-                  <span class="engine-step-num" aria-hidden="true">2</span>
-                  <div>
-                    <span class="engine-step-kicker">Step 2</span>
-                    <h3 class="engine-step-title">Classify the regime</h3>
-                  </div>
-                </header>
-                <p class="engine-step-note">Each signal &rarr; three states.</p>
-                <div class="engine-state-chips" aria-label="Per-signal states">
-                  <span class="engine-chip">Elevated</span>
-                  <span class="engine-chip">Neutral</span>
-                  <span class="engine-chip">Depressed</span>
-                </div>
-                <div class="engine-math">
-                  <span><span class="engine-math-n">3</span> signals</span>
-                  <span class="engine-math-op">&times;</span>
-                  <span><span class="engine-math-n">3</span> states</span>
-                  <span class="engine-math-op">=</span>
-                  <span><span class="engine-math-n">27</span></span>
-                  <span class="engine-math-result">possible regime combinations</span>
-                </div>
-              </article>
-
-              <article class="engine-step">
-                <header class="engine-step-head">
-                  <span class="engine-step-num" aria-hidden="true">3</span>
-                  <div>
-                    <span class="engine-step-kicker">Step 3</span>
-                    <h3 class="engine-step-title">Score and label</h3>
-                  </div>
-                </header>
-                <div class="engine-step3-flow">
-                  <div class="engine-flow-row">
-                    <span class="engine-flow-label">Confidence</span>
-                    <span class="engine-flow-val">0&ndash;100</span>
-                    <span aria-hidden="true">+</span>
-                    <span class="engine-flow-label">Stability classifier</span>
-                    <span class="engine-flow-arrow">&rarr;</span>
-                    <span class="engine-flow-label">Risk tilt</span>
-                  </div>
-                  <div class="engine-tilt-row">
-                    <span class="tilt-badge tilt-badge-compact tilt-pro">PRO-RISK</span>
-                    <span class="tilt-badge tilt-badge-compact tilt-neu">NEUTRAL</span>
-                    <span class="tilt-badge tilt-badge-compact tilt-def">DEFENSIVE</span>
-                  </div>
-                </div>
-              </article>
-            </div>
-
-            <aside class="engine-example-card" aria-label="Example signal card output">
-              <p class="engine-example-kicker">Example output</p>
-              <div class="engine-example-regime">
-                <p class="engine-example-tag">Regime</p>
-                <p class="engine-example-title">Transitional | Emerging</p>
-                <div class="engine-example-tilt">
-                  <span class="tilt-badge tilt-badge-compact tilt-neu">NEUTRAL</span>
-                </div>
-                <p class="engine-example-conf">
-                  <strong>Confidence</strong> 58 / 100 · Medium · Emerging
-                </p>
-              </div>
-              <div class="engine-example-strip">
-                <div class="engine-example-cell">
-                  <span class="ec-lbl">S&amp;P 500</span>
-                  <span class="ec-val">7,400</span>
-                  <span class="ec-z ec-z-warn">Z +2.05 · extended</span>
-                </div>
-                <div class="engine-example-cell">
-                  <span class="ec-lbl">10Y yield</span>
-                  <span class="ec-val">4.38%</span>
-                  <span class="ec-z ec-z-ok">Z +1.02 · firm</span>
-                </div>
-                <div class="engine-example-cell">
-                  <span class="ec-lbl">WTI crude</span>
-                  <span class="ec-val">$96.97</span>
-                  <span class="ec-z">Z +0.54 · firming</span>
-                </div>
-              </div>
-            </aside>
+          <div class="engine-step-connector" aria-hidden="true">
+            <span class="engine-step-connector-line"></span>
+            <span class="engine-step-connector-arrow">&darr;</span>
+            <span class="engine-step-connector-label">Then classify</span>
           </div>
+
+          <article class="engine-step engine-step-card">
+            <header class="engine-step-head">
+              <span class="engine-step-num" aria-hidden="true">2</span>
+              <div>
+                <span class="engine-step-kicker">Step 2</span>
+                <h3 class="engine-step-title">Classify the regime</h3>
+              </div>
+            </header>
+            <p class="engine-step-note">Each signal &rarr; three states.</p>
+            <div class="engine-state-chips" aria-label="Per-signal states">
+              <span class="engine-chip">Elevated</span>
+              <span class="engine-chip">Neutral</span>
+              <span class="engine-chip">Depressed</span>
+            </div>
+            <div class="engine-math">
+              <span><span class="engine-math-n">3</span> signals</span>
+              <span class="engine-math-op">&times;</span>
+              <span><span class="engine-math-n">3</span> states</span>
+              <span class="engine-math-op">=</span>
+              <span><span class="engine-math-n">27</span></span>
+              <span class="engine-math-result">possible regime combinations</span>
+            </div>
+            <p class="engine-step-summary"><strong>Goes forward:</strong> a single combined state from the lattice before scoring.</p>
+          </article>
+
+          <div class="engine-step-connector" aria-hidden="true">
+            <span class="engine-step-connector-line"></span>
+            <span class="engine-step-connector-arrow">&darr;</span>
+            <span class="engine-step-connector-label">Then label</span>
+          </div>
+
+          <article class="engine-step engine-step-card">
+            <header class="engine-step-head">
+              <span class="engine-step-num" aria-hidden="true">3</span>
+              <div>
+                <span class="engine-step-kicker">Step 3</span>
+                <h3 class="engine-step-title">Score and label</h3>
+              </div>
+            </header>
+            <div class="engine-step3-flow">
+              <div class="engine-flow-row">
+                <span class="engine-flow-label">Confidence</span>
+                <span class="engine-flow-val">0&ndash;100</span>
+                <span aria-hidden="true">+</span>
+                <span class="engine-flow-label">Stability classifier</span>
+                <span class="engine-flow-arrow">&rarr;</span>
+                <span class="engine-flow-label">Risk tilt</span>
+              </div>
+              <div class="engine-tilt-row">
+                <span class="tilt-badge tilt-badge-compact tilt-pro">PRO-RISK</span>
+                <span class="tilt-badge tilt-badge-compact tilt-neu">NEUTRAL</span>
+                <span class="tilt-badge tilt-badge-compact tilt-def">DEFENSIVE</span>
+              </div>
+            </div>
+            <p class="engine-step-summary"><strong>Session read:</strong> combines the lattice state with confidence and stability before the published card adds invalidation thresholds.</p>
+          </article>
         </div>
+
+        <aside class="method-calculation-prose" aria-labelledby="method-calculation-heading">
+          <h3 id="method-calculation-heading" class="method-calculation-heading">How the calculation works</h3>
+          <p class="method-calculation-p">
+            MacroEvidence reads three market signals every session: the S&amp;P 500, the 10-year Treasury yield, and WTI crude. Step 1 expresses each signal as a Z-score against its trailing 63 trading sessions: subtract the rolling mean from the latest print, divide by the rolling standard deviation. That normalization puts equity levels, nominal yields, and oil on one comparable scale regardless of absolute units or decimal places.
+          </p>
+          <p class="method-calculation-p">
+            Step 2 sorts each normalized signal into one of three states&mdash;elevated, neutral, or depressed relative to its own baseline&mdash;so three signals yield 27 discrete combinations before labeling. Step 3 turns that combination into the published read: a named regime cluster, a 0&ndash;100 confidence figure paired with a stability classifier on how tightly the trio agrees, plus a concise risk tilt (pro-risk, neutral, or defensive). The pipeline is deterministic: identical inputs reproduce the same output every time.
+          </p>
+        </aside>
+        </div>
+
         <p class="engine-works-mid">
           The 63-day rolling window isn&rsquo;t arbitrary - it captures roughly one quarter of market behavior, long enough to filter daily noise, short enough to catch genuine regime shifts.
         </p>
