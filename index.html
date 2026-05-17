@@ -1146,7 +1146,7 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  gap: 0;
+  gap: 18px;
 }
 .engine-step-card {
   border: 1px solid color-mix(in srgb, var(--rule-strong) 88%, var(--paper));
@@ -1177,43 +1177,6 @@ footer {
 .engine-step-summary strong {
   font-weight: 600;
   color: var(--ink-mid);
-}
-.engine-step-connector {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 14px 8px;
-  gap: 6px;
-  color: var(--ink-muted);
-}
-.engine-step-connector-line {
-  width: 1px;
-  height: 14px;
-  flex-shrink: 0;
-  background: linear-gradient(
-    180deg,
-    transparent 0%,
-    color-mix(in srgb, var(--rule-strong) 85%, var(--amber)) 40%,
-    color-mix(in srgb, var(--rule-strong) 85%, var(--blue-text)) 100%
-  );
-}
-.engine-step-connector-arrow {
-  font-family: var(--mono);
-  font-size: 15px;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: 0.06em;
-  color: color-mix(in srgb, var(--ink-muted) 85%, var(--blue-text));
-}
-.engine-step-connector-label {
-  font-family: var(--mono);
-  font-size: var(--fs-micro);
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--ink-muted);
-  text-align: center;
 }
 .engine-step-head {
   display: flex;
@@ -1853,12 +1816,6 @@ footer {
             <p class="engine-step-summary"><strong>Goes forward:</strong> one comparable Z-score per signal on the same 63-session baseline.</p>
           </article>
 
-          <div class="engine-step-connector" aria-hidden="true">
-            <span class="engine-step-connector-line"></span>
-            <span class="engine-step-connector-arrow">&darr;</span>
-            <span class="engine-step-connector-label">Then classify</span>
-          </div>
-
           <article class="engine-step engine-step-card">
             <header class="engine-step-head">
               <span class="engine-step-num" aria-hidden="true">2</span>
@@ -1883,12 +1840,6 @@ footer {
             </div>
             <p class="engine-step-summary"><strong>Goes forward:</strong> a single combined state from the lattice before scoring.</p>
           </article>
-
-          <div class="engine-step-connector" aria-hidden="true">
-            <span class="engine-step-connector-line"></span>
-            <span class="engine-step-connector-arrow">&darr;</span>
-            <span class="engine-step-connector-label">Then label</span>
-          </div>
 
           <article class="engine-step engine-step-card">
             <header class="engine-step-head">
