@@ -216,6 +216,16 @@ h3 {
 .about-prose > h2 {
   max-width: 42rem;
 }
+.about-prose > .about-subhead {
+  font-family: var(--sans);
+  font-size: clamp(17px, 2vw, 19px);
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--ink);
+  max-width: 42rem;
+  margin: 0.75rem 0 1.75rem;
+  letter-spacing: -0.012em;
+}
 .about-prose > h3 {
   margin-top: 2.5rem;
   margin-bottom: 0.85rem;
@@ -298,6 +308,61 @@ h3 {
 }
 .about-prose .about-callout p + p {
   margin-top: 0.65rem;
+}
+
+.about-cta-stripe {
+  margin-top: 2.25rem;
+  max-width: 42rem;
+  padding: 1.35rem 1.4rem 1.45rem;
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius);
+  background: linear-gradient(165deg, var(--surface) 0%, var(--paper-deep) 100%);
+  box-shadow: var(--shadow-sm);
+}
+.about-cta-stripe p {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: var(--fs-body-md);
+  line-height: 1.6;
+  color: var(--ink-mid);
+}
+.about-cta-stripe p strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+.about-cta-stripe p + p {
+  margin-top: 0.65rem;
+}
+.about-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 16px;
+  margin-top: 1.15rem;
+}
+.btn-outline {
+  font-family: var(--mono);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--rule-strong);
+  padding: 14px 24px;
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+  transition: background 0.2s var(--ease-out), border-color 0.2s, color 0.2s, transform 0.2s var(--ease-out);
+}
+.btn-outline:hover {
+  background: var(--paper);
+  border-color: var(--ink-mid);
+  transform: translateY(-1px);
+}
+.btn-outline:focus-visible {
+  outline: 2px solid var(--blue-text);
+  outline-offset: 3px;
 }
 
 /* ── Hero ── */
@@ -1867,7 +1932,7 @@ footer {
           aria-controls="ts-read-details"
         >Details</button>
       </p>
-      <p class="ts-next-up">Next update: May 18, 2026 · after U.S. market close <span class="ts-next-note">(U.S. cash session days)</span></p>
+      <p class="ts-next-up">Next update: May 16, 2026 · after U.S. market close <span class="ts-next-note">(U.S. cash session days)</span></p>
     </div>
     <div id="ts-read-details" class="ts-details-popover" popover="auto" role="dialog" aria-labelledby="ts-read-details-title">
       <div class="ts-details-popover-inner">
@@ -1905,7 +1970,7 @@ footer {
         <div class="signal-value">7,415</div>
         <div class="signal-meta">
           <span class="signal-z">Z +1.74</span>
-          <span class="badge badge-ok">ELEVATED</span>
+          <span class="badge badge-ok">STABLE</span>
         </div>
         <div class="signal-z-note">63-session rolling Z · vs mean</div>
       </div>
@@ -1923,7 +1988,7 @@ footer {
         <div class="signal-value">$99.32</div>
         <div class="signal-meta">
           <span class="signal-z">Z +0.62</span>
-          <span class="badge badge-ok">STABLE</span>
+          <span class="badge badge-warn">RISING</span>
         </div>
         <div class="signal-z-note">63-session rolling Z · vs mean</div>
       </div>
@@ -1939,7 +2004,7 @@ footer {
             <div class="regime-primary-label">Regime</div>
             <div class="regime-headline-row">
               <div class="regime-head-main">
-                <div class="regime-primary-value">Transitional | From restrictive</div>
+                <div class="regime-primary-value">Transitional | Stable</div>
                 <div class="regime-primary-sub">27-regime classification · 63-day normalization</div>
                 <div class="regime-tilt-inline">
                   <span class="regime-tilt-label">Risk tilt</span>
@@ -1947,7 +2012,7 @@ footer {
                 </div>
               </div>
               <aside class="regime-head-aside">
-                <p class="regime-head-aside-body">SPX 7,473 vs published bands (7,361 / 7,585); 10Y 4.44% vs 4.24% / 4.64%. Read: transitional | stable, high confidence (78/100), stability stable, state pressure stable — neutral tilt until a gate clears.</p>
+                <p class="regime-head-aside-body">SPX 7,415 vs published bands (7,303 / 7,526); 10Y 4.56% vs 4.36% / 4.76%. Read: transitional | stable, high confidence (85/100), stability stable, state pressure stable — neutral tilt until a gate clears.</p>
               </aside>
             </div>
           </div>
@@ -1960,7 +2025,7 @@ footer {
           </div>
           <div class="regime-metric">
             <div class="rm-label">State pressure</div>
-            <div class="rm-value">DECREASING</div>
+            <div class="rm-value">STABLE</div>
             <div class="rm-sub">3-session window</div>
           </div>
           <div class="regime-metric">
@@ -1970,8 +2035,8 @@ footer {
           </div>
           <div class="regime-metric">
             <div class="rm-label">SPX proximity</div>
-            <div class="rm-value near">NEAR</div>
-            <div class="rm-sub">7,415 vs published SPX bands</div>
+            <div class="rm-value mod">MODERATE</div>
+            <div class="rm-sub">7,415 vs 7,526 / 7,303 bands</div>
           </div>
         </div>
         <div class="regime-footer">macroevidence.com · not financial advice</div>
@@ -2226,6 +2291,8 @@ footer {
     <article class="about-prose">
       <h2>Daily framework for active investors</h2>
 
+      <p class="about-subhead">Three signals. One regime read per session. Two specific invalidation conditions on every output.</p>
+
       <h3>What the system does</h3>
       <p class="body-lg">
         Every market session, MacroEvidence ingests three signals: the S&amp;P 500, the 10-year Treasury yield, and WTI crude oil. Each is normalized on a 63-day rolling Z-score. The combined state is classified into one of 27 regime combinations, scored for stability and confidence, and delivered as:
@@ -2236,7 +2303,7 @@ footer {
         <li>Two specific invalidation conditions stating what data would flip the read</li>
       </ul>
       <p class="body-lg">
-        Subscribers receive one structured read per session. They use it as a check against their own thesis. The framework does not tell them whether their thesis is correct. It names the current state and the conditions that would change it.
+        Subscribers use it as a check against their own thesis. The framework names the current state and the conditions that would change it. Nothing more.
       </p>
 
       <h3>Why three signals</h3>
@@ -2275,6 +2342,15 @@ footer {
       <div class="about-callout" role="note">
         <p><strong>Not for</strong> passive index investors, day traders looking for entry signals, or subscribers who want predictions.</p>
       </div>
+
+      <aside class="about-cta-stripe" aria-label="Pricing and subscribe">
+        <p><strong>$49/month.</strong> Cancel anytime.</p>
+        <p><strong>Founding Member:</strong> $1,000/year, capped at the first 25 subscribers. Locks lifetime grandfathered pricing.</p>
+        <div class="about-cta-actions">
+          <a href="https://mymacroevidence.substack.com/subscribe" class="btn-primary">Subscribe</a>
+          <a href="#dashboard" class="btn-outline">Read latest regime read</a>
+        </div>
+      </aside>
     </article>
   </div>
 </section>
@@ -2289,23 +2365,23 @@ footer {
       <div class="bento-cell">
         <div class="bento-label">Consistency</div>
         <h3>Same framework, every session</h3>
-        <p class="bento-body">Three signals. 63-day normalization. Same structure every day - so today is directly comparable to any prior session without wading through commentary.</p>
+        <p class="bento-body">Three signals. 63-day rolling Z-score normalization. Same structure every session — so today's read is directly comparable to any prior session without wading through commentary.</p>
       </div>
 
       <div class="bento-cell">
         <div class="bento-label">Falsifiability</div>
         <h3>Two explicit invalidation conditions</h3>
-        <p class="bento-body">Every output names the exact thresholds that would change the read. The framework can be checked against what actually happened - session by session.</p>
+        <p class="bento-body">Every output names the exact thresholds that would change the read. The framework can be checked against what actually happened — session by session.</p>
       </div>
 
       <div class="bento-cell">
         <div class="bento-label">Compression</div>
         <h3>Readable in under 30 seconds</h3>
-        <p class="bento-body">Regime, tilt, confidence, distance to invalidation, session context - one artifact. No narrative padding. Scannable before you decide.</p>
+        <p class="bento-body">Regime, tilt, confidence, distance to invalidation, session context — one artifact. No narrative padding. Scannable before you decide.</p>
       </div>
 
       <div class="bento-cell wide">
-        <div class="bento-label">Distance to invalidation - how close is a change?</div>
+        <div class="bento-label">Distance to invalidation — how close is a change?</div>
         <div class="dist-wrap">
           <div class="dist-row">
             <span class="dist-lbl">SPX Z &gt; −0.30</span>
@@ -2324,7 +2400,7 @@ footer {
         <div class="bento-label">State pressure</div>
         <h3>Signal acceleration</h3>
         <div class="pressure-val">INCREASING</div>
-        <div class="pressure-sub">Derived over a 3-session window</div>
+        <div class="pressure-sub">Derived over a 3-session window.</div>
       </div>
 
     </div>
