@@ -20,10 +20,10 @@
     "z_oil": 0.6169800705323721
   },
   "regime": {
-    "regime": "Transitional | From restrictive",
-    "regime_code": "transitional_from_restrictive",
+    "regime": "Transitional | Stable",
+    "regime_code": "transitional_stable",
     "risk_tilt": "neutral",
-    "description": "Equities breaking higher despite elevated yields \u2014 regime may be turning.",
+    "description": "Transitional lattice with elevated yields; read remains stable versus prior session.",
     "states": {
       "s_sp500": 1,
       "s_yield": 1,
@@ -69,7 +69,7 @@
   "invalidation_distance": {
     "condition_1": {
       "label": "SP500 > 7,520 OR SP500 < 7,297",
-      "proximity": "NEAR",
+      "proximity": "MODERATE",
       "conditions": [
         {
           "signal": "sp500",
@@ -105,11 +105,11 @@
     }
   },
   "state_pressure": {
-    "direction": "DECREASING",
+    "direction": "STABLE",
     "window": "3-session",
-    "basis": "Oil falling (-0.13s), SPX falling (-0.32s), 10Y rising (+0.51s)"
+    "basis": "SPX, 10Y, and WTI state pressure unchanged vs prior snapshot."
   },
-  "session_context": "1 invalidation condition(s) in near proximity: SP500 > 7,520 OR SP500 < 7,297. State pressure decreasing.",
+  "session_context": "May 18 session: SPX moderate vs bands; 10Y elevated Z; WTI firming. State pressure stable.",
   "confidence": {
     "confidence": 85,
     "confidence_label": "High",
@@ -119,7 +119,7 @@
   },
   "drafts": {
     "x": "10Y yield is surging \u2014 and the other signals aren't confirming.\nNeeds oil to break the range \u2014 only then does it matter.\n\nSPX 7,408. 10Y 4.59%. Oil $100.\n\nInvalidation:\n\u2022 SPX breaks above 7,520 or below 7,297\n\u2022 10Y moves beyond 4.79% or below 4.39%\n\nWhat breaks this range \u2014 and which direction?",
-    "substack": "REGIME: Transitional | From restrictive\nCONFIDENCE: High (85/100)\nRISK TILT: neutral\nSTABILITY: Stable\n\nSnapshot \u2014 May 18, 2026\n  S&P 500:     7,408.39   z +1.65\n  10Y Yield:      4.585%  z +2.17\n  WTI Oil:        99.76   z +0.62\n\nINSIGHT\nS&P 500 at 7,408 is pushing above its recent range \u2014 a move that only matters if it holds. 10Y yield at 4.59% is running well beyond its 63-session range \u2014 yields haven't been this stretched in months. Oil at $100 is sitting near its 63-session mean \u2014 no signal from oil.\n\nINVALIDATION\n\u2022 SPX breaks above 7,520 or below 7,297\n\u2022 10Y moves beyond 4.79% or below 4.39%\n\nMethod: MacroEvidence pipeline \u00b7 yfinance + FRED \u00b7 63-session rolling z-scores \u00b7 not financial advice.",
+    "substack": "REGIME: Transitional | Stable\nCONFIDENCE: High (85/100)\nRISK TILT: neutral\nSTABILITY: Stable\n\nSnapshot \u2014 May 18, 2026\n  S&P 500:     7,408.39   z +1.65\n  10Y Yield:      4.585%  z +2.17\n  WTI Oil:        99.76   z +0.62\n\nINSIGHT\nS&P 500 at 7,408 is pushing above its recent range \u2014 a move that only matters if it holds. 10Y yield at 4.59% is running well beyond its 63-session range \u2014 yields haven't been this stretched in months. Oil at $100 is sitting near its 63-session mean \u2014 no signal from oil.\n\nINVALIDATION\n\u2022 SPX breaks above 7,520 or below 7,297\n\u2022 10Y moves beyond 4.79% or below 4.39%\n\nMethod: MacroEvidence pipeline \u00b7 yfinance + FRED \u00b7 63-session rolling z-scores \u00b7 not financial advice.",
     "word_counts": {}
   },
   "checker": {
@@ -147,5 +147,27 @@
     }
   },
   "rule_md_version": "1.0",
-  "previous_regime_code": "transitional_from_restrictive"
+  "previous_regime_code": "transitional_from_restrictive",
+  "site_display": {
+    "next_update_label": "May 19, 2026",
+    "signal_badges": [
+      [
+        "badge-ok",
+        "STABLE"
+      ],
+      [
+        "badge-ok",
+        "ELEVATED"
+      ],
+      [
+        "badge-warn",
+        "RISING"
+      ]
+    ],
+    "spx_proximity": "MODERATE",
+    "wti_proximity": "FAR",
+    "spx_proximity_rm_sub": "7,408 vs 7,520 / 7,297 bands",
+    "wti_proximity_rm_sub": "$99.76 \u00b7 see signal card",
+    "hero_aside": "SPX 7,408 vs published bands (7,297 / 7,520); 10Y 4.59% vs 4.39% / 4.79%. Read: transitional | stable, high confidence (85/100), stability stable, state pressure stable \u2014 neutral tilt until a gate clears."
+  }
 }
