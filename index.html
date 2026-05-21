@@ -1872,10 +1872,19 @@ footer {
         <aside class="method-calculation-prose" aria-labelledby="method-calculation-heading">
           <h3 id="method-calculation-heading" class="method-calculation-heading">How the calculation works</h3>
           <p class="method-calculation-p">
-            MacroEvidence reads three market signals every session: the S&amp;P 500, the 10-year Treasury yield, and WTI crude. Step 1 expresses each signal as a Z-score against its trailing 63 trading sessions: subtract the rolling mean from the latest print, divide by the rolling standard deviation. That normalization puts equity levels, nominal yields, and oil on one comparable scale regardless of absolute units or decimal places.
+            MacroEvidence reads three market signals every session: the S&amp;P 500, the 10-year Treasury yield, and WTI crude.
           </p>
           <p class="method-calculation-p">
-            Step 2 sorts each normalized signal into one of three states&mdash;elevated, neutral, or depressed relative to its own baseline&mdash;so three signals yield 27 discrete combinations before labeling. Step 3 turns that combination into the published read: a named regime cluster, a 0&ndash;100 confidence figure paired with a stability classifier on how tightly the trio agrees, plus a concise risk tilt (pro-risk, neutral, or defensive). The pipeline is deterministic: identical inputs reproduce the same output every time.
+            <strong>Step 1.</strong><br>
+            Expresses each signal as a Z-score against its trailing 63 trading sessions: subtract the rolling mean from the latest print, divide by the rolling standard deviation. That normalization puts equity levels, nominal yields, and oil on one comparable scale regardless of absolute units or decimal places.
+          </p>
+          <p class="method-calculation-p">
+            <strong>Step 2.</strong><br>
+            Sorts each normalized signal into one of three states&mdash;elevated, neutral, or depressed relative to its own baseline&mdash;so three signals yield 27 discrete combinations before labeling.
+          </p>
+          <p class="method-calculation-p">
+            <strong>Step 3.</strong><br>
+            Turns that combination into the published read: a named regime cluster, a 0&ndash;100 confidence figure paired with a stability classifier on how tightly the trio agrees, plus a concise risk tilt (pro-risk, neutral, or defensive). The pipeline is deterministic: identical inputs reproduce the same output every time.
           </p>
         </aside>
         </div>
