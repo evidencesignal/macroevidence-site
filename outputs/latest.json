@@ -10,25 +10,18 @@
   "needs_rewrite_x": false,
   "needs_rewrite_substack": false,
   "signals": {
-    "oil_wti": 96.70999908447266,
-    "sp500": 7497.83984375,
-    "yield_10y": 4.5360002517700195
+    "sp500": 7498,
+    "yield_10y": 4.54,
+    "oil_wti": 96.71
   },
   "zscores": {
-    "z_sp500": 1.6946295953913728,
-    "z_yield_10y": 1.4858111795821416,
-    "z_oil": 0.22554462484586135
+    "z_sp500": 1.69,
+    "z_yield_10y": 1.49,
+    "z_oil": 0.23
   },
   "regime": {
-    "regime": "Transitional | From restrictive",
-    "regime_code": "transitional_from_restrictive",
-    "risk_tilt": "neutral",
-    "description": "Equities breaking higher despite elevated yields \u2014 regime may be turning.",
-    "states": {
-      "s_sp500": 1,
-      "s_yield": 1,
-      "s_oil": 0
-    }
+    "regime": "Transitional | Stable",
+    "risk_tilt": "neutral"
   },
   "invalidations_structured": [
     {
@@ -69,53 +62,23 @@
   "invalidation_distance": {
     "condition_1": {
       "label": "SP500 > 7,610 OR SP500 < 7,385",
-      "proximity": "NEAR",
-      "conditions": [
-        {
-          "signal": "sp500",
-          "operator": ">",
-          "threshold": 7610,
-          "unit": "level"
-        },
-        {
-          "signal": "sp500",
-          "operator": "<",
-          "threshold": 7385,
-          "unit": "level"
-        }
-      ]
+      "proximity": "MODERATE"
     },
     "condition_2": {
       "label": "YIELD 10Y > 4.74% OR YIELD 10Y < 4.34%",
-      "proximity": "MODERATE",
-      "conditions": [
-        {
-          "signal": "yield_10y",
-          "operator": ">",
-          "threshold": 4.74,
-          "unit": "percent"
-        },
-        {
-          "signal": "yield_10y",
-          "operator": "<",
-          "threshold": 4.34,
-          "unit": "percent"
-        }
-      ]
+      "proximity": "MODERATE"
     }
   },
   "state_pressure": {
-    "direction": "DECREASING",
+    "direction": "STABLE",
     "window": "3-session",
-    "basis": "Oil falling (-0.97s), SPX rising (+0.30s), 10Y falling (-1.06s)"
+    "basis": "May 22 session overlay \u2014 stable state pressure per published read."
   },
-  "session_context": "1 invalidation condition(s) in near proximity: SP500 > 7,610 OR SP500 < 7,385. State pressure decreasing.",
+  "session_context": "May 22 session overlay: SPX moderate vs bands (7,385 / 7,610); 10Y elevated Z; WTI stable vs mean.",
   "confidence": {
     "confidence": 71,
     "confidence_label": "High",
-    "is_no_call": false,
-    "stability": "Stable",
-    "reasoning": "Confidence 71/100 (High). Signal strength 46/75, alignment bonus 15/25 continuity +10 (regime persisted) Stability: Stable."
+    "stability": "Stable"
   },
   "drafts": {
     "x": "S&P 500 pushing higher while the rest of the board is watching.\nNeeds oil to break the range \u2014 only then does it matter.\n\nSPX 7,498. 10Y 4.54%. Oil $97.\n\nInvalidation:\n\u2022 SPX breaks above 7,610 or below 7,385\n\u2022 10Y moves beyond 4.74% or below 4.34%\n\nWhat breaks this range \u2014 and which direction?",
@@ -147,5 +110,27 @@
     }
   },
   "rule_md_version": "1.0",
-  "previous_regime_code": "transitional_from_restrictive"
+  "previous_regime_code": "transitional_from_restrictive",
+  "site_display": {
+    "next_update_label": "May 27, 2026",
+    "signal_badges": [
+      [
+        "badge-ok",
+        "STABLE"
+      ],
+      [
+        "badge-ok",
+        "ELEVATED"
+      ],
+      [
+        "badge-ok",
+        "STABLE"
+      ]
+    ],
+    "spx_proximity": "MODERATE",
+    "wti_proximity": "FAR",
+    "spx_proximity_rm_sub": "7,498 vs published SPX bands",
+    "wti_proximity_rm_sub": "$96.71 \u00b7 see signal card",
+    "hero_aside": "SPX 7,498 vs published bands (7,385 / 7,610); 10Y 4.54% vs 4.34% / 4.74%. Read: transitional | stable, high confidence (71/100), stability stable, state pressure stable \u2014 neutral tilt until a gate clears."
+  }
 }
