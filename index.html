@@ -1176,21 +1176,26 @@ footer {
 }
 .engine-step-head {
   display: flex;
-  align-items: flex-start;
-  gap: 16px;
+  align-items: center;
+  gap: 14px;
   margin-bottom: 14px;
 }
 .engine-step-card .engine-step-head {
   margin-bottom: 16px;
+}
+.engine-step-head > div {
+  display: flex;
+  align-items: center;
+  min-height: 36px;
 }
 .engine-step-num {
   flex-shrink: 0;
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  border: 1px solid var(--rule-strong);
-  background: var(--paper);
-  box-shadow: var(--shadow-sm);
+  border: none;
+  background: #3d3d3d;
+  box-shadow: none;
   font-family: var(--mono);
   font-size: 13px;
   font-weight: 500;
@@ -1198,7 +1203,8 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--ink);
+  color: #f5f2ec;
+  line-height: 1;
 }
 .engine-step-title {
   font-family: var(--sans);
