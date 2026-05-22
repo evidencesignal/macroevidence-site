@@ -1181,6 +1181,10 @@ footer {
   margin-bottom: 16px;
 }
 .engine-step-title {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.4em;
   font-family: var(--sans);
   font-size: 17px;
   font-weight: 600;
@@ -1193,12 +1197,16 @@ footer {
   font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.02em;
-  color: #3d3d3d;
+  color: var(--ink);
+  background: var(--hero-highlight-bg);
+  padding: 3px 7px 4px;
+  border-radius: 4px;
+  line-height: 1.2;
+  flex-shrink: 0;
 }
 .engine-step-title-text {
   color: var(--ink);
   font-weight: 600;
-  margin-left: 0.25em;
 }
 .engine-formula-panel {
   padding: 14px 16px;
