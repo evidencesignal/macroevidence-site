@@ -1175,45 +1175,30 @@ footer {
   color: var(--ink-mid);
 }
 .engine-step-head {
-  display: flex;
-  align-items: center;
-  gap: 14px;
   margin-bottom: 14px;
 }
 .engine-step-card .engine-step-head {
   margin-bottom: 16px;
 }
-.engine-step-head > div {
-  display: flex;
-  align-items: center;
-  min-height: 36px;
-}
-.engine-step-num {
-  flex-shrink: 0;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  border: none;
-  background: #3d3d3d;
-  box-shadow: none;
-  font-family: var(--mono);
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #f5f2ec;
-  line-height: 1;
-}
 .engine-step-title {
   font-family: var(--sans);
   font-size: 17px;
   font-weight: 600;
-  color: var(--ink);
   letter-spacing: -0.02em;
   margin: 0;
-  line-height: 1.25;
+  line-height: 1.35;
+}
+.engine-step-prefix {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: #3d3d3d;
+}
+.engine-step-title-text {
+  color: var(--ink);
+  font-weight: 600;
+  margin-left: 0.25em;
 }
 .engine-formula-panel {
   padding: 14px 16px;
@@ -1795,15 +1780,12 @@ footer {
         <div class="method-engine-visual-wrap">
         <div class="engine-calculation-intro">
           <h3 id="how-the-calculation-header" class="method-calculation-heading">How the calculation works</h3>
-          <p class="engine-calculation-intro-body">MacroEvidence reads three market signals every session: the S&amp;P 500, the 10-year Treasury yield, and WTI crude. The numbered cards walk through each step from raw prints to the published read.</p>
+          <p class="engine-calculation-intro-body">MacroEvidence reads three market signals every session: the S&amp;P 500, the 10-year Treasury yield, and WTI crude. The three cards below walk from raw prints to the published read.</p>
         </div>
         <div class="engine-steps-stack" aria-label="Three-step framework">
           <article class="engine-step engine-step-card">
             <header class="engine-step-head">
-              <span class="engine-step-num" aria-hidden="true">1</span>
-              <div>
-                <h3 class="engine-step-title">Normalize each signal</h3>
-              </div>
+              <h3 class="engine-step-title"><span class="engine-step-prefix">Step 1:</span><span class="engine-step-title-text">Normalize each signal</span></h3>
             </header>
             <p class="engine-step-desc">Expresses each signal as a Z-score against its trailing 63 trading sessions: subtract the rolling mean from the latest print, divide by the rolling standard deviation. That normalization puts equity levels, nominal yields, and oil on one comparable scale regardless of absolute units or decimal places.</p>
             <div class="engine-formula-panel">
@@ -1816,10 +1798,7 @@ footer {
 
           <article class="engine-step engine-step-card">
             <header class="engine-step-head">
-              <span class="engine-step-num" aria-hidden="true">2</span>
-              <div>
-                <h3 class="engine-step-title">Classify the regime</h3>
-              </div>
+              <h3 class="engine-step-title"><span class="engine-step-prefix">Step 2:</span><span class="engine-step-title-text">Classify the regime</span></h3>
             </header>
             <p class="engine-step-desc">Sorts each normalized signal into one of three states&mdash;elevated, neutral, or depressed relative to its own baseline&mdash;so three signals yield 27 discrete combinations before labeling.</p>
             <div class="engine-state-chips" aria-label="Per-signal states">
@@ -1840,10 +1819,7 @@ footer {
 
           <article class="engine-step engine-step-card">
             <header class="engine-step-head">
-              <span class="engine-step-num" aria-hidden="true">3</span>
-              <div>
-                <h3 class="engine-step-title">Score and label</h3>
-              </div>
+              <h3 class="engine-step-title"><span class="engine-step-prefix">Step 3:</span><span class="engine-step-title-text">Score and label</span></h3>
             </header>
             <p class="engine-step-desc">Turns that combination into the published read: a named regime cluster, a 0&ndash;100 confidence figure paired with a stability classifier on how tightly the trio agrees, plus a concise risk tilt (pro-risk, neutral, or defensive). The pipeline is deterministic: identical inputs reproduce the same output every time.</p>
             <div class="engine-step3-flow">
