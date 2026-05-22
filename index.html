@@ -1016,26 +1016,26 @@ footer {
   margin: 8px 0 0 0;
 }
 .method-engine-visual-wrap {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(268px, 320px);
-  gap: 24px 32px;
-  align-items: start;
+  display: block;
   margin: 6px 0 12px 0;
 }
 .method-engine-visual-wrap .engine-steps-stack {
   margin: 0;
   min-width: 0;
 }
-.method-calculation-prose {
+.engine-calculation-intro {
+  max-width: 48rem;
+  margin: 0 0 22px 0;
+}
+.engine-calculation-intro .method-calculation-heading {
+  margin: 0 0 10px 0;
+}
+.engine-calculation-intro-body {
+  font-family: var(--sans);
+  font-size: var(--fs-prose);
+  line-height: 1.68;
+  color: var(--ink-mid);
   margin: 0;
-  padding: 20px 20px 22px;
-  border: 1px solid color-mix(in srgb, var(--rule-strong) 90%, var(--paper));
-  border-radius: var(--radius-sm);
-  background: var(--paper);
-  box-shadow:
-    var(--shadow-sm),
-    0 8px 24px rgba(12, 12, 12, 0.04);
-  align-self: start;
 }
 .method-calculation-heading {
   font-family: var(--sans);
@@ -1046,20 +1046,9 @@ footer {
   margin: 0 0 12px 0;
   line-height: 1.25;
 }
-.method-calculation-prose .method-calculation-p {
-  font-family: var(--sans);
-  font-size: var(--fs-prose);
-  line-height: 1.68;
-  color: var(--ink-mid);
-  margin: 0 0 14px 0;
-}
-.method-calculation-prose .method-calculation-p:last-of-type {
-  margin-bottom: 0;
-}
 @media (max-width: 920px) {
   .method-engine-visual-wrap {
-    grid-template-columns: 1fr;
-    gap: 20px;
+    margin-bottom: 12px;
   }
   .engine-step-card {
     padding: 18px 18px 22px;
@@ -1162,6 +1151,13 @@ footer {
   border-radius: var(--radius-sm);
   margin-top: 2px;
 }
+.engine-step-desc {
+  font-family: var(--sans);
+  font-size: var(--fs-prose);
+  line-height: 1.68;
+  color: var(--ink-mid);
+  margin: 0 0 14px 0;
+}
 .engine-step-card .engine-chip {
   background: color-mix(in srgb, var(--surface) 82%, var(--paper));
 }
@@ -1224,12 +1220,13 @@ footer {
   line-height: 1.25;
 }
 .engine-formula-panel {
-  padding: 14px 18px 17px;
+  padding: 14px 16px;
   margin: 0;
-  background: #3d3d3d;
-  border: 1px solid color-mix(in srgb, #3d3d3d 88%, #fff 12%);
+  /* Match Step 2 “engine-math” callout — light surface + dark body copy */
+  background: color-mix(in srgb, var(--surface) 55%, var(--paper));
+  border: 1px solid color-mix(in srgb, var(--rule-strong) 60%, transparent);
   border-radius: var(--radius-sm);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  box-shadow: none;
 }
 .engine-formula-main {
   font-family: var(--mono);
@@ -1237,11 +1234,11 @@ footer {
   font-weight: 500;
   letter-spacing: 0.04em;
   line-height: 1.75;
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--ink-mid);
 }
 .engine-formula-main strong {
   font-weight: 600;
-  color: #fff;
+  color: var(--ink);
 }
 .engine-step-note {
   font-family: var(--sans);
@@ -1800,6 +1797,10 @@ footer {
           The math is deterministic. Same inputs always produce the same outputs. No author judgment, no editorial adjustment &mdash; just the framework applied consistently every session.
         </p>
         <div class="method-engine-visual-wrap">
+        <div class="engine-calculation-intro">
+          <h3 id="how-the-calculation-header" class="method-calculation-heading">How the calculation works</h3>
+          <p class="engine-calculation-intro-body">MacroEvidence reads three market signals every session: the S&amp;P 500, the 10-year Treasury yield, and WTI crude. The numbered cards walk through each step from raw prints to the published read.</p>
+        </div>
         <div class="engine-steps-stack" aria-label="Three-step framework">
           <article class="engine-step engine-step-card">
             <header class="engine-step-head">
@@ -1809,6 +1810,7 @@ footer {
                 <h3 class="engine-step-title">Normalize each signal</h3>
               </div>
             </header>
+            <p class="engine-step-desc">Expresses each signal as a Z-score against its trailing 63 trading sessions: subtract the rolling mean from the latest print, divide by the rolling standard deviation. That normalization puts equity levels, nominal yields, and oil on one comparable scale regardless of absolute units or decimal places.</p>
             <div class="engine-formula-panel">
               <p class="engine-formula-main">
                 <strong>Z-score</strong> = (current value &minus; 63-day mean) &divide; 63-day std dev
@@ -1825,7 +1827,7 @@ footer {
                 <h3 class="engine-step-title">Classify the regime</h3>
               </div>
             </header>
-            <p class="engine-step-note">Each signal &rarr; three states.</p>
+            <p class="engine-step-desc">Sorts each normalized signal into one of three states&mdash;elevated, neutral, or depressed relative to its own baseline&mdash;so three signals yield 27 discrete combinations before labeling.</p>
             <div class="engine-state-chips" aria-label="Per-signal states">
               <span class="engine-chip">Elevated</span>
               <span class="engine-chip">Neutral</span>
@@ -1850,6 +1852,7 @@ footer {
                 <h3 class="engine-step-title">Score and label</h3>
               </div>
             </header>
+            <p class="engine-step-desc">Turns that combination into the published read: a named regime cluster, a 0&ndash;100 confidence figure paired with a stability classifier on how tightly the trio agrees, plus a concise risk tilt (pro-risk, neutral, or defensive). The pipeline is deterministic: identical inputs reproduce the same output every time.</p>
             <div class="engine-step3-flow">
               <div class="engine-flow-row">
                 <span class="engine-flow-label">Confidence</span>
@@ -1869,24 +1872,6 @@ footer {
           </article>
         </div>
 
-        <aside class="method-calculation-prose" aria-labelledby="method-calculation-heading">
-          <h3 id="method-calculation-heading" class="method-calculation-heading">How the calculation works</h3>
-          <p class="method-calculation-p">
-            MacroEvidence reads three market signals every session: the S&amp;P 500, the 10-year Treasury yield, and WTI crude.
-          </p>
-          <p class="method-calculation-p">
-            <strong>Step 1.</strong><br>
-            Expresses each signal as a Z-score against its trailing 63 trading sessions: subtract the rolling mean from the latest print, divide by the rolling standard deviation. That normalization puts equity levels, nominal yields, and oil on one comparable scale regardless of absolute units or decimal places.
-          </p>
-          <p class="method-calculation-p">
-            <strong>Step 2.</strong><br>
-            Sorts each normalized signal into one of three states&mdash;elevated, neutral, or depressed relative to its own baseline&mdash;so three signals yield 27 discrete combinations before labeling.
-          </p>
-          <p class="method-calculation-p">
-            <strong>Step 3.</strong><br>
-            Turns that combination into the published read: a named regime cluster, a 0&ndash;100 confidence figure paired with a stability classifier on how tightly the trio agrees, plus a concise risk tilt (pro-risk, neutral, or defensive). The pipeline is deterministic: identical inputs reproduce the same output every time.
-          </p>
-        </aside>
         </div>
 
         <p class="engine-works-mid">
