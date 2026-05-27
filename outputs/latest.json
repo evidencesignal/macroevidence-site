@@ -130,6 +130,16 @@
     "spx_proximity": "MODERATE",
     "wti_proximity": "FAR",
     "spx_proximity_rm_sub": "7,513 vs published SPX bands",
-    "wti_proximity_rm_sub": "$89.70 \u00b7 see signal card"
+    "wti_proximity_rm_sub": "$89.70 \u00b7 see signal card",
+    "regime_analogs": {
+      "intro": "As of May 27, 2026, today\u2019s regime has appeared 7 times since 2005. Members search the full 50-year database.",
+      "cta_text": "One analog is a data point. Seven is a base rate. Members access the full 50-year analog database \u2014 filtered by outcome, duration, Fed environment, and signal tolerance.",
+      "open_row": {
+        "match_pct": 91,
+        "period": "Aug 2018",
+        "zscores": "SPX +1.6\u03c3 \u00b7 10Y +0.9\u03c3 \u00b7 WTI -0.8\u03c3",
+        "outcome": "Reversed \u00b7 10Y triggered \u00b7 18 sessions"
+      }
+    }
   }
 }
