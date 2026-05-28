@@ -2,87 +2,112 @@
   "status": "ok",
   "stage_reached": "quality_check",
   "reason": null,
-  "as_of": "2026-05-27",
-  "timestamp": "2026-05-27T13:47:03.987054+00:00",
+  "as_of": "2026-05-28",
+  "timestamp": "2026-05-28T14:35:16.418608+00:00",
   "publishable": true,
   "publish_x": true,
   "publish_substack": true,
   "needs_rewrite_x": false,
   "needs_rewrite_substack": false,
   "signals": {
-    "sp500": 7513,
-    "yield_10y": 4.48,
-    "oil_wti": 89.7
+    "oil_wti": 89.11000061035156,
+    "sp500": 7537.08984375,
+    "yield_10y": 4.456999778747559
   },
   "zscores": {
-    "z_sp500": 1.6,
-    "z_yield_10y": 1.05,
-    "z_oil": -0.64
+    "z_sp500": 1.6028782743467995,
+    "z_yield_10y": 0.8713797691693135,
+    "z_oil": -0.8105859786903513
   },
   "regime": {
-    "regime": "Transitional | Stable",
-    "risk_tilt": "neutral"
+    "regime": "Risk-on | Emerging",
+    "regime_code": "risk_on_emerging",
+    "risk_tilt": "pro-risk",
+    "description": "Equities elevated independently. Await confirmation from rates and energy.",
+    "states": {
+      "s_sp500": 1,
+      "s_yield": 0,
+      "s_oil": 0
+    }
   },
   "invalidations_structured": [
     {
-      "type": "compound_OR",
+      "type": "compound_AND",
       "conditions": [
         {
-          "signal": "sp500",
+          "signal": "yield_10y",
           "operator": ">",
-          "threshold": 7625,
-          "unit": "level"
+          "threshold": 4.61,
+          "unit": "percent"
         },
         {
           "signal": "sp500",
           "operator": "<",
-          "threshold": 7400,
+          "threshold": 7462,
           "unit": "level"
         }
       ]
     },
     {
-      "type": "compound_OR",
+      "type": "simple",
       "conditions": [
         {
-          "signal": "yield_10y",
+          "signal": "oil_wti",
           "operator": ">",
-          "threshold": 4.68,
-          "unit": "percent"
-        },
-        {
-          "signal": "yield_10y",
-          "operator": "<",
-          "threshold": 4.28,
-          "unit": "percent"
+          "threshold": 98,
+          "unit": "dollars"
         }
       ]
     }
   ],
   "invalidation_distance": {
     "condition_1": {
-      "label": "SP500 > 7,625 OR SP500 < 7,400",
-      "proximity": "MODERATE"
+      "label": "YIELD 10Y > 4.61% AND SP500 < 7,462",
+      "proximity": "NEAR",
+      "conditions": [
+        {
+          "signal": "yield_10y",
+          "operator": ">",
+          "threshold": 4.61,
+          "unit": "percent"
+        },
+        {
+          "signal": "sp500",
+          "operator": "<",
+          "threshold": 7462,
+          "unit": "level"
+        }
+      ]
     },
     "condition_2": {
-      "label": "YIELD 10Y > 4.68% OR YIELD 10Y < 4.28%",
-      "proximity": "MODERATE"
+      "label": "OIL WTI > $98",
+      "proximity": "FAR",
+      "conditions": [
+        {
+          "signal": "oil_wti",
+          "operator": ">",
+          "threshold": 98,
+          "unit": "dollars"
+        }
+      ]
     }
   },
   "state_pressure": {
-    "direction": "STABLE",
+    "direction": "DECREASING",
     "window": "3-session",
-    "basis": "May 27 session overlay \u2014 stable state pressure per published read."
+    "basis": "Oil falling (-0.86s), SPX stable, 10Y falling (-0.81s)"
   },
-  "session_context": "May 27 session overlay: SPX moderate vs bands (7,400 / 7,625); 10Y elevated Z; WTI falling vs mean.",
+  "session_context": "1 invalidation condition(s) in near proximity: YIELD 10Y > 4.61% AND SP500 < 7,462. State pressure decreasing.",
   "confidence": {
-    "confidence": 78,
-    "confidence_label": "High",
-    "stability": "Stable"
+    "confidence": 35,
+    "confidence_label": "Low",
+    "is_no_call": false,
+    "stability": "Fragile",
+    "reasoning": "Confidence 35/100 (Low). Signal strength 45/75, alignment bonus 0/25 continuity -10 (regime changed) Stability: Fragile."
   },
   "drafts": {
-    "x": "S&P 500 pushing higher while the rest of the board is watching.\nNeeds oil to break the range \u2014 only then does it matter.\n\nSPX 7,513. 10Y 4.48%. Oil $90.\n\nInvalidation:\n\u2022 SPX breaks above 7,625 or below 7,400\n\u2022 10Y moves beyond 4.68% or below 4.28%\n\nWhat breaks this range \u2014 and which direction?",
-    "substack": "REGIME: Transitional | From restrictive\nCONFIDENCE: High (78/100)\nRISK TILT: neutral\nSTABILITY: Stable\n\nSnapshot \u2014 May 27, 2026\n  S&P 500:     7,512.75   z +1.60\n  10Y Yield:      4.481%  z +1.05\n  WTI Oil:        89.70   z -0.64\n\nINSIGHT\nS&P 500 at 7,513 is pushing above its recent range \u2014 a move that only matters if it holds. 10Y yield at 4.48% is elevated relative to its rolling mean \u2014 starting to lean but not decisive. Oil at $90 is sitting near its 63-session mean \u2014 no signal from oil.\n\nINVALIDATION\n\u2022 SPX breaks above 7,625 or below 7,400\n\u2022 10Y moves beyond 4.68% or below 4.28%\n\nMethod: MacroEvidence pipeline \u00b7 yfinance + FRED \u00b7 63-session rolling z-scores \u00b7 not financial advice.",
+    "x": "S&P 500 pushing higher while the rest of the board is watching.\nOnly matters if yields or oil confirms \u2014 and it hasn't yet.\n\nSPX 7,537. 10Y 4.46%. Oil $89.\n\nInvalidation:\n\u2022 10Y above 4.61% + SPX loses 7,462\n\u2022 Oil above $98\n\nWhat's the signal that tells you this rally is real?",
+    "substack": "REGIME: Risk-on | Emerging\nCONFIDENCE: Low (35/100)\nRISK TILT: pro-risk\nSTABILITY: Fragile\n\nSnapshot \u2014 May 28, 2026\n  S&P 500:     7,537.09   z +1.60\n  10Y Yield:      4.457%  z +0.87\n  WTI Oil:        89.11   z -0.81\n\nINSIGHT\nS&P 500 at 7,537 is pushing above its recent range \u2014 a move that only matters if it holds. 10Y yield at 4.46% is sitting near its 63-session mean \u2014 no signal from yields. Oil at $89 is sitting near its 63-session mean \u2014 no signal from oil. Confidence is low at 35/100 \u2014 the read is fragile and needs more signal before acting on it.\n\nINVALIDATION\n\u2022 10Y above 4.61% + SPX loses 7,462\n\u2022 Oil above $98\n\nMethod: MacroEvidence pipeline \u00b7 yfinance + FRED \u00b7 63-session rolling z-scores \u00b7 not financial advice.",
     "word_counts": {}
   },
   "checker": {
@@ -98,48 +123,17 @@
       "format_checked": "x"
     },
     "substack": {
-      "total_score": 8,
-      "tension": 2,
+      "total_score": 7,
+      "tension": 1,
       "implication": 2,
       "invalidation": 2,
       "necessity": 2,
       "verdict": "PASS",
       "weakest_dimension": "tension",
-      "feedback": "Draft meets publication quality. Strong: tension, implication, invalidation, necessity.",
+      "feedback": "Draft meets publication quality. Strengthen: tension. Strong: implication, invalidation, necessity.",
       "format_checked": "substack"
     }
   },
   "rule_md_version": "1.0",
-  "previous_regime_code": "transitional_from_restrictive",
-  "site_display": {
-    "next_update_label": "May 28, 2026",
-    "signal_badges": [
-      [
-        "badge-ok",
-        "STABLE"
-      ],
-      [
-        "badge-ok",
-        "ELEVATED"
-      ],
-      [
-        "badge-warn",
-        "FALLING"
-      ]
-    ],
-    "spx_proximity": "MODERATE",
-    "wti_proximity": "FAR",
-    "spx_proximity_rm_sub": "7,513 vs published SPX bands",
-    "wti_proximity_rm_sub": "$89.70 \u00b7 see signal card",
-    "regime_analogs": {
-      "intro": "As of May 27, 2026, today\u2019s regime has appeared 7 times since 2005. Members search the full 50-year database.",
-      "cta_text": "One analog is a data point. Seven is a base rate. Members access the full 50-year analog database \u2014 filtered by outcome, duration, Fed environment, and signal tolerance.",
-      "open_row": {
-        "match_pct": 91,
-        "period": "Aug 2018",
-        "zscores": "SPX +1.6\u03c3 \u00b7 10Y +0.9\u03c3 \u00b7 WTI -0.8\u03c3",
-        "outcome": "Reversed \u00b7 10Y triggered \u00b7 18 sessions"
-      }
-    }
-  }
+  "previous_regime_code": "transitional_from_restrictive"
 }
