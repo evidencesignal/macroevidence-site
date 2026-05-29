@@ -118,15 +118,15 @@
     "signal_badges": [
       [
         "badge-warn",
-        "pushing"
+        "PUSHING"
       ],
       [
         "badge-warn",
-        "not confirming"
+        "NOT CONFIRMING"
       ],
       [
         "badge-alert",
-        "cycle low"
+        "CYCLE LOW"
       ]
     ],
     "spx_proximity": "running alone",
