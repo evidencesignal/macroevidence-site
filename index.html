@@ -1975,7 +1975,7 @@ footer {
     <div class="hero-snapshot-card">
     <div class="ts-strip" role="region" aria-label="Session date and next update">
       <p class="ts-last-read">
-        <time datetime="2026-05-28">May 28, 2026</time>
+        <time datetime="2026-05-29">May 29, 2026</time>
         <span class="ts-read-datetime-sep" aria-hidden="true"> &mdash; </span>
         <button
           type="button"
@@ -1986,7 +1986,7 @@ footer {
           aria-controls="ts-read-details"
         >View details</button>
       </p>
-      <p class="ts-next-up">Next update: May 29, 2026 · after U.S. market close <span class="ts-next-note">(U.S. cash session days)</span></p>
+      <p class="ts-next-up">Next update: Jun 1, 2026 · after U.S. market close <span class="ts-next-note">(U.S. cash session days)</span></p>
     </div>
     <div id="ts-read-details" class="ts-details-popover" popover="auto" role="dialog" aria-labelledby="ts-read-details-title">
       <div class="ts-details-popover-inner">
@@ -1998,7 +1998,7 @@ footer {
           <strong>Pricing convention:</strong> those levels use the <strong>official 4:00 PM Eastern</strong> <em>daily</em> cash close for that session date &mdash; a market rule, not a &ldquo;live&rdquo; clock in the strip. Three series are from the same close, not intraday.
         </p>
         <p>
-          <strong>Data source:</strong> MacroEvidence pipeline, same run as the <a href="signal-card.html" style="color:var(--blue-text)">signal card</a> for <strong>May 28, 2026</strong>. Run <code>scripts/update_site.py</code> from the project root after a pipeline run to sync the page.
+          <strong>Data source:</strong> MacroEvidence pipeline, same run as the <a href="signal-card.html" style="color:var(--blue-text)">signal card</a> for <strong>May 29, 2026</strong>. Run <code>scripts/update_site.py</code> from the project root after a pipeline run to sync the page.
         </p>
         <p>
           <strong>When it updates in production:</strong> after each U.S. trading day, once data and the publication pipeline have finished (usually the same evening Eastern; exact time varies). There is no intraday refresh on this cadence.
@@ -2021,28 +2021,28 @@ footer {
     <div class="signal-strip">
       <div class="signal-cell">
         <div class="signal-label">S&amp;P 500</div>
-        <div class="signal-value">7,537</div>
+        <div class="signal-value">7,595</div>
         <div class="signal-meta">
-          <span class="signal-z">Z +1.60</span>
+          <span class="signal-z">Z +1.71</span>
           <span class="badge badge-ok">ELEVATED</span>
         </div>
         <div class="signal-z-note">63-session rolling Z · vs mean</div>
       </div>
       <div class="signal-cell">
         <div class="signal-label">10Y Yield</div>
-        <div class="signal-value">4.46%</div>
+        <div class="signal-value">4.44%</div>
         <div class="signal-meta">
-          <span class="signal-z">Z +0.87</span>
+          <span class="signal-z">Z +0.76</span>
           <span class="badge badge-warn">RISING</span>
         </div>
         <div class="signal-z-note">63-session rolling Z · vs mean</div>
       </div>
       <div class="signal-cell">
         <div class="signal-label">WTI Crude</div>
-        <div class="signal-value">$89.11</div>
+        <div class="signal-value">$87.50</div>
         <div class="signal-meta">
-          <span class="signal-z">Z -0.81</span>
-          <span class="badge badge-ok">STABLE</span>
+          <span class="signal-z">Z -0.99</span>
+          <span class="badge badge-warn">MODERATE</span>
         </div>
         <div class="signal-z-note">63-session rolling Z · vs mean</div>
       </div>
@@ -2073,13 +2073,13 @@ footer {
                   <!-- TODO: wire INV rows from invalidations_structured / site_display -->
                   <div class="regime-inv-row">
                     <div class="regime-inv-id">Inv 1</div>
-                    <p class="regime-inv-condition">SPX above 7,625 or below 7,400 → Regime flips</p>
-                    <p class="regime-inv-distance">Distance: 112 pts from current 7,513 (upper gate 7,625)</p>
+                    <p class="regime-inv-condition">SPX above 7,629 or below 7,462 → Regime flips</p>
+                    <p class="regime-inv-distance">Distance: 75 pts from current 7,537 (lower gate 7,462)</p>
                   </div>
                   <div class="regime-inv-row">
                     <div class="regime-inv-id">Inv 2</div>
-                    <p class="regime-inv-condition">10Y above 4.68% or below 4.28% → Regime flips</p>
-                    <p class="regime-inv-distance">Distance: 20bp from current 4.48%</p>
+                    <p class="regime-inv-condition">10Y above 4.61% or below 4.28% → Regime flips</p>
+                    <p class="regime-inv-distance">Distance: 15bp from current 4.46%</p>
                   </div>
                 </div>
               </aside>
@@ -2089,8 +2089,8 @@ footer {
         <div class="regime-bottom">
           <div class="regime-metric">
             <div class="rm-label">Confidence</div>
-            <div class="rm-value">35 / 100</div>
-            <div class="rm-sub">LOW</div>
+            <div class="rm-value">55 / 100</div>
+            <div class="rm-sub">MEDIUM</div>
           </div>
           <div class="regime-metric">
             <div class="rm-label">State pressure</div>
@@ -2099,13 +2099,13 @@ footer {
           </div>
           <div class="regime-metric">
             <div class="rm-label">WTI proximity</div>
-            <div class="rm-value far">FAR</div>
-            <div class="rm-sub">$89.11 · see signal card</div>
+            <div class="rm-value mod">MODERATE</div>
+            <div class="rm-sub">$87.50 · see signal card</div>
           </div>
           <div class="regime-metric">
             <div class="rm-label">SPX proximity</div>
             <div class="rm-value near">NEAR</div>
-            <div class="rm-sub">7,537 vs published SPX bands</div>
+            <div class="rm-sub">7,595 vs published SPX bands</div>
           </div>
           <!-- TODO: wire regime session count from pipeline / site_display -->
           <div class="regime-metric">
@@ -2339,6 +2339,13 @@ footer {
         </thead>
         <tbody>
           <tr>
+            <td class="col-date">May 28, 2026</td>
+            <td>Regime shift — Risk-on Emerging</td>
+            <td>Risk-on · Emerging</td>
+            <td>Low (35/100)</td>
+            <td class="col-res">✓</td>
+          </tr>
+          <tr>
             <td class="col-date">2024-08-05</td>
             <td>Carry unwind</td>
             <td>Risk-off &middot; Confirmed</td>
@@ -2376,7 +2383,7 @@ footer {
         </tbody>
       </table>
       </div>
-      <p class="landing-track-foot">Live track record starts April 13, 2026. 5/5 outputs scored 8/8 on Signal Checker.</p>
+      <p class="landing-track-foot">Live track record starts April 13, 2026. 46 / 46 outputs scored 8/8 on Signal Checker.</p>
     </div>
     </div>
 
