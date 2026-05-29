@@ -1986,7 +1986,7 @@ footer {
           aria-controls="ts-read-details"
         >View details</button>
       </p>
-      <p class="ts-next-up">Next update: Jun 1, 2026 · after U.S. market close <span class="ts-next-note">(U.S. cash session days)</span></p>
+      <p class="ts-next-up">Next update: May 30, 2026 · after U.S. market close <span class="ts-next-note">(U.S. cash session days)</span></p>
     </div>
     <div id="ts-read-details" class="ts-details-popover" popover="auto" role="dialog" aria-labelledby="ts-read-details-title">
       <div class="ts-details-popover-inner">
@@ -2024,7 +2024,7 @@ footer {
         <div class="signal-value">7,595</div>
         <div class="signal-meta">
           <span class="signal-z">Z +1.71</span>
-          <span class="badge badge-ok">ELEVATED</span>
+          <span class="badge badge-warn">pushing</span>
         </div>
         <div class="signal-z-note">63-session rolling Z · vs mean</div>
       </div>
@@ -2033,7 +2033,7 @@ footer {
         <div class="signal-value">4.44%</div>
         <div class="signal-meta">
           <span class="signal-z">Z +0.76</span>
-          <span class="badge badge-warn">RISING</span>
+          <span class="badge badge-warn">not confirming</span>
         </div>
         <div class="signal-z-note">63-session rolling Z · vs mean</div>
       </div>
@@ -2042,7 +2042,7 @@ footer {
         <div class="signal-value">$87.50</div>
         <div class="signal-meta">
           <span class="signal-z">Z -0.99</span>
-          <span class="badge badge-warn">MODERATE</span>
+          <span class="badge badge-alert">cycle low</span>
         </div>
         <div class="signal-z-note">63-session rolling Z · vs mean</div>
       </div>
@@ -2073,13 +2073,13 @@ footer {
                   <!-- TODO: wire INV rows from invalidations_structured / site_display -->
                   <div class="regime-inv-row">
                     <div class="regime-inv-id">Inv 1</div>
-                    <p class="regime-inv-condition">SPX above 7,629 or below 7,462 → Regime flips</p>
-                    <p class="regime-inv-distance">Distance: 75 pts from current 7,537 (lower gate 7,462)</p>
+                    <p class="regime-inv-condition">SPX above 7,519 or below 7,462 → Regime flips</p>
+                    <p class="regime-inv-distance">Distance: 76 pts above upper gate 7,519 (current 7,595)</p>
                   </div>
                   <div class="regime-inv-row">
                     <div class="regime-inv-id">Inv 2</div>
-                    <p class="regime-inv-condition">10Y above 4.61% or below 4.28% → Regime flips</p>
-                    <p class="regime-inv-distance">Distance: 15bp from current 4.46%</p>
+                    <p class="regime-inv-condition">10Y above 4.59% or below 4.36% → Regime flips</p>
+                    <p class="regime-inv-distance">Distance: 8bp from current 4.44% (nearest gate 4.36%)</p>
                   </div>
                 </div>
               </aside>
@@ -2094,17 +2094,17 @@ footer {
           </div>
           <div class="regime-metric">
             <div class="rm-label">State pressure</div>
-            <div class="rm-value">DECREASING</div>
+            <div class="rm-value">SPX alone</div>
             <div class="rm-sub">3-session window</div>
           </div>
           <div class="regime-metric">
             <div class="rm-label">WTI proximity</div>
-            <div class="rm-value mod">MODERATE</div>
+            <div class="rm-value far">FAR</div>
             <div class="rm-sub">$87.50 · see signal card</div>
           </div>
           <div class="regime-metric">
             <div class="rm-label">SPX proximity</div>
-            <div class="rm-value near">NEAR</div>
+            <div class="rm-value mod">running alone</div>
             <div class="rm-sub">7,595 vs published SPX bands</div>
           </div>
           <!-- TODO: wire regime session count from pipeline / site_display -->
@@ -2135,7 +2135,7 @@ footer {
               aria-describedby="regime-analogs-search-hint"
             />
           </form>
-          <p class="regime-analogs-intro" id="regime-analogs-search-hint">As of May 27, 2026, today’s regime has appeared 7 times since 2005. Members search the full 50-year database.</p>
+          <p class="regime-analogs-intro" id="regime-analogs-search-hint">As of May 29, 2026, today’s regime has appeared 4 times since 2005. Members search the full 50-year database.</p>
         </div>
         <div class="analog-table" role="table" aria-label="Regime analog matches">
           <div class="analog-table-head" role="row">
