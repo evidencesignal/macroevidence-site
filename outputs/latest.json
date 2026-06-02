@@ -10,29 +10,39 @@
   "needs_rewrite_x": false,
   "needs_rewrite_substack": false,
   "signals": {
-    "oil_wti": 91.95999908447266,
-    "sp500": 7601.6201171875,
-    "yield_10y": 4.450999736785889
+    "sp500": 7602,
+    "yield_10y": 4.45,
+    "oil_wti": 91.96
   },
   "zscores": {
-    "z_sp500": 1.5977908461365675,
-    "z_yield_10y": 0.771514877217689,
-    "z_oil": -0.6015912213259441
+    "z_sp500": 1.6,
+    "z_yield_10y": 0.77,
+    "z_oil": -0.6
   },
   "regime": {
     "regime": "Risk-on | Emerging",
-    "regime_code": "risk_on_emerging",
-    "risk_tilt": "pro-risk",
-    "description": "Equities elevated independently. Await confirmation from rates and energy.",
-    "states": {
-      "s_sp500": 1,
-      "s_yield": 0,
-      "s_oil": 0
-    }
+    "risk_tilt": "pro-risk"
   },
   "invalidations_structured": [
     {
-      "type": "compound_AND",
+      "type": "compound_OR",
+      "conditions": [
+        {
+          "signal": "sp500",
+          "operator": ">",
+          "threshold": 7526,
+          "unit": "level"
+        },
+        {
+          "signal": "sp500",
+          "operator": "<",
+          "threshold": 7461,
+          "unit": "level"
+        }
+      ]
+    },
+    {
+      "type": "compound_OR",
       "conditions": [
         {
           "signal": "yield_10y",
@@ -41,69 +51,34 @@
           "unit": "percent"
         },
         {
-          "signal": "sp500",
+          "signal": "yield_10y",
           "operator": "<",
-          "threshold": 7526,
-          "unit": "level"
-        }
-      ]
-    },
-    {
-      "type": "simple",
-      "conditions": [
-        {
-          "signal": "oil_wti",
-          "operator": ">",
-          "threshold": 101,
-          "unit": "dollars"
+          "threshold": 4.31,
+          "unit": "percent"
         }
       ]
     }
   ],
   "invalidation_distance": {
     "condition_1": {
-      "label": "YIELD 10Y > 4.60% AND SP500 < 7,526",
-      "proximity": "NEAR",
-      "conditions": [
-        {
-          "signal": "yield_10y",
-          "operator": ">",
-          "threshold": 4.6,
-          "unit": "percent"
-        },
-        {
-          "signal": "sp500",
-          "operator": "<",
-          "threshold": 7526,
-          "unit": "level"
-        }
-      ]
+      "label": "SP500 > 7,526 OR SP500 < 7,461",
+      "proximity": "NEAR"
     },
     "condition_2": {
-      "label": "OIL WTI > $101",
-      "proximity": "MODERATE",
-      "conditions": [
-        {
-          "signal": "oil_wti",
-          "operator": ">",
-          "threshold": 101,
-          "unit": "dollars"
-        }
-      ]
+      "label": "YIELD 10Y > 4.60% OR YIELD 10Y < 4.31%",
+      "proximity": "MODERATE"
     }
   },
   "state_pressure": {
-    "direction": "DECREASING",
+    "direction": "SPX ALONE",
     "window": "3-session",
-    "basis": "Oil rising (+0.23s), SPX falling (-0.08s), 10Y falling (-0.08s)"
+    "basis": "June 2 session overlay \u2014 SPX running alone without 10Y or WTI confirmation."
   },
-  "session_context": "1 invalidation condition(s) in near proximity: YIELD 10Y > 4.60% AND SP500 < 7,526. State pressure decreasing.",
+  "session_context": "June 2 session overlay: risk-on emerging with fragile low-confidence read; SPX running alone.",
   "confidence": {
     "confidence": 35,
     "confidence_label": "Low",
-    "is_no_call": false,
-    "stability": "Fragile",
-    "reasoning": "Confidence 35/100 (Low). Signal strength 45/75, alignment bonus 0/25 continuity -10 (regime changed) Stability: Fragile."
+    "stability": "Fragile"
   },
   "drafts": {
     "x": "S&P 500 pushing higher while the rest of the board is watching.\nOnly matters if yields or oil confirms \u2014 and it hasn't yet.\n\nSPX 7,602. 10Y 4.45%. Oil $92.\n\nInvalidation:\n\u2022 10Y above 4.60% + SPX loses 7,526\n\u2022 Oil above $101\n\nWhat's the signal that tells you this rally is real?",
@@ -135,5 +110,38 @@
     }
   },
   "rule_md_version": "1.0",
-  "previous_regime_code": "transitional_from_restrictive"
+  "previous_regime_code": "transitional_from_restrictive",
+  "site_display": {
+    "next_update_label": "June 3, 2026",
+    "state_pressure_display": "SPX alone",
+    "signal_badges": [
+      [
+        "badge-ok",
+        "STEADY"
+      ],
+      [
+        "badge-warn",
+        "NOT CONFIRMING"
+      ],
+      [
+        "badge-warn",
+        "NOT CONFIRMING"
+      ]
+    ],
+    "spx_proximity": "running alone",
+    "spx_proximity_class": "mod",
+    "wti_proximity": "MODERATE",
+    "spx_proximity_rm_sub": "7,602 vs published SPX bands",
+    "wti_proximity_rm_sub": "$91.96 \u00b7 see signal card",
+    "inv_rows": [
+      {
+        "condition": "SPX above 7,526 or below 7,461 \u2192 Regime flips",
+        "distance": "Distance: 76 pts above upper gate 7,526 (current 7,602)"
+      },
+      {
+        "condition": "10Y above 4.60% or below 4.31% \u2192 Regime flips",
+        "distance": "Distance: 14bp from current 4.45% (nearest gate 4.31%)"
+      }
+    ]
+  }
 }

@@ -1986,7 +1986,7 @@ footer {
           aria-controls="ts-read-details"
         >View details</button>
       </p>
-      <p class="ts-next-up">Next update: Jun 3, 2026 · after U.S. market close <span class="ts-next-note">(U.S. cash session days)</span></p>
+      <p class="ts-next-up">Next update: June 3, 2026 · after U.S. market close <span class="ts-next-note">(U.S. cash session days)</span></p>
     </div>
     <div id="ts-read-details" class="ts-details-popover" popover="auto" role="dialog" aria-labelledby="ts-read-details-title">
       <div class="ts-details-popover-inner">
@@ -2024,7 +2024,7 @@ footer {
         <div class="signal-value">7,602</div>
         <div class="signal-meta">
           <span class="signal-z">Z +1.60</span>
-          <span class="badge badge-ok">ELEVATED</span>
+          <span class="badge badge-ok">STEADY</span>
         </div>
         <div class="signal-z-note">63-session rolling Z · vs mean</div>
       </div>
@@ -2033,7 +2033,7 @@ footer {
         <div class="signal-value">4.45%</div>
         <div class="signal-meta">
           <span class="signal-z">Z +0.77</span>
-          <span class="badge badge-warn">RISING</span>
+          <span class="badge badge-warn">NOT CONFIRMING</span>
         </div>
         <div class="signal-z-note">63-session rolling Z · vs mean</div>
       </div>
@@ -2042,7 +2042,7 @@ footer {
         <div class="signal-value">$91.96</div>
         <div class="signal-meta">
           <span class="signal-z">Z -0.60</span>
-          <span class="badge badge-ok">STABLE</span>
+          <span class="badge badge-warn">NOT CONFIRMING</span>
         </div>
         <div class="signal-z-note">63-session rolling Z · vs mean</div>
       </div>
@@ -2073,13 +2073,13 @@ footer {
                   <!-- TODO: wire INV rows from invalidations_structured / site_display -->
                   <div class="regime-inv-row">
                     <div class="regime-inv-id">Inv 1</div>
-                    <p class="regime-inv-condition">SPX above 7,688 or below 7,461 → Regime flips</p>
-                    <p class="regime-inv-distance">Distance: 113 pts from current 7,574 (lower gate 7,461)</p>
+                    <p class="regime-inv-condition">SPX above 7,526 or below 7,461 → Regime flips</p>
+                    <p class="regime-inv-distance">Distance: 76 pts above upper gate 7,526 (current 7,602)</p>
                   </div>
                   <div class="regime-inv-row">
                     <div class="regime-inv-id">Inv 2</div>
-                    <p class="regime-inv-condition">10Y above 4.71% or below 4.31% → Regime flips</p>
-                    <p class="regime-inv-distance">Distance: 20bp from current 4.51% (nearest gate 4.31%)</p>
+                    <p class="regime-inv-condition">10Y above 4.60% or below 4.31% → Regime flips</p>
+                    <p class="regime-inv-distance">Distance: 14bp from current 4.45% (nearest gate 4.31%)</p>
                   </div>
                 </div>
               </aside>
@@ -2094,7 +2094,7 @@ footer {
           </div>
           <div class="regime-metric">
             <div class="rm-label">State pressure</div>
-            <div class="rm-value">DECREASING</div>
+            <div class="rm-value">SPX alone</div>
             <div class="rm-sub">3-session window</div>
           </div>
           <div class="regime-metric">
@@ -2104,7 +2104,7 @@ footer {
           </div>
           <div class="regime-metric">
             <div class="rm-label">SPX proximity</div>
-            <div class="rm-value near">NEAR</div>
+            <div class="rm-value mod">running alone</div>
             <div class="rm-sub">7,602 vs published SPX bands</div>
           </div>
           <!-- TODO: wire regime session count from pipeline / site_display -->
