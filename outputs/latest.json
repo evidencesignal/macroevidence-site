@@ -2,7 +2,7 @@
   "status": "ok",
   "stage_reached": "quality_check",
   "reason": null,
-  "as_of": "2026-06-03",
+  "as_of": "2026-06-04",
   "timestamp": "2026-06-04T13:58:45.075330+00:00",
   "publishable": true,
   "publish_x": true,
@@ -10,18 +10,18 @@
   "needs_rewrite_x": false,
   "needs_rewrite_substack": false,
   "signals": {
-    "sp500": 7583,
-    "yield_10y": 4.49,
-    "oil_wti": 94.58
+    "sp500": 7550,
+    "yield_10y": 4.46,
+    "oil_wti": 92.78
   },
   "zscores": {
-    "z_sp500": 1.49,
-    "z_yield_10y": 1.05,
-    "z_oil": -0.31
+    "z_sp500": 1.36,
+    "z_yield_10y": 0.82,
+    "z_oil": -0.64
   },
   "regime": {
-    "regime": "Transitional | Emerging",
-    "risk_tilt": "neutral"
+    "regime": "Risk-on | Emerging",
+    "risk_tilt": "pro-risk"
   },
   "invalidations_structured": [
     {
@@ -30,13 +30,13 @@
         {
           "signal": "sp500",
           "operator": ">",
-          "threshold": 7697,
+          "threshold": 7475,
           "unit": "level"
         },
         {
           "signal": "sp500",
           "operator": "<",
-          "threshold": 7469,
+          "threshold": 7390,
           "unit": "level"
         }
       ]
@@ -47,7 +47,7 @@
         {
           "signal": "yield_10y",
           "operator": ">",
-          "threshold": 4.69,
+          "threshold": 4.61,
           "unit": "percent"
         },
         {
@@ -61,24 +61,24 @@
   ],
   "invalidation_distance": {
     "condition_1": {
-      "label": "SP500 > 7,697 OR SP500 < 7,469",
-      "proximity": "MODERATE"
+      "label": "SP500 > 7,475 OR SP500 < 7,390",
+      "proximity": "NEAR"
     },
     "condition_2": {
-      "label": "YIELD 10Y > 4.69% OR YIELD 10Y < 4.29%",
+      "label": "YIELD 10Y > 4.61% OR YIELD 10Y < 4.29%",
       "proximity": "MODERATE"
     }
   },
   "state_pressure": {
-    "direction": "STABLE",
+    "direction": "SPX ALONE",
     "window": "3-session",
-    "basis": "June 3 session overlay \u2014 gap narrowing between SPX and 10Y."
+    "basis": "June 4 session overlay \u2014 SPX running alone without 10Y or WTI confirmation."
   },
-  "session_context": "June 3 session overlay: transitional | emerging; gap narrowing; medium confidence, emerging stability.",
+  "session_context": "June 4 session overlay: risk-on emerging; fragile low confidence; SPX running alone.",
   "confidence": {
-    "confidence": 44,
-    "confidence_label": "Medium",
-    "stability": "Emerging"
+    "confidence": 28,
+    "confidence_label": "Low",
+    "stability": "Fragile"
   },
   "drafts": {
     "x": "S&P 500 starting to stretch \u2014 one more move and the regime flips.\nOnly matters if yields or oil confirms \u2014 and it hasn't yet.\n\nSPX 7,550. 10Y 4.46%. Oil $93.\n\nInvalidation:\n\u2022 10Y above 4.61% + SPX loses 7,475\n\u2022 Oil above $102\n\nWhat's the signal that tells you this rally is real?",
@@ -112,8 +112,8 @@
   "rule_md_version": "1.0",
   "previous_regime_code": "transitional_from_restrictive",
   "site_display": {
-    "next_update_label": "June 4, 2026",
-    "state_pressure_display": "Gap narrowing",
+    "next_update_label": "June 5, 2026",
+    "state_pressure_display": "SPX alone",
     "signal_badges": [
       [
         "badge-warn",
@@ -121,35 +121,35 @@
       ],
       [
         "badge-warn",
-        "CLOSING GAP"
+        "NOT CONFIRMING"
       ],
       [
-        "badge-ok",
-        "NOT DRIVING"
+        "badge-warn",
+        "NOT CONFIRMING"
       ]
     ],
-    "spx_proximity": "gap narrowing",
+    "spx_proximity": "running alone",
     "spx_proximity_class": "mod",
-    "wti_proximity": "FAR",
-    "spx_proximity_rm_sub": "7,583 vs published SPX bands",
-    "wti_proximity_rm_sub": "$94.58 \u00b7 see signal card",
+    "wti_proximity": "MODERATE",
+    "spx_proximity_rm_sub": "7,550 vs published SPX bands",
+    "wti_proximity_rm_sub": "$92.78 \u00b7 see signal card",
     "inv_rows": [
       {
-        "condition": "SPX above 7,697 or below 7,469 \u2192 Regime flips",
-        "distance": "Distance: 114 pts from current 7,583 (upper gate 7,697)"
+        "condition": "SPX above 7,475 or below 7,390 \u2192 Regime flips",
+        "distance": "Distance: 75 pts above upper gate 7,475 (current 7,550)"
       },
       {
-        "condition": "10Y above 4.69% or below 4.29% \u2192 Regime flips",
-        "distance": "Distance: 20bp from current 4.49% (nearest gate 4.29%)"
+        "condition": "10Y above 4.61% or below 4.29% \u2192 Regime flips",
+        "distance": "Distance: 17bp from current 4.46% (nearest gate 4.29%)"
       }
     ],
     "regime_analogs": {
-      "intro": "As of June 3, 2026, today\u2019s regime has appeared 6 times since 2005. Members search the full 50-year database.",
+      "intro": "As of June 4, 2026, today\u2019s regime has appeared 4 times since 2005. Members search the full 50-year database.",
       "open_row": {
-        "match_pct": 88,
-        "period": "Aug\u2013Oct 2023",
-        "zscores": "Transitional | Emerging \u00b7 SPX +1.6\u03c3 \u00b7 10Y +1.1\u03c3 \u00b7 WTI -0.4\u03c3",
-        "outcome": "Gap 0.50\u03c3 \u2192 resolved \u00b7 transitional held \u00b7 19 sessions"
+        "match_pct": 86,
+        "period": "May\u2013Jul 2019",
+        "zscores": "Risk-on | Emerging \u00b7 SPX +1.3\u03c3 \u00b7 10Y +0.8\u03c3 \u00b7 WTI -0.6\u03c3 \u00b7 Gap 0.50\u03c3 \u00b7 Confidence: Low",
+        "outcome": "Regime held \u2014 SPX extended over 8 weeks as yields stayed suppressed and oil stayed negative"
       }
     }
   }
