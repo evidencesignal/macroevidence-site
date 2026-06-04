@@ -1754,28 +1754,29 @@ footer {
   max-width: 44em;
 }
 .analog-table {
+  display: grid;
+  grid-template-columns: 6.5rem 8rem minmax(0, 1.35fr) minmax(0, 1.25fr);
   border-top: 1px solid var(--rule);
+  width: 100%;
 }
 .analog-table-head,
 .analog-table-row {
-  display: grid;
-  grid-template-columns: 5.5rem 6.75rem minmax(0, 1fr) minmax(6.5rem, auto);
-  align-items: stretch;
-  min-height: 72px;
+  display: contents;
 }
-.analog-table-head > div,
-.analog-table-row > div {
+.analog-table > div {
   padding: 18px 20px;
   border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  min-width: 0;
+  overflow-wrap: anywhere;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-.analog-table-head > div:last-child,
-.analog-table-row > div:last-child {
+.analog-table > div:nth-child(4n) {
   border-right: none;
 }
-.analog-table-head > div {
+.analog-table > div:nth-child(-n+4) {
   font-family: var(--mono);
   font-size: 12px;
   font-weight: 500;
@@ -1786,18 +1787,21 @@ footer {
   padding-top: 12px;
   padding-bottom: 12px;
 }
-.analog-table-row {
-  border-bottom: 1px solid var(--rule);
+.analog-table > div:nth-child(n+5) {
+  min-height: 72px;
 }
-.analog-table-row:last-child {
-  border-bottom: none;
-}
-.analog-match-val {
+.analog-col-match {
   font-family: var(--mono);
   font-size: 19px;
   font-weight: 500;
   color: var(--ink);
   line-height: 1.15;
+}
+.analog-match-val {
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+  line-height: inherit;
 }
 .analog-match-bar {
   height: 3px;
@@ -1819,6 +1823,15 @@ footer {
   font-size: 15px;
   font-weight: 500;
   color: var(--ink);
+  line-height: 1.35;
+}
+.analog-period-regime {
+  display: block;
+  margin-top: 4px;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--ink-muted);
 }
 .analog-col-zscores,
 .analog-col-outcome-text {
@@ -1868,6 +1881,19 @@ footer {
   background: color-mix(in srgb, #f5f0e6 70%, var(--surface));
   color: var(--ink);
 }
+.analog-col-more {
+  grid-column: 1 / -1;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 56px;
+  border-bottom: none;
+  font-family: var(--mono);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink-muted);
+}
 .regime-analogs-cta {
   display: flex;
   align-items: flex-start;
@@ -1907,13 +1933,12 @@ footer {
   color: var(--ink);
 }
 @media (max-width: 900px) {
-  .analog-table {
+  .regime-analogs-card {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
   }
-  .analog-table-head,
-  .analog-table-row {
-    min-width: 36rem;
+  .analog-table {
+    min-width: 40rem;
   }
 }
 @media (max-width: 720px) {
@@ -2149,10 +2174,10 @@ footer {
               <div class="analog-match-val">86%</div>
               <div class="analog-match-bar" aria-hidden="true"><span style="width: 86%"></span></div>
             </div>
-            <div class="analog-col-period" role="cell">May–Jul 2019</div>
-            <div class="analog-col-zscores" role="cell">Risk-on | Emerging · SPX +1.3σ · 10Y +0.8σ · WTI -0.6σ · Gap 0.50σ · Confidence: Low</div>
+            <div class="analog-col-period" role="cell">May–Jul 2019<br><span class="analog-period-regime">Risk-on | Emerging</span></div>
+            <div class="analog-col-zscores" role="cell">SPX +1.3σ · 10Y +0.8σ · WTI -0.6σ</div>
             <div class="analog-col-outcome" role="cell">
-              <span class="analog-col-outcome-text">Regime held — SPX extended over 8 weeks as yields stayed suppressed and oil stayed negative</span>
+              <span class="analog-col-outcome-text">Gap 0.50σ · Low confidence · Regime held — SPX extended 8 weeks; yields suppressed, oil negative</span>
             </div>
           </div>
           <div class="analog-table-row analog-row-locked" role="row">
@@ -2173,12 +2198,9 @@ footer {
               <a class="analog-members-link" href="/members">Members &rarr;</a>
             </div>
           </div>
-          <div class="analog-table-row analog-row-locked" role="row">
-            <div class="analog-col-match analog-muted-visible" role="cell">+4 additional matches</div>
-            <div class="analog-col-period analog-blur-target" role="cell" aria-hidden="true">&mdash;</div>
-            <div class="analog-col-zscores analog-blur-target" role="cell" aria-hidden="true">&mdash;</div>
-            <div class="analog-col-outcome analog-col-members" role="cell">
-              <span class="analog-col-outcome-text analog-blur-target" aria-hidden="true">&mdash;</span>
+          <div class="analog-table-row analog-row-more" role="row">
+            <div class="analog-col-more" role="cell">
+              <span class="analog-muted-visible">+4 additional matches in the full database</span>
               <a class="analog-members-link" href="/members">Members &rarr;</a>
             </div>
           </div>

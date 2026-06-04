@@ -148,8 +148,9 @@
       "open_row": {
         "match_pct": 86,
         "period": "May\u2013Jul 2019",
-        "zscores": "Risk-on | Emerging \u00b7 SPX +1.3\u03c3 \u00b7 10Y +0.8\u03c3 \u00b7 WTI -0.6\u03c3 \u00b7 Gap 0.50\u03c3 \u00b7 Confidence: Low",
-        "outcome": "Regime held \u2014 SPX extended over 8 weeks as yields stayed suppressed and oil stayed negative"
+        "period_regime": "Risk-on | Emerging",
+        "zscores": "SPX +1.3\u03c3 \u00b7 10Y +0.8\u03c3 \u00b7 WTI -0.6\u03c3",
+        "outcome": "Gap 0.50\u03c3 \u00b7 Low confidence \u00b7 Regime held \u2014 SPX extended 8 weeks; yields suppressed, oil negative"
       }
     }
   }
