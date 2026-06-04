@@ -1753,113 +1753,69 @@ footer {
   margin: 12px 0 0;
   max-width: 44em;
 }
-.analog-table {
-  display: grid;
-  grid-template-columns: 6.5rem 8rem minmax(0, 1.35fr) minmax(0, 1.25fr);
+.analog-list {
   border-top: 1px solid var(--rule);
-  width: 100%;
+  padding: 4px 26px 12px;
 }
-.analog-table-head,
-.analog-table-row {
-  display: contents;
-}
-.analog-table > div {
-  padding: 18px 20px;
-  border-right: 1px solid var(--rule);
+.analog-p {
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.55;
+  color: var(--ink);
+  margin: 0;
+  padding: 16px 0;
   border-bottom: 1px solid var(--rule);
-  min-width: 0;
-  overflow-wrap: anywhere;
+}
+.analog-p:last-child {
+  border-bottom: none;
+  padding-bottom: 8px;
+}
+.analog-p-lead {
+  display: block;
+  font-family: var(--mono);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink);
+  margin: 0 0 6px;
+  line-height: 1.4;
+}
+.analog-p-detail {
+  display: block;
+  margin: 0;
+}
+.analog-p-locked {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 10px 16px;
 }
-.analog-table > div:nth-child(4n) {
-  border-right: none;
+.analog-p-locked .analog-p-lead {
+  margin-bottom: 0;
+  flex: 0 0 auto;
 }
-.analog-table > div:nth-child(-n+4) {
-  font-family: var(--mono);
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-  color: var(--ink-muted);
-  min-height: 0;
-  padding-top: 12px;
-  padding-bottom: 12px;
+.analog-p-locked .analog-p-detail {
+  flex: 1 1 14rem;
+  min-width: 0;
 }
-.analog-table > div:nth-child(n+5) {
-  min-height: 72px;
+.analog-p-locked .analog-muted-visible {
+  opacity: 0.45;
 }
-.analog-col-match {
-  font-family: var(--mono);
-  font-size: 19px;
-  font-weight: 500;
-  color: var(--ink);
-  line-height: 1.15;
-}
-.analog-match-val {
-  font-size: inherit;
-  font-weight: inherit;
-  color: inherit;
-  line-height: inherit;
-}
-.analog-match-bar {
-  height: 3px;
-  width: 100%;
-  max-width: 3.25rem;
-  margin-top: 8px;
-  border-radius: 2px;
-  background: color-mix(in srgb, var(--rule) 85%, transparent);
-  overflow: hidden;
-}
-.analog-match-bar span {
-  display: block;
-  height: 100%;
-  border-radius: 2px;
-  background: var(--green-text);
-}
-.analog-col-period {
-  font-family: var(--mono);
-  font-size: 15px;
-  font-weight: 500;
-  color: var(--ink);
-  line-height: 1.35;
-}
-.analog-period-regime {
-  display: block;
-  margin-top: 4px;
-  font-family: var(--sans);
-  font-size: 13px;
-  font-weight: 400;
-  color: var(--ink-muted);
-}
-.analog-col-zscores,
-.analog-col-outcome-text {
-  font-family: var(--sans);
-  font-size: 15px;
-  font-weight: 400;
-  line-height: 1.45;
-  color: var(--ink);
-}
-.analog-row-locked .analog-muted-visible {
-  opacity: 0.4;
-}
-.analog-row-locked .analog-blur-target {
+.analog-p-locked .analog-blur-target {
   filter: blur(3px);
   user-select: none;
   pointer-events: none;
 }
-.analog-col-members {
-  flex-direction: row;
+.analog-p-more {
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: flex-end;
-  gap: 14px;
-  text-align: right;
-}
-.analog-col-members .analog-col-outcome-text {
-  flex: 1 1 auto;
-  min-width: 0;
-  text-align: left;
+  justify-content: space-between;
+  gap: 12px;
+  font-family: var(--mono);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink-muted);
 }
 .analog-members-link {
   flex-shrink: 0;
@@ -1880,19 +1836,6 @@ footer {
 .analog-members-link:hover {
   background: color-mix(in srgb, #f5f0e6 70%, var(--surface));
   color: var(--ink);
-}
-.analog-col-more {
-  grid-column: 1 / -1;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  min-height: 56px;
-  border-bottom: none;
-  font-family: var(--mono);
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--ink-muted);
 }
 .regime-analogs-cta {
   display: flex;
@@ -1931,15 +1874,6 @@ footer {
 .regime-analogs-cta-btn:hover {
   background: color-mix(in srgb, #f5f0e6 70%, var(--surface));
   color: var(--ink);
-}
-@media (max-width: 900px) {
-  .regime-analogs-card {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-  .analog-table {
-    min-width: 40rem;
-  }
 }
 @media (max-width: 720px) {
   .regime-analogs-cta {
@@ -2162,48 +2096,25 @@ footer {
           </form>
           <p class="regime-analogs-intro" id="regime-analogs-search-hint">As of June 4, 2026, today’s regime has appeared 4 times since 2005. Members search the full 50-year database.</p>
         </div>
-        <div class="analog-table" role="table" aria-label="Regime analog matches">
-          <div class="analog-table-head" role="row">
-            <div role="columnheader">Match %</div>
-            <div role="columnheader">Period</div>
-            <div role="columnheader">Z-scores</div>
-            <div role="columnheader">Outcome</div>
-          </div>
-          <div class="analog-table-row analog-row-open" role="row">
-            <div class="analog-col-match" role="cell">
-              <div class="analog-match-val">86%</div>
-              <div class="analog-match-bar" aria-hidden="true"><span style="width: 86%"></span></div>
-            </div>
-            <div class="analog-col-period" role="cell">May–Jul 2019<br><span class="analog-period-regime">Risk-on | Emerging</span></div>
-            <div class="analog-col-zscores" role="cell">SPX +1.3σ · 10Y +0.8σ · WTI -0.6σ</div>
-            <div class="analog-col-outcome" role="cell">
-              <span class="analog-col-outcome-text">Gap 0.50σ · Low confidence · Regime held — SPX extended 8 weeks; yields suppressed, oil negative</span>
-            </div>
-          </div>
-          <div class="analog-table-row analog-row-locked" role="row">
-            <div class="analog-col-match analog-muted-visible" role="cell">87%</div>
-            <div class="analog-col-period analog-muted-visible" role="cell">Oct 1994</div>
-            <div class="analog-col-zscores analog-blur-target" role="cell" aria-hidden="true">SPX +1.4&sigma; &middot; 10Y +1.1&sigma; &middot; WTI &minus;0.5&sigma;</div>
-            <div class="analog-col-outcome analog-col-members" role="cell">
-              <span class="analog-col-outcome-text analog-blur-target" aria-hidden="true">Reversed &middot; oil led &middot; 22 sessions</span>
-              <a class="analog-members-link" href="/members">Members &rarr;</a>
-            </div>
-          </div>
-          <div class="analog-table-row analog-row-locked" role="row">
-            <div class="analog-col-match analog-muted-visible" role="cell">84%</div>
-            <div class="analog-col-period analog-muted-visible" role="cell">Mar 2007</div>
-            <div class="analog-col-zscores analog-blur-target" role="cell" aria-hidden="true">SPX +1.2&sigma; &middot; 10Y +0.7&sigma; &middot; WTI +0.3&sigma;</div>
-            <div class="analog-col-outcome analog-col-members" role="cell">
-              <span class="analog-col-outcome-text analog-blur-target" aria-hidden="true">Extended &middot; SPX held &middot; 31 sessions</span>
-              <a class="analog-members-link" href="/members">Members &rarr;</a>
-            </div>
-          </div>
-          <div class="analog-table-row analog-row-more" role="row">
-            <div class="analog-col-more" role="cell">
-              <span class="analog-muted-visible">+4 additional matches in the full database</span>
-              <a class="analog-members-link" href="/members">Members &rarr;</a>
-            </div>
-          </div>
+        <div class="analog-list" aria-label="Regime analog matches">
+          <p class="analog-p analog-p-open">
+            <span class="analog-p-lead">86% match · May–Jul 2019 · Risk-on | Emerging.</span>
+            <span class="analog-p-detail">SPX +1.3σ · 10Y +0.8σ · WTI -0.6σ. Gap 0.50σ · Low confidence · Regime held — SPX extended 8 weeks; yields suppressed, oil negative</span>
+          </p>
+          <p class="analog-p analog-p-locked">
+            <span class="analog-p-lead analog-muted-visible">87% match &middot; Oct 1994.</span>
+            <span class="analog-p-detail analog-blur-target" aria-hidden="true">SPX +1.4&sigma; &middot; 10Y +1.1&sigma; &middot; WTI &minus;0.5&sigma;. Reversed &middot; oil led &middot; 22 sessions.</span>
+            <a class="analog-members-link" href="/members">Members &rarr;</a>
+          </p>
+          <p class="analog-p analog-p-locked">
+            <span class="analog-p-lead analog-muted-visible">84% match &middot; Mar 2007.</span>
+            <span class="analog-p-detail analog-blur-target" aria-hidden="true">SPX +1.2&sigma; &middot; 10Y +0.7&sigma; &middot; WTI +0.3&sigma;. Extended &middot; SPX held &middot; 31 sessions.</span>
+            <a class="analog-members-link" href="/members">Members &rarr;</a>
+          </p>
+          <p class="analog-p analog-p-more">
+            <span>+4 additional matches in the full database.</span>
+            <a class="analog-members-link" href="/members">Members &rarr;</a>
+          </p>
         </div>
         <div class="regime-analogs-cta">
           <p class="regime-analogs-cta-text">One analog is a data point. Seven is a base rate. Members access the full 50-year analog database — filtered by outcome, duration, Fed environment, and signal tolerance.</p>
