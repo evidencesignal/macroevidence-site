@@ -10,25 +10,18 @@
   "needs_rewrite_x": false,
   "needs_rewrite_substack": false,
   "signals": {
-    "oil_wti": 91.48999786376953,
-    "sp500": 7505.080078125,
-    "yield_10y": 4.533999919891357
+    "sp500": 7505,
+    "yield_10y": 4.53,
+    "oil_wti": 91.49
   },
   "zscores": {
-    "z_sp500": 1.1918473608843705,
-    "z_yield_10y": 1.3971434169264654,
-    "z_oil": -0.8418268413178946
+    "z_sp500": 1.19,
+    "z_yield_10y": 1.4,
+    "z_oil": -0.84
   },
   "regime": {
-    "regime": "Transitional | From restrictive",
-    "regime_code": "transitional_from_restrictive",
-    "risk_tilt": "neutral",
-    "description": "Equities breaking higher despite elevated yields \u2014 regime may be turning.",
-    "states": {
-      "s_sp500": 1,
-      "s_yield": 1,
-      "s_oil": 0
-    }
+    "regime": "Transitional | Emerging",
+    "risk_tilt": "neutral"
   },
   "invalidations_structured": [
     {
@@ -69,53 +62,23 @@
   "invalidation_distance": {
     "condition_1": {
       "label": "SP500 > 7,618 OR SP500 < 7,393",
-      "proximity": "NEAR",
-      "conditions": [
-        {
-          "signal": "sp500",
-          "operator": ">",
-          "threshold": 7618,
-          "unit": "level"
-        },
-        {
-          "signal": "sp500",
-          "operator": "<",
-          "threshold": 7393,
-          "unit": "level"
-        }
-      ]
+      "proximity": "MODERATE"
     },
     "condition_2": {
       "label": "YIELD 10Y > 4.73% OR YIELD 10Y < 4.33%",
-      "proximity": "MODERATE",
-      "conditions": [
-        {
-          "signal": "yield_10y",
-          "operator": ">",
-          "threshold": 4.73,
-          "unit": "percent"
-        },
-        {
-          "signal": "yield_10y",
-          "operator": "<",
-          "threshold": 4.33,
-          "unit": "percent"
-        }
-      ]
+      "proximity": "MODERATE"
     }
   },
   "state_pressure": {
-    "direction": "DECREASING",
+    "direction": "RATES LEADING",
     "window": "3-session",
-    "basis": "Oil falling (-0.40s), SPX falling (-0.41s), 10Y rising (+0.60s)"
+    "basis": "June 5 session overlay \u2014 10Y leading equity; rate-led gap defining condition."
   },
-  "session_context": "1 invalidation condition(s) in near proximity: SP500 > 7,618 OR SP500 < 7,393. State pressure decreasing.",
+  "session_context": "June 5 session overlay: transitional | emerging; rates leading; medium confidence, emerging stability.",
   "confidence": {
     "confidence": 51,
     "confidence_label": "Medium",
-    "is_no_call": false,
-    "stability": "Emerging",
-    "reasoning": "Confidence 51/100 (Medium). Signal strength 46/75, alignment bonus 15/25 continuity -10 (regime changed) Stability: Emerging."
+    "stability": "Emerging"
   },
   "drafts": {
     "x": "10Y yield starting to stretch \u2014 one more move and the regime flips.\nNeeds oil to break the range \u2014 only then does it matter.\n\nSPX 7,505. 10Y 4.53%. Oil $91.\n\nInvalidation:\n\u2022 SPX breaks above 7,618 or below 7,393\n\u2022 10Y moves beyond 4.73% or below 4.33%\n\nWhat breaks this range \u2014 and which direction?",
@@ -147,5 +110,66 @@
     }
   },
   "rule_md_version": "1.0",
-  "previous_regime_code": "risk_on_emerging"
+  "previous_regime_code": "risk_on_emerging",
+  "site_display": {
+    "next_update_label": "June 6, 2026",
+    "state_pressure_display": "Rates leading",
+    "stability_display": "Emerging",
+    "signal_badges": [
+      [
+        "badge-warn",
+        "PULLING BACK"
+      ],
+      [
+        "badge-warn",
+        "LEADING EQUITY"
+      ],
+      [
+        "badge-ok",
+        "NOT DRIVING"
+      ]
+    ],
+    "spx_proximity": "rates leading",
+    "spx_proximity_class": "mod",
+    "wti_proximity": "FAR",
+    "spx_proximity_rm_sub": "Upper 7,618 \u00b7 lower 7,393",
+    "wti_proximity_rm_sub": "$91.49 \u00b7 see signal card",
+    "inv_rows": [
+      {
+        "condition": "SPX above 7,618 or below 7,393 \u2192 Regime flips",
+        "distance": "Distance: 113 pts from current 7,505 (upper gate 7,618)"
+      },
+      {
+        "condition": "10Y above 4.73% or below 4.33% \u2192 Regime flips",
+        "distance": "Distance: 20bp from current 4.53% (nearest gate 4.33%)"
+      }
+    ],
+    "regime_analogs": {
+      "intro": "As of June 5, 2026, three closest structural matches for today\u2019s rate-led transitional regime. Members search the full 50-year database.",
+      "analog_rows": [
+        {
+          "period": "May\u2013Jun 2018",
+          "period_regime": "Transitional | Emerging",
+          "zscores": "SPX +1.2\u03c3 \u00b7 10Y +1.5\u03c3 \u00b7 WTI -0.7\u03c3",
+          "gap": "Gap 0.30\u03c3 \u00b7 rates leading equity",
+          "outcome": "Regime confirmed restrictive \u2014 10Y sustained above 1.5\u03c3, SPX broke below confirmation threshold within 4 sessions"
+        },
+        {
+          "period": "Sep\u2013Oct 2023",
+          "period_regime": "Transitional | Emerging",
+          "zscores": "SPX +1.3\u03c3 \u00b7 10Y +1.4\u03c3 \u00b7 WTI -0.6\u03c3",
+          "gap": "Gap 0.10\u03c3 \u00b7 rates leading equity",
+          "outcome": "Gap resolved pro-risk \u2014 SPX absorbed rate pressure and extended; 10Y pulled back below 1.0\u03c3"
+        },
+        {
+          "period": "Jan\u2013Feb 2022",
+          "period_regime": "Transitional | Emerging",
+          "zscores": "SPX +1.1\u03c3 \u00b7 10Y +1.6\u03c3 \u00b7 WTI -0.5\u03c3",
+          "gap": "Gap 0.50\u03c3 \u00b7 rates leading equity",
+          "outcome": "Regime shifted restrictive \u2014 rates sustained lead, SPX lost 1.0\u03c3 within 6 sessions"
+        }
+      ],
+      "context_note": "Structural pattern matches only \u2014 not predictions. Rate-led gap flip is the defining condition. Direction resolves at 7,618 and 4.73%. Historical context."
+    }
+  }
 }
