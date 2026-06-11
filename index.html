@@ -1955,7 +1955,7 @@ footer {
           aria-controls="ts-read-details"
         >View details</button>
       </p>
-      <p class="ts-next-up">Next update: Jun 12, 2026 · after U.S. market close <span class="ts-next-note">(U.S. cash session days)</span></p>
+      <p class="ts-next-up">Next update: June 12, 2026 · after U.S. market close <span class="ts-next-note">(U.S. cash session days)</span></p>
     </div>
     <div id="ts-read-details" class="ts-details-popover" popover="auto" role="dialog" aria-labelledby="ts-read-details-title">
       <div class="ts-details-popover-inner">
@@ -1993,7 +1993,7 @@ footer {
         <div class="signal-value">7,309</div>
         <div class="signal-meta">
           <span class="signal-z">Z +0.59</span>
-          <span class="badge badge-warn">RISING</span>
+          <span class="badge badge-warn">BELOW 1.0Σ</span>
         </div>
         <div class="signal-z-note">63-session rolling Z · vs mean</div>
       </div>
@@ -2002,7 +2002,7 @@ footer {
         <div class="signal-value">4.53%</div>
         <div class="signal-meta">
           <span class="signal-z">Z +1.19</span>
-          <span class="badge badge-ok">ELEVATED</span>
+          <span class="badge badge-warn">LEADING EQUITY</span>
         </div>
         <div class="signal-z-note">63-session rolling Z · vs mean</div>
       </div>
@@ -2011,7 +2011,7 @@ footer {
         <div class="signal-value">$89.70</div>
         <div class="signal-meta">
           <span class="signal-z">Z -1.13</span>
-          <span class="badge badge-ok">STABLE</span>
+          <span class="badge badge-ok">NOT DRIVING</span>
         </div>
         <div class="signal-z-note">63-session rolling Z · vs mean</div>
       </div>
@@ -2027,7 +2027,7 @@ footer {
             <div class="regime-headline-row">
               <div class="regime-head-main">
                 <div class="regime-primary-label">Regime</div>
-                <div class="regime-primary-value"><span>Neutral</span><span class="regime-title-divider" aria-hidden="true"></span><span>Diverging</span></div>
+                <div class="regime-primary-value"><span>Neutral</span><span class="regime-title-divider" aria-hidden="true"></span><span>Stable</span></div>
                 <!-- TODO: map to regime_description in pipeline / outputs/latest.json -->
                 <p class="regime-description">Between regimes. No dominant tilt. Direction determined by which invalidation condition clears first.</p>
                 <div class="regime-primary-sub">27-regime classification · 63-day normalization</div>
@@ -2048,7 +2048,7 @@ footer {
                   <div class="regime-inv-row">
                     <div class="regime-inv-id">Inv 2</div>
                     <p class="regime-inv-condition">10Y above 4.73% or below 4.33% → Regime flips</p>
-                    <p class="regime-inv-distance">Distance: 20bp from current 4.53%</p>
+                    <p class="regime-inv-distance">Distance: 20bp from current 4.53% (nearest gate 4.33%)</p>
                   </div>
                 </div>
               </aside>
@@ -2063,7 +2063,7 @@ footer {
           </div>
           <div class="regime-metric">
             <div class="rm-label">State pressure</div>
-            <div class="rm-value">DECREASING</div>
+            <div class="rm-value">Gap widening</div>
             <div class="rm-sub">3-session window</div>
           </div>
           <div class="regime-metric">
@@ -2073,8 +2073,8 @@ footer {
           </div>
           <div class="regime-metric">
             <div class="rm-label">SPX proximity</div>
-            <div class="rm-value near">NEAR</div>
-            <div class="rm-sub">7,309 vs published SPX bands</div>
+            <div class="rm-value mod">gap widening</div>
+            <div class="rm-sub">Upper 7,419 · lower 7,199</div>
           </div>
           <!-- TODO: wire regime session count from pipeline / site_display -->
           <div class="regime-metric">
@@ -2104,22 +2104,22 @@ footer {
               aria-describedby="regime-analogs-search-hint"
             />
           </form>
-          <p class="regime-analogs-intro" id="regime-analogs-search-hint">As of June 10, 2026, three closest structural matches for today’s neutral stable regime — gap narrowing, rates leading, SPX below 1.0σ. Members search the full 50-year database.</p>
+          <p class="regime-analogs-intro" id="regime-analogs-search-hint">As of June 11, 2026, three closest structural matches for today’s neutral stable regime — gap widening, rates leading, SPX below 1.0σ for four sessions. Members search the full 50-year database.</p>
         </div>
         <div class="analog-list" aria-label="Regime analog matches">
           <p class="analog-p analog-p-open">
-            <span class="analog-p-lead">Nov–Dec 2018 · Neutral | Stable.</span>
-            <span class="analog-p-detail">SPX +0.8σ · 10Y +1.2σ · WTI -1.1σ. Gap 0.40σ · rates leading · SPX below 1.0σ. Gap narrowed then broke lower — SPX lost 7,278 equivalent within 3 sessions as rates held above 1.0σ and oil stayed suppressed</span>
+            <span class="analog-p-lead">Dec 2018 · Neutral | Stable.</span>
+            <span class="analog-p-detail">SPX +0.5σ · 10Y +1.2σ · WTI -1.1σ. Gap 0.70σ · rates leading · SPX below 1.0σ x4. Regime broke defensive — SPX lost 7,199 equivalent within 2 sessions as gap held above 0.60σ and rates did not pull back</span>
           </p>
           <p class="analog-p analog-p-open">
-            <span class="analog-p-lead">Aug–Sep 2019 · Neutral | Stable.</span>
-            <span class="analog-p-detail">SPX +0.7σ · 10Y +1.1σ · WTI -1.2σ. Gap 0.40σ · rates leading · SPX below 1.0σ. Gap resolved pro-risk — 10Y pulled back below 1.0σ within 4 sessions, SPX reclaimed 1.0σ and extended above 7,500 equivalent</span>
+            <span class="analog-p-lead">Aug 2019 · Neutral | Stable.</span>
+            <span class="analog-p-detail">SPX +0.6σ · 10Y +1.2σ · WTI -1.0σ. Gap 0.60σ · rates leading · SPX below 1.0σ x4. Regime resolved pro-risk — 10Y pulled back below 1.0σ within 3 sessions, SPX reclaimed 1.0σ and broke above 7,419 equivalent</span>
           </p>
           <p class="analog-p analog-p-open">
-            <span class="analog-p-lead">Oct–Nov 2023 · Neutral | Stable.</span>
-            <span class="analog-p-detail">SPX +0.9σ · 10Y +1.3σ · WTI -1.0σ. Gap 0.40σ · rates leading · SPX below 1.0σ. Neutral resolved pro-risk — rates pulled back, SPX reclaimed 1.0σ, WTI remained suppressed and did not drive the resolution</span>
+            <span class="analog-p-lead">Oct 2023 · Neutral | Stable.</span>
+            <span class="analog-p-detail">SPX +0.7σ · 10Y +1.3σ · WTI -1.2σ. Gap 0.60σ · rates leading · SPX below 1.0σ x3. Gap resolved pro-risk — rates pulled back, SPX reclaimed 1.0σ within 4 sessions, WTI stayed suppressed throughout resolution</span>
           </p>
-          <p class="analog-p analog-p-note">Structural pattern matches only — not predictions. Gap narrowing with SPX below 1.0σ and rates leading is the defining condition. Resolution at 7,500 and 4.72%. Historical context.</p>
+          <p class="analog-p analog-p-note">Structural pattern matches only — not predictions. 0.60σ gap with SPX below 1.0σ for four sessions is the defining condition.</p>
         </div>
         <div class="regime-analogs-cta">
           <p class="regime-analogs-cta-text">One analog is a data point. Seven is a base rate. Members access the full 50-year analog database — filtered by outcome, duration, Fed environment, and signal tolerance.</p>
