@@ -2,22 +2,22 @@
   "status": "ok",
   "stage_reached": "quality_check",
   "reason": null,
-  "as_of": "2026-06-15",
-  "timestamp": "2026-06-15T14:37:33.736328+00:00",
+  "as_of": "2026-06-16",
+  "timestamp": "2026-06-16T16:51:42.172524+00:00",
   "publishable": true,
   "publish_x": true,
   "publish_substack": true,
   "needs_rewrite_x": false,
   "needs_rewrite_substack": false,
   "signals": {
-    "oil_wti": 79.8499984741211,
-    "sp500": 7543.6298828125,
-    "yield_10y": 4.440999984741211
+    "oil_wti": 74.94999694824219,
+    "sp500": 7540.14990234375,
+    "yield_10y": 4.427999973297119
   },
   "zscores": {
-    "z_sp500": 1.143232566296181,
-    "z_yield_10y": 0.36608482615640436,
-    "z_oil": -2.402346796030659
+    "z_sp500": 1.1082496035020974,
+    "z_yield_10y": 0.20646262491601367,
+    "z_oil": -2.869749622613055
   },
   "regime": {
     "regime": "Risk-on | Confirmed",
@@ -37,13 +37,13 @@
         {
           "signal": "yield_10y",
           "operator": ">",
-          "threshold": 4.59,
+          "threshold": 4.58,
           "unit": "percent"
         },
         {
           "signal": "sp500",
           "operator": "<",
-          "threshold": 7468,
+          "threshold": 7465,
           "unit": "level"
         }
       ]
@@ -54,7 +54,7 @@
         {
           "signal": "oil_wti",
           "operator": ">",
-          "threshold": 89,
+          "threshold": 84,
           "unit": "dollars"
         }
       ]
@@ -62,31 +62,31 @@
   ],
   "invalidation_distance": {
     "condition_1": {
-      "label": "YIELD 10Y > 4.59% AND SP500 < 7,468",
+      "label": "YIELD 10Y > 4.58% AND SP500 < 7,465",
       "proximity": "NEAR",
       "conditions": [
         {
           "signal": "yield_10y",
           "operator": ">",
-          "threshold": 4.59,
+          "threshold": 4.58,
           "unit": "percent"
         },
         {
           "signal": "sp500",
           "operator": "<",
-          "threshold": 7468,
+          "threshold": 7465,
           "unit": "level"
         }
       ]
     },
     "condition_2": {
-      "label": "OIL WTI > $89",
+      "label": "OIL WTI > $84",
       "proximity": "MODERATE",
       "conditions": [
         {
           "signal": "oil_wti",
           "operator": ">",
-          "threshold": 89,
+          "threshold": 84,
           "unit": "dollars"
         }
       ]
@@ -95,19 +95,19 @@
   "state_pressure": {
     "direction": "DECREASING",
     "window": "3-session",
-    "basis": "Oil falling (-1.31s), SPX rising (+0.68s), 10Y falling (-0.97s)"
+    "basis": "Oil falling (-1.45s), SPX rising (+0.31s), 10Y falling (-0.40s)"
   },
-  "session_context": "1 invalidation condition(s) in near proximity: YIELD 10Y > 4.59% AND SP500 < 7,468. State pressure decreasing.",
+  "session_context": "1 invalidation condition(s) in near proximity: YIELD 10Y > 4.58% AND SP500 < 7,465. State pressure decreasing.",
   "confidence": {
-    "confidence": 36,
-    "confidence_label": "Low",
+    "confidence": 56,
+    "confidence_label": "Medium",
     "is_no_call": false,
     "stability": "Fragile",
-    "reasoning": "Confidence 36/100 (Low). Signal strength 46/75, alignment bonus 0/25 continuity -10 (regime changed) Stability: Fragile."
+    "reasoning": "Confidence 56/100 (Medium). Signal strength 46/75, alignment bonus 0/25 continuity +10 (regime persisted) Stability: Fragile."
   },
   "drafts": {
-    "x": "Oil is cratering \u2014 and the other signals aren't confirming.\nNeeds confirmation from the rest of the board \u2014 that's when it gets real.\n\nSPX 7,544. 10Y 4.44%. Oil $80.\n\nInvalidation:\n\u2022 10Y above 4.59% + SPX loses 7,468\n\u2022 Oil above $89\n\nWhat's the signal that tells you this rally is real?",
-    "substack": "REGIME: Risk-on | Confirmed\nCONFIDENCE: Low (36/100)\nRISK TILT: pro-risk\nSTABILITY: Fragile\n\nSnapshot \u2014 Jun 15, 2026\n  S&P 500:     7,543.63   z +1.14\n  10Y Yield:      4.441%  z +0.37\n  WTI Oil:        79.85   z -2.40\n\nINSIGHT\nS&P 500 at 7,544 is elevated relative to its rolling mean \u2014 starting to lean but not decisive. 10Y yield at 4.44% is sitting near its 63-session mean \u2014 no signal from yields. Oil at $80 is running well below its 63-session range \u2014 oil haven't been this stretched in months. Confidence is low at 36/100 \u2014 the read is fragile and needs more signal before acting on it.\n\nINVALIDATION\n\u2022 10Y above 4.59% + SPX loses 7,468\n\u2022 Oil above $89\n\nMethod: MacroEvidence pipeline \u00b7 yfinance + FRED \u00b7 63-session rolling z-scores \u00b7 not financial advice.",
+    "x": "Oil is cratering \u2014 and the other signals aren't confirming.\nNeeds confirmation from the rest of the board \u2014 that's when it gets real.\n\nSPX 7,540. 10Y 4.43%. Oil $75.\n\nInvalidation:\n\u2022 10Y above 4.58% + SPX loses 7,465\n\u2022 Oil above $84\n\nWhat's the signal that tells you this rally is real?",
+    "substack": "REGIME: Risk-on | Confirmed\nCONFIDENCE: Medium (56/100)\nRISK TILT: pro-risk\nSTABILITY: Fragile\n\nSnapshot \u2014 Jun 16, 2026\n  S&P 500:     7,540.15   z +1.11\n  10Y Yield:      4.428%  z +0.21\n  WTI Oil:        74.95   z -2.87\n\nINSIGHT\nS&P 500 at 7,540 is elevated relative to its rolling mean \u2014 starting to lean but not decisive. 10Y yield at 4.43% is sitting near its 63-session mean \u2014 no signal from yields. Oil at $75 is running well below its 63-session range \u2014 oil haven't been this stretched in months. Confidence sits at 56/100 \u2014 enough for a directional lean but not a high-conviction call.\n\nINVALIDATION\n\u2022 10Y above 4.58% + SPX loses 7,465\n\u2022 Oil above $84\n\nMethod: MacroEvidence pipeline \u00b7 yfinance + FRED \u00b7 63-session rolling z-scores \u00b7 not financial advice.",
     "word_counts": {}
   },
   "checker": {
@@ -135,5 +135,5 @@
     }
   },
   "rule_md_version": "1.0",
-  "previous_regime_code": "neutral_softening"
+  "previous_regime_code": "risk_on_confirmed"
 }
