@@ -2,26 +2,33 @@
   "status": "ok",
   "stage_reached": "quality_check",
   "reason": null,
-  "as_of": "2026-06-25",
-  "timestamp": "2026-06-25T14:13:30.185204+00:00",
+  "as_of": "2026-06-26",
+  "timestamp": "2026-06-26T20:29:06.595070+00:00",
   "publishable": true,
   "publish_x": true,
   "publish_substack": true,
   "needs_rewrite_x": false,
   "needs_rewrite_substack": false,
   "signals": {
-    "sp500": 7372,
-    "yield_10y": 4.371,
-    "oil_wti": 70.45
+    "oil_wti": 69.43000030517578,
+    "sp500": 7354.02001953125,
+    "yield_10y": 4.372000217437744
   },
   "zscores": {
-    "z_sp500": 0.51,
-    "z_yield_10y": -0.44,
-    "z_oil": -2.57
+    "z_sp500": 0.41447114255527345,
+    "z_yield_10y": -0.4435476370692969,
+    "z_oil": -2.6358295472477824
   },
   "regime": {
-    "regime": "Neutral | Stable",
-    "risk_tilt": "neutral"
+    "regime": "Neutral | Softening",
+    "regime_code": "neutral_softening",
+    "risk_tilt": "neutral",
+    "description": "Oil falling while equities and yields hold \u2014 disinflation pressure.",
+    "states": {
+      "s_sp500": 0,
+      "s_yield": 0,
+      "s_oil": -1
+    }
   },
   "invalidations_structured": [
     {
@@ -30,13 +37,13 @@
         {
           "signal": "sp500",
           "operator": ">",
-          "threshold": 7483,
+          "threshold": 7464,
           "unit": "level"
         },
         {
           "signal": "sp500",
           "operator": "<",
-          "threshold": 7261,
+          "threshold": 7244,
           "unit": "level"
         }
       ]
@@ -61,28 +68,58 @@
   ],
   "invalidation_distance": {
     "condition_1": {
-      "label": "SP500 > 7,483 OR SP500 < 7,261",
-      "proximity": "MODERATE"
+      "label": "SP500 > 7,464 OR SP500 < 7,244",
+      "proximity": "NEAR",
+      "conditions": [
+        {
+          "signal": "sp500",
+          "operator": ">",
+          "threshold": 7464,
+          "unit": "level"
+        },
+        {
+          "signal": "sp500",
+          "operator": "<",
+          "threshold": 7244,
+          "unit": "level"
+        }
+      ]
     },
     "condition_2": {
       "label": "YIELD 10Y > 4.57% OR YIELD 10Y < 4.17%",
-      "proximity": "MODERATE"
+      "proximity": "MODERATE",
+      "conditions": [
+        {
+          "signal": "yield_10y",
+          "operator": ">",
+          "threshold": 4.57,
+          "unit": "percent"
+        },
+        {
+          "signal": "yield_10y",
+          "operator": "<",
+          "threshold": 4.17,
+          "unit": "percent"
+        }
+      ]
     }
   },
   "state_pressure": {
-    "direction": "SPLIT UNRESOLVED",
+    "direction": "DECREASING",
     "window": "3-session",
-    "basis": "June 25 session overlay \u2014 split unresolved; 10Y first negative Z cross confirmed two sessions."
+    "basis": "Oil falling (-0.33s), SPX falling (-0.46s), 10Y falling (-0.78s)"
   },
-  "session_context": "June 25 session overlay: neutral | stable; split unresolved; 10Y turned negative; medium confidence, fragile stability.",
+  "session_context": "1 invalidation condition(s) in near proximity: SP500 > 7,464 OR SP500 < 7,244. State pressure decreasing.",
   "confidence": {
-    "confidence": 48,
+    "confidence": 41,
     "confidence_label": "Medium",
-    "stability": "Fragile"
+    "is_no_call": false,
+    "stability": "Fragile",
+    "reasoning": "Confidence 41/100 (Medium). Signal strength 31/75, alignment bonus 0/25 continuity +10 (regime persisted) Stability: Fragile."
   },
   "drafts": {
-    "x": "Oil is cratering \u2014 and the other signals aren't confirming.\nOnly matters if equities or yields confirms \u2014 and it hasn't yet.\n\nSPX 7,372. 10Y 4.37%. Oil $70.\n\nInvalidation:\n\u2022 SPX breaks above 7,483 or below 7,261\n\u2022 10Y moves beyond 4.57% or below 4.17%\n\nWhat breaks this range \u2014 and which direction?",
-    "substack": "REGIME: Neutral | Softening\nCONFIDENCE: Medium (48/100)\nRISK TILT: neutral\nSTABILITY: Fragile\n\nSnapshot \u2014 Jun 25, 2026\n  S&P 500:     7,372.07   z +0.51\n  10Y Yield:      4.371%  z -0.44\n  WTI Oil:        70.45   z -2.57\n\nINSIGHT\nS&P 500 at 7,372 is sitting near its 63-session mean \u2014 no signal from equities. 10Y yield at 4.37% is sitting near its 63-session mean \u2014 no signal from yields. Oil at $70 is running well below its 63-session range \u2014 oil haven't been this stretched in months. Confidence sits at 48/100 \u2014 enough for a directional lean but not a high-conviction call.\n\nINVALIDATION\n\u2022 SPX breaks above 7,483 or below 7,261\n\u2022 10Y moves beyond 4.57% or below 4.17%\n\nMethod: MacroEvidence pipeline \u00b7 yfinance + FRED \u00b7 63-session rolling z-scores \u00b7 not financial advice.",
+    "x": "Oil is cratering \u2014 and the other signals aren't confirming.\nOnly matters if equities or yields confirms \u2014 and it hasn't yet.\n\nSPX 7,354. 10Y 4.37%. Oil $69.\n\nInvalidation:\n\u2022 SPX breaks above 7,464 or below 7,244\n\u2022 10Y moves beyond 4.57% or below 4.17%\n\nWhat breaks this range \u2014 and which direction?",
+    "substack": "REGIME: Neutral | Softening\nCONFIDENCE: Medium (41/100)\nRISK TILT: neutral\nSTABILITY: Fragile\n\nSnapshot \u2014 Jun 26, 2026\n  S&P 500:     7,354.02   z +0.41\n  10Y Yield:      4.372%  z -0.44\n  WTI Oil:        69.43   z -2.64\n\nINSIGHT\nS&P 500 at 7,354 is sitting near its 63-session mean \u2014 no signal from equities. 10Y yield at 4.37% is sitting near its 63-session mean \u2014 no signal from yields. Oil at $69 is running well below its 63-session range \u2014 oil haven't been this stretched in months. Confidence sits at 41/100 \u2014 enough for a directional lean but not a high-conviction call.\n\nINVALIDATION\n\u2022 SPX breaks above 7,464 or below 7,244\n\u2022 10Y moves beyond 4.57% or below 4.17%\n\nMethod: MacroEvidence pipeline \u00b7 yfinance + FRED \u00b7 63-session rolling z-scores \u00b7 not financial advice.",
     "word_counts": {}
   },
   "checker": {
@@ -110,63 +147,5 @@
     }
   },
   "rule_md_version": "1.0",
-  "previous_regime_code": "neutral_softening",
-  "site_display": {
-    "next_update_label": "June 26, 2026",
-    "state_pressure_display": "Split unresolved",
-    "stability_display": "Fragile",
-    "signal_badges": [
-      [
-        "badge-warn",
-        "BELOW GATE"
-      ],
-      [
-        "badge-warn",
-        "TURNED NEGATIVE"
-      ],
-      [
-        "badge-ok",
-        "NOT DRIVING"
-      ]
-    ],
-    "spx_proximity": "0.49\u03c3 below gate",
-    "spx_proximity_class": "mod",
-    "wti_proximity": "FAR",
-    "spx_proximity_rm_sub": "Upper 7,483 \u00b7 lower 7,261",
-    "wti_proximity_rm_sub": "$70.45 \u00b7 see signal card",
-    "inv_rows": [
-      {
-        "condition": "SPX above 7,483 or below 7,261 \u2192 Regime flips",
-        "distance": "Distance: 111 pts from current 7,372 (upper gate 7,483)"
-      },
-      {
-        "condition": "10Y above 4.57% or below 4.17% \u2192 Regime flips",
-        "distance": "Distance: 20bp from current 4.37% (nearest gate 4.57%)"
-      }
-    ],
-    "regime_analogs": {
-      "intro": "As of June 25, 2026, three structural matches for today\u2019s neutral stable read \u2014 10Y first negative Z cross confirmed two sessions, SPX below gate, WTI non-driving. Members search the full 50-year database.",
-      "analog_rows": [
-        {
-          "period": "May 26, 2026 (this cycle)",
-          "period_regime": "Transitional | Stable",
-          "zscores": "WTI first negative Z this cycle (Z -0.23)",
-          "outcome": "Oil fully exited the regime read within one session \u2014 once a signal turns negative for the first time, it stops driving and the other two signals carry the full weight of the call"
-        },
-        {
-          "period": "Aug 2019",
-          "period_regime": "Neutral | Stable",
-          "zscores": "10Y first negative cross this cycle \u00b7 SPX +0.5\u03c3 \u00b7 WTI -2.3\u03c3",
-          "outcome": "10Y\u2019s first negative cross preceded a 5-session equity pullback \u2014 rates led the move by roughly a week once the cross became a trend, not a single print"
-        },
-        {
-          "period": "Jan 2020",
-          "period_regime": "Neutral | Stable",
-          "zscores": "10Y first negative cross this cycle \u00b7 SPX +0.4\u03c3 \u00b7 WTI -2.1\u03c3",
-          "outcome": "Confirmed false signal \u2014 10Y\u2019s negative cross reversed within 3 sessions and SPX never broke its gate, the cross faded without resolving the regime"
-        }
-      ],
-      "context_note": "Structural pattern matches only \u2014 not predictions. 10Y\u2019s first negative Z cross this stretch, now confirmed across two sessions, is the defining condition. Resolution at 7,483 and 4.57%. Historical context."
-    }
-  }
+  "previous_regime_code": "neutral_softening"
 }
